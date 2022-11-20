@@ -1,17 +1,6 @@
 import Main from './Main';
-//import Ch from './Ch';
-import MainBankAccount from './MainBankAccount';
-import MainTaxes from './MainTaxes';
-import MainAml from './MainAml';
-import MainAbout from './MainAbout';
-import MainBlog from './MainBlog';
-import MainBusinessSw from './MainBusinessSw';
-import MainDevelopment from './MainDevelopment';
-import MainEmTech from './MainEmTech';
-import MainError from './MainError';
-import MainInvestment from './MainInvestment';
-import MainSwCompanies from './MainSwCompanies';
-
+import MainContacts from './Contacts/MainContacts';
+import MainAbout from './About/MainAbout';
 
 const routes:Array<Object> = [
   {
@@ -20,65 +9,15 @@ const routes:Array<Object> = [
     component: Main
   },
   {
-    path: '/account_in_sw',
+    path: '/contacts',
     exact: true,
-    component: MainBankAccount
+    component: MainContacts
   },
   {
-    path: '/taxes',
+    path: '/about',
     exact: true,
-    component: MainTaxes
-  },
-  {
-    path: '/aml_control',
-    exact: true,
-    component: MainAml
-  },
-  {
-	path: '/about',
-	exact: true,
-	component: MainAbout
-  },
-  {
-	path: '/blog',
-	exact: true,
-	component: MainBlog
-  },
-  {
-	path: '/business_in_switzerland',
-	exact: true,
-	component: MainBusinessSw
-  },
-  {
-	path: '/business_development',
-	exact: true,
-	component: MainDevelopment
-  },
-  {
-	path: '/emtech_in_davos',
-	exact: true,
-	component: MainEmTech
-  },
-  {
-	path: '/error',
-	exact: true,
-	component: MainError
-  },
-  {
-	path: '/investment_club_start',
-	exact: true,
-	component: MainInvestment
-  },
-  {
-	path: '/swiss_companies_setup',
-	exact: true,
-	component: MainSwCompanies
+    component: MainAbout
   }
-/*  {
-    path: '/check',
-    exact: true,
-    component: Ch
-  }*/
 ]
 
 export default routes;

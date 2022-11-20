@@ -1,21 +1,22 @@
 import React from 'react';
-//@ts-ignore
-import Header from './Header';
-import MainScreen from './MainScreen';
-import SettleGrow from './SettleGrow';
-import Subscribe from './Subscribe';
-import Information from './Information';
-import Footer from './Footer';
+import { Header } from './Header';
+import { Footer } from './Footer';
+import Request from './Request';
+import { Partners } from './Partners';
+import { Buildings } from './Buildings';
+import { Detailed } from './Detailed';
+import Screen from './Screen';
 
 function Main(){
     return(
-      <div>
+      <div className='wrap_main_page'>
           <Header />
-    		  <MainScreen />
-    		  <SettleGrow />
-    		  <Subscribe />
-    		  <Information />
-    		  <Footer />
+          <Screen />
+          <Detailed />
+          <Buildings />
+          <Partners />
+          <Request />
+          <Footer />
       </div>
     )
 }

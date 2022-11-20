@@ -1,18 +1,19 @@
 import React from 'react';
-//@ts-ignore
-import Header from './Header';
-import MainScreen from './MainScreen';
-import SettleGrow from './SettleGrow';
-import Subscribe from './Subscribe';
-import Information from './Information';
-import Footer from './Footer';
+import { Header } from './Header';
+import { Footer } from './Footer';
+import Request from './Request';
+import { Partners } from './Partners';
+import { Buildings } from './Buildings';
+import { Detailed } from './Detailed';
+import Screen from './Screen';
 function Main() {
-    return (React.createElement("div", null,
+    return (React.createElement("div", { className: 'wrap_main_page' },
         React.createElement(Header, null),
-        React.createElement(MainScreen, null),
-        React.createElement(SettleGrow, null),
-        React.createElement(Subscribe, null),
-        React.createElement(Information, null),
+        React.createElement(Screen, null),
+        React.createElement(Detailed, null),
+        React.createElement(Buildings, null),
+        React.createElement(Partners, null),
+        React.createElement(Request, null),
         React.createElement(Footer, null)));
 }
 export default Main;
