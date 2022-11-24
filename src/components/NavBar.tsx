@@ -6,7 +6,9 @@ export const NavBar = () => {
     useEffect(() => {
       if(typeof window != "undefined") {
         setCurrentPath(window.location.pathname == '/contacts' ? 'Контакты' :
-                       window.location.pathname == '/about' ? 'О нас' : '')
+                       window.location.pathname == '/about' ? 'О нас' :
+                       window.location.pathname == '/projects' ? 'Проекты' :
+                       window.location.pathname == '/news' ? 'Новости' : '')
       }
     }, []);
 

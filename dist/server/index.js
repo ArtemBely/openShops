@@ -15,6 +15,8 @@ import passport from 'passport';
 import flash from 'connect-flash';
 import contactRouter from './routers/contacts';
 import abouttRouter from './routers/about';
+import projectsRouter from './routers/projects';
+import newsRouter from './routers/news';
 const app = express();
 const CONNECTION_URI = process.env.MONGODB_URI;
 //const port = process.env.PORT || 5000;
@@ -51,6 +53,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use('/contacts', contactRouter);
 app.use('/about', abouttRouter);
+app.use('/projects', projectsRouter);
+app.use('/news', newsRouter);
 app.get('*', (req, res, next) => {
     const activeRouter = Routes.find((route) => matchPath(req.url, route)) || {};
     const promise = activeRouter.fetchInitialData ?
@@ -95,4 +99,4 @@ app.use((req, res, next) => {
     err.status = 404;
     next(err);
 });
-app.listen(8888, () => { console.log('Server started!'); });
+app.listen(3000, () => { console.log('Server started!'); });

@@ -35,7 +35,8 @@ export const Header = () => {
     }
     else { setContact(false); }
 
-    if(typeof window != "undefined" && window.location.pathname == '/about') {
+    if(typeof window != "undefined" && (window.location.pathname == '/about' ||
+     window.location.pathname == '/projects') || window.location.pathname == '/news') {
       document.body.style.backgroundColor = "white"
       setWhiteHeader(true);
     }

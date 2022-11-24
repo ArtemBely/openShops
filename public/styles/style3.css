@@ -1,5 +1,5 @@
-.wrap_contact, .wrap_navbar, .wrap_aboutScreen, .wrap_teamBlock, .wrap_vacancies,
-.wrap_belowScreen, .wrap_aboutCulture, .wrap_aboutChooseUs, .wrap_teamBlock, .wrap_each_vacancy {
+.wrap_contact, .wrap_navbar, .wrap_aboutScreen, .wrap_teamBlock, .wrap_vacancies, .wrap_aboutScreen,
+.wrap_belowScreen, .wrap_aboutCulture, .wrap_aboutChooseUs, .wrap_teamBlock, .wrap_each_vacancy, .wrap_buildings_inside {
   width: 100%;
   display: flex;
   justify-content: center;
