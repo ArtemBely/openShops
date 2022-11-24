@@ -1,6 +1,8 @@
 import Main from './Main';
 import MainContacts from './Contacts/MainContacts';
 import MainAbout from './About/MainAbout';
+import { EachVacancy } from './About/EachVacancy';
+import { EachNews } from './News/EachNews';
 import MainProjects from './Projects/MainProjects';
 import MainNews from './News/MainNews';
 const routes = [
@@ -28,6 +30,16 @@ const routes = [
         path: '/news',
         exact: true,
         component: MainNews
+    },
+    {
+        path: '/about/:id',
+        exact: true,
+        component: EachVacancy
+    },
+    {
+        path: '/news/:id',
+        exact: true,
+        component: EachNews
     }
 ];
 export default routes;

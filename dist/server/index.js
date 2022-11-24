@@ -99,4 +99,4 @@ app.use((req, res, next) => {
     err.status = 404;
     next(err);
 });
-app.listen(3000, () => { console.log('Server started!'); });
+app.listen(8888, () => { console.log('Server started!'); });
