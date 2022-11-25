@@ -5,6 +5,7 @@ import { EachVacancy } from './About/EachVacancy';
 import { EachNews } from './News/EachNews';
 import MainProjects from './Projects/MainProjects';
 import MainNews from './News/MainNews';
+import { EachProject } from './Projects/EachProject';
 
 const routes:Array<Object> = [
   {
@@ -41,6 +42,11 @@ const routes:Array<Object> = [
     path: '/news/:id',
     exact: true,
     component: EachNews
+  },
+  {
+    path: '/projects/:id',
+    exact: true,
+    component: EachProject
   }
 ]
 

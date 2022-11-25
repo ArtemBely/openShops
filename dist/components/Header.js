@@ -31,7 +31,8 @@ export const Header = () => {
             setContact(false);
         }
         if (typeof window != "undefined" && (window.location.pathname == '/about' || window.location.pathname == '/about/' + window.location.pathname.split('/').pop() ||
-            window.location.pathname == '/projects') || window.location.pathname == '/news' || window.location.pathname == '/news/' + window.location.pathname.split('/').pop()) {
+            window.location.pathname == '/projects') || window.location.pathname == '/projects/' + window.location.pathname.split('/').pop() || window.location.pathname == '/news' ||
+            window.location.pathname == '/news/' + window.location.pathname.split('/').pop()) {
             document.body.style.backgroundColor = "white";
             setWhiteHeader(true);
         }

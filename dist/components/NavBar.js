@@ -7,8 +7,9 @@ export const NavBar = () => {
                 window.location.pathname == '/about' ? 'О нас' :
                     window.location.pathname == '/about/' + window.location.pathname.split('/').pop() ? 'О нас → Название вакансии' :
                         window.location.pathname == '/projects' ? 'Проекты' :
-                            window.location.pathname == '/news' ? 'Новости' :
-                                window.location.pathname == '/news/' + window.location.pathname.split('/').pop() ? 'Новости → Название новости' : '');
+                            window.location.pathname == '/projects/' + window.location.pathname.split('/').pop() ? 'Проекты → Архитектурно-градостроительная концепция многофункционального комплекса с подземной автостоянкой на Виноградной улице' :
+                                window.location.pathname == '/news' ? 'Новости' :
+                                    window.location.pathname == '/news/' + window.location.pathname.split('/').pop() ? 'Новости → Название новости' : '');
         }
     }, []);
     return (React.createElement("div", { className: 'wrap_navbar' },
