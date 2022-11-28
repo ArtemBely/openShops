@@ -19,6 +19,7 @@ import contactRouter from './routers/contacts';
 import abouttRouter from './routers/about';
 import projectsRouter from './routers/projects';
 import newsRouter from './routers/news';
+import adminRouter from './routers/pannel';
 
 const app: Application = express();
 const CONNECTION_URI: any = process.env.MONGODB_URI;
@@ -64,6 +65,7 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use('/pannel', adminRouter);
 app.use('/contacts', contactRouter);
 app.use('/about', abouttRouter);
 app.use('/projects', projectsRouter);

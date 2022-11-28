@@ -6,6 +6,10 @@ import '../../public/styles/style2.css';
 import '../../public/styles/style3.css';
 import '../../public/styles/style4.css';
 import '../../public/styles/style5.css';
+import '../../public/styles/desctop1290.css';
+import '../../public/styles/planchet992.css';
+import '../../public/styles/planchet576.css';
+import '../../public/styles/mobile.css';
 
 export class App extends Component<any> {
   render() {

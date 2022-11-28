@@ -6,6 +6,7 @@ import { EachNews } from './News/EachNews';
 import MainProjects from './Projects/MainProjects';
 import MainNews from './News/MainNews';
 import { EachProject } from './Projects/EachProject';
+import MainAdmin from './Admin/MainAdmin';
 
 const routes:Array<Object> = [
   {
@@ -32,6 +33,11 @@ const routes:Array<Object> = [
     path: '/news',
     exact: true,
     component: MainNews
+  },
+  {
+    path: '/pannel',
+    exact: true,
+    component: MainAdmin
   },
   {
     path: '/about/:id',

@@ -11,11 +11,13 @@ export const Footer = () => {
     <div className='wrap_footer'>
         <div className='footer'>
             <img src={white_logo} />
-              <div className='foot_links'>
+              <div className='foot_links footerCorrect'>
                   <p className='grey_link'>Офис</p>
-                  <p className='each_address'>107076, г. Москва, ул.</p>
-                  <p className='each_address'>Богородский Вал, д. 3, стр. 32,</p>
-                  <p className='each_address'>пом. I, ком. 65, эт. 1</p>
+                  <p className='each_address showDesctopAddress'>107076, г. Москва, ул.</p>
+                  <p className='each_address showDesctopAddress'>Богородский Вал, д. 3, стр. 32,</p>
+                  <p className='each_address showDesctopAddress'>пом. I, ком. 65, эт. 1</p>
+                  <p className='each_address showPlanchetAddress'>107076, г. Москва, ул. Богородский Вал,</p>
+                  <p className='each_address showPlanchetAddress'>д. 3, стр. 32, пом. I, ком. 65, эт. 1</p>
               </div>
               <div className='foot_links middle_foot'>
                   <p className='grey_link' id='projects_foot_title'>Проекты</p>
