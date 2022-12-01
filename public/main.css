@@ -1135,8 +1135,27 @@ width: 100%;
     font-size: 45px;
     line-height: 72px;
 }
+.discuss_button {
+  width: 1200px;
+  font-size: 22px;
+}
+.project_title {
+    font-size: 86px;
+    width: 593px;
+}
+.wrap_cube > img {
+      width: 715px;
+}
+.screen1 {
+    display: grid;
+    grid-template-columns: 472px 1fr;
+}
 .wrap_partners {
       padding-bottom: 0;
+      height: 474px;
+}
+.wrap_detailed {
+    margin-bottom: 65px;
 }
 .wrap_request {
       height: 977px;
@@ -1144,12 +1163,24 @@ width: 100%;
 .leave_request, .msg_us {
     padding: 40px 40px;
 }
+.detailed {
+    width: 1240px;
+}
 .msg_us {
     height: 292px;
 }
 #req_btn {
     margin-top: 20px;
     width: 511px;
+}
+.detailed_txt {
+    font-size: 35px;
+    line-height: 56px;
+}
+#detailed_link {
+  font-size: 35px;
+  line-height: 56px;
+  width: 194px;
 }
 }
 
