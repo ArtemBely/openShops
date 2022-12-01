@@ -3,6 +3,77 @@
     width: 992px;
     grid-template-columns: 472px 520px;
  }
+
+ .detailed_txt {
+     font-size: 30px;
+     line-height: 48px;
+ }
+ #detailed_link {
+   font-size: 30px;
+   line-height: 48px;
+   width: 169px;
+ }
+ .screen_special {
+   width: 992px;
+ }
+ .discuss_button_special {
+   height: 83px;
+   font-size: 22px;
+ }
+ .project_title_special {
+    font-size: 60px;
+    line-height: 72px;
+ }
+ .detailed {
+     width: 992px;
+ }
+ .discuss_button {
+   width: 992px;
+   font-size: 22px;
+   margin: 59px 0px;
+ }
+ .project_title_special_below {
+    font-size: 34px;
+    line-height: 42px;
+    margin-bottom: 40px;
+ }
+ .wrap_screen {
+       background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 221.27%);
+ }
+ .wrap_fone4 {
+    margin-bottom: 45px;
+    width: 972px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 11px;
+}
+ .wrap_screen::before {
+   height: 119%;
+   top: -120px;
+ }
+ .project_title {
+     font-size: 76px;
+     width: 593px;
+ }
+ .wrap_cube > img {
+       width: 590px;
+       mix-blend-mode: exclusion;
+ }
+ .wrap_cube {
+       margin-left: 52px;
+ }
+ .screen1 {
+     display: grid;
+     grid-template-columns: 472px 1fr;
+ }
+ .wrap_partners {
+       padding-bottom: 0;
+       height: 474px;
+ }
+ .wrap_detailed {
+     margin-bottom: 90px;
+ }
+
    .wrap_menu {
      display: flex;
      gap: 50px;
@@ -12,9 +83,23 @@
    .screen2, .screen1, .screen3 {
      width: 992px;
    }
+   .screen2, .screen3 {
+      grid-template-columns: 1fr;
+   }
+   #discuss_button2 {
+    top: -19px;
+    left: 0;
+}
+   .discuss_button2 {
+         width: 413px;
+         height: 79px;
+         font-size: 22px;
+         top: -25px;
+         grid-column: 1 / 2;
+   }
    .project_title2 {
-     font-size: 86px;
-     line-height: 103px;
+     font-size: 60px;
+     line-height: 120%;
    }
    .buildings {
      width: 992px;
@@ -28,8 +113,12 @@
      font-size: 18px;
      line-height: 29px;
    }
+   .fone1 {
+      top: -125px;
+      left: -574px;
+   }
    #low_txt1 {
-     width: 382px;
+     width: 306px;
    }
    #low_txt2, #low_txt3 {
      width: auto;
@@ -72,7 +161,7 @@
      height: auto;
  }
  .partners_links > img {
-     width: 286px;
+     width: 234px;
  }
  .wrap_footer {
    height: 340px;

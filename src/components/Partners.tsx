@@ -12,7 +12,7 @@ export const Partners = () => {
               <p className='big_title_main'>Партнеры</p>
               <a href="#" className='partners_links'><img src={partner1} /></a>
               <a href="#" className='partners_links'><img src={partner2} /></a>
-              <a href="#" className='partners_links'><img src={partner3} /></a>
+              <a href="#" className='partners_links third_partner'><img src={partner3} /></a>
               <a href="#" className='partners_links'><img src={partner4} /></a>
           </div>
       </div>

@@ -16,8 +16,8 @@ export const Buildings = () => {
                 </div>
                 <div className='each_building'>
                     <img src={building2} />
-                    <p className='top_title'>Технологии</p>
-                    <p className='low_txt' id='low_txt2'>Многогранный опыт высококвалифицированной команды, подкреплён последними разработками и исследованиями в области проектирования</p>
+                    <p className='top_title middle_top_title'>Технологии</p>
+                    <p className='low_txt middle_low_txt' id='low_txt2'>Многогранный опыт высококвалифицированной команды, подкреплён последними разработками и исследованиями в области проектирования</p>
                 </div>
                 <div className='each_building'>
                     <img src={building3} />

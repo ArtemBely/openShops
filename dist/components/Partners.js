@@ -11,7 +11,7 @@ export const Partners = () => {
                 React.createElement("img", { src: partner1 })),
             React.createElement("a", { href: "#", className: 'partners_links' },
                 React.createElement("img", { src: partner2 })),
-            React.createElement("a", { href: "#", className: 'partners_links' },
+            React.createElement("a", { href: "#", className: 'partners_links third_partner' },
                 React.createElement("img", { src: partner3 })),
             React.createElement("a", { href: "#", className: 'partners_links' },
                 React.createElement("img", { src: partner4 })))));
