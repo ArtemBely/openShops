@@ -29,7 +29,8 @@ class Screen extends React.Component {
         }
     }
     render() {
-        return (React.createElement("div", { className: 'wrap_screen' }, this.returnScreen()));
+        return (React.createElement("div", { className: 'wrap_screen' },
+            React.createElement(Screen1, null)));
     }
 }
 export default Screen;

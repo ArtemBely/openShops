@@ -141,6 +141,9 @@
   margin: 0;
   margin-left: 95px;
 }
+.wrap_cube > img {
+  mix-blend-mode: exclusion;
+ }
 .project_title {
   font-size: 130px;
   line-height: 120%;

@@ -411,6 +411,9 @@ body {
   margin: 0;
   margin-left: 95px;
 }
+.wrap_cube > img {
+  mix-blend-mode: exclusion;
+ }
 .project_title {
   font-size: 130px;
   line-height: 120%;
@@ -1512,7 +1515,6 @@ width: 100%;
    display: none;
  }
  .screen_imgs1 {
-    width: 139px;
     height: 274px;
 }
  .wrap_fone4 {

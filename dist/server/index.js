@@ -18,10 +18,20 @@ import abouttRouter from './routers/about';
 import projectsRouter from './routers/projects';
 import newsRouter from './routers/news';
 import adminRouter from './routers/pannel';
+import http from 'http';
+import https from 'https';
+import path from 'path';
+import fs from 'fs';
 const app = express();
 const CONNECTION_URI = process.env.MONGODB_URI;
 //const port = process.env.PORT || 5000;
 require('dotenv/config');
+var privateKey = fs.readFileSync(path.resolve('src/server/ssl/openworkshops.key'));
+var certificate = fs.readFileSync(path.resolve('src/server/ssl/openworkshops.pem'));
+var credentials = {
+    key: privateKey,
+    cert: certificate
+};
 mongoose.connect(CONNECTION_URI || process.env.CONNECT, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -64,7 +74,7 @@ app.get('*', (req, res, next) => {
         Promise.resolve();
     promise.then((data) => {
         const context = { data };
-        const user = { name: "Artem" };
+        const user = { name: "" };
         const markup = renderToString(React.createElement(StaticRouter, { location: req.url, context: context },
             React.createElement(App, { data: data })));
         const html = `<!DOCTYPE html>
@@ -101,4 +111,7 @@ app.use((req, res, next) => {
     err.status = 404;
     next(err);
 });
-app.listen(8888, () => { console.log('Server started!'); });
+var httpServer = http.createServer(app);
+var httpsServer = https.createServer(credentials, app);
+httpServer.listen(8080, () => { console.log('connected on http!'); }); // --> localhost test mode
+httpsServer.listen(443, () => { console.log('connected on https!'); });
