@@ -21,7 +21,7 @@ export const FiltrNews = () => {
                   <p className='each_categoryNews' onClick={changeFiltr}>Конкурсные проекты</p>
                   <p className='each_categoryNews' onClick={changeFiltr}>Конкурсные проекты</p>
                   <p className='each_categoryNews' onClick={changeFiltr}>Конкурсные проекты</p>
-                  <p className='each_categoryNews' onClick={changeFiltr}>Конкурсные проекты</p>
+                  <p className='each_categoryNews planchHidden' onClick={changeFiltr}>Конкурсные проекты</p>
               </div>
           </div>
       </div>

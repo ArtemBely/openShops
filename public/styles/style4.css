@@ -61,7 +61,7 @@
 .news_inside {
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 30px;
+  grid-gap: 0px;
   width: 1920px;
 }
 .wrap_each_news {
@@ -160,6 +160,7 @@
 }
 .contentVacancy {
   display: grid;
+  grid-gap: 0px 20px;
   width: 1920px;
   position: relative;
   grid-template-columns: repeat(2, 1fr);

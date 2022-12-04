@@ -9,7 +9,7 @@ export const News = () => {
     <div className="wrap_buildings_inside">
       <div className="news_inside">
         <NavLink to="/news/1" className="wrap_each_news">
-          <img src={fone1} className="each_news_img" />
+          <p className='wrap_each_news_img'><img src={fone1} className="each_news_img" /></p>
           <div className="wrap_description_of_news">
             <p className="title_of_news">Название новости 1</p>
             <p className="description_of_news">
@@ -20,7 +20,7 @@ export const News = () => {
           <p className="date_style">12 июля 2023</p>
         </NavLink>
         <NavLink to="/news/2" className="wrap_each_news">
-          <img src={fone2} className="each_news_img" />
+          <p className='wrap_each_news_img'><img src={fone2} className="each_news_img" /></p>
           <div className="wrap_description_of_news">
             <p className="title_of_news">Название новости 2</p>
             <p className="description_of_news">
@@ -31,7 +31,7 @@ export const News = () => {
           <p className="date_style">12 июля 2023</p>
         </NavLink>
         <NavLink to="/news/3" className="wrap_each_news">
-          <img src={fone3} className="each_news_img" />
+          <p className='wrap_each_news_img'><img src={fone3} className="each_news_img" /></p>
           <div className="wrap_description_of_news">
             <p className="title_of_news">Название новости 3</p>
             <p className="description_of_news">

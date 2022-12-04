@@ -9,14 +9,14 @@ export const Contact = () => {
           <div className='contact'>
               <div className='wrap_contacts_inside'>
                   <div>
-                      <p className='contact_title'>Контакты</p>
+                      <p className='contact_title contsct_planchet'>Контакты</p>
                       <p className='contact_info'>Россия, г. Москва,</p>
                       <p className='contact_info'>107076, ул. Богородский Вал, д. 3, стр. 32,</p>
                       <p className='contact_info'>пом. I, ком. 65, эт. 1</p>
                   </div>
                   <div className='wrap_low_links_contact'>
                       <a href='tel:+74997536333' className='contact_info'>+7 499 753 63 33 (2046)</a>
-                      <a href='mailto:info@o-master.ru' className='contact_info'>info@o-master.ru</a>
+                      <a href='mailto:info@o-master.ru' className='contact_info contact_mail'>info@o-master.ru</a>
                   </div>
 
                   <div className='wrap_social_contacts'>

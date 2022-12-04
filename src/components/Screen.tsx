@@ -43,7 +43,7 @@ returnScreen = () => {
 render() {
   return (
     <div className='wrap_screen'>
-        <Screen1 />
+        {this.returnScreen()}
     </div>
   )
 }

@@ -1,7 +1,7 @@
 @media (min-width: 1290px) and (max-width: 1920px) {
    .header {
      width: 1200px;
-     grid-template-columns: 680px 520px;
+     grid-template-columns: 678px 534px;
   }
   .wrap_menu {
     display: flex;
@@ -9,14 +9,32 @@
     position: relative;
     top: -10px;
   }
+  .wrap_low_map {
+    width: 690px;
+  }
+  .contact_title {
+    font-size: 45px;
+    line-height: 72px;
+  }
+  .wrap_social_contacts {
+    top: -157px;
+  }
+  .contact_info {
+    font-size: 35px;
+    line-height: 56px;
+    width: 430px;
+  }
   .wrap_screen::before {
     height: 125%;
   }
   .wrap_screen {
     background: transparent;
   }
-  .screen2, .screen1, .screen3 {
+  .screen2, .screen1, .screen3, .contact, .navbar {
     width: 1200px;
+  }
+  .contact {
+        grid-template-columns: 1fr 690px;
   }
   .project_title2 {
     font-size: 86px;
@@ -206,4 +224,87 @@
   line-height: 56px;
   width: 194px;
 }
+
+/*news*/
+.aboutProject, #project_title, .news_inside {
+  width: 1200px;
+}
+.wrap_allNews {
+  grid-gap: 50px;
+}
+.planchHidden {
+  display: none;
+}
+.spec_about_title {
+    margin: 0 !important;
+    width: 1200px !important;
+    font-size: 60px;
+}
+#project_title {
+  margin-bottom: 30px;
+  margin-top: 20px;
+  width: 1200px;
+}
+.wrap_each_news {
+  grid-template-columns: 400px 553px 1fr;
+  width: 1200px;
+}
+.title_of_news, .description_of_news, .date_style, .choosenCategory {
+  font-size: 18px;
+  line-height: 25px;
+}
+.description_of_news {
+  width: auto;
+  overflow: hidden;
+}
+.each_category, .each_categoryNews {
+  font-size: 18px;
+  line-height: 29px;
+}
+/*---*/
+
+/*vacancy*/
+.contentVacancy {
+  width: 1200px;
+}
+.txt_about1Title {
+    font-size: 60px;
+    line-height: 140%;
+    margin-top: 20px;
+}
+.descr_of_vacs {
+    font-size: 45px;
+}
+.txt_vacancy, .bold_vacancy {
+    font-size: 18px;
+    line-height: 29px;
+}
+/*---*/
+
+/*projects*/
+.buildings_inside {
+  grid-gap: 20px;
+  width: 1200px;
+}
+.wrap_each_object {
+  height: 488px;
+}
+#inputSearch {
+  width: 267px;
+  top: 103px;
+}
+.wrap_allCategory {
+  gap: 55px;
+}
+.aboutProject {
+  grid-template-columns: 870px 1fr;
+}
+.wrap_each_object:hover > .each_project_img {
+  height: 400px !important;
+  width: 105%;
+}
+.wrap_each_object:hover > .wrap_objectInfo {
+  bottom: 0px;
+}
+/*---*/
 }

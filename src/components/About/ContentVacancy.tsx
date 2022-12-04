@@ -6,7 +6,7 @@ export const ContentVacancy = () => {
     return (
       <div className='wrap_contentVacancy'>
           <div className='contentVacancy'>
-              <p className='txt_about1Title'>Название вакансии</p>
+              <p className='txt_about1Title spec_txt_about1Title'>Название вакансии</p>
               <img src={fone1} />
               <p className='descr_of_vacs'>Описание вакансии</p>
               <p className='txt_vacancy main_txt'>Текст описания вакансии</p>

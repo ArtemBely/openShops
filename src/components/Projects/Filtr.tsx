@@ -14,8 +14,8 @@ export const Filtr = () => {
       <div className='wrap_aboutProject'>
           <div className='aboutProject'>
               <div id='project_title'>
-                  <p className='about_title spec_about_title'>Проектируем пространства </p>
-                  <p className='about_title spec_about_title'>для жизни, работы и творчества</p>
+                  <p className='about_title spec_about_title' id='project_spec'>Проектируем пространства </p>
+                  <p className='about_title spec_about_title' id='project_spec_txt'>для жизни, работы и творчества</p>
               </div>
               <input type='text' id='inputSearch' placeholder='Поиск'/>
               <div className='wrap_allCategory'>

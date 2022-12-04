@@ -16,5 +16,5 @@ export const FiltrNews = () => {
                 React.createElement("p", { className: 'each_categoryNews', onClick: changeFiltr }, "\u041A\u043E\u043D\u043A\u0443\u0440\u0441\u043D\u044B\u0435 \u043F\u0440\u043E\u0435\u043A\u0442\u044B"),
                 React.createElement("p", { className: 'each_categoryNews', onClick: changeFiltr }, "\u041A\u043E\u043D\u043A\u0443\u0440\u0441\u043D\u044B\u0435 \u043F\u0440\u043E\u0435\u043A\u0442\u044B"),
                 React.createElement("p", { className: 'each_categoryNews', onClick: changeFiltr }, "\u041A\u043E\u043D\u043A\u0443\u0440\u0441\u043D\u044B\u0435 \u043F\u0440\u043E\u0435\u043A\u0442\u044B"),
-                React.createElement("p", { className: 'each_categoryNews', onClick: changeFiltr }, "\u041A\u043E\u043D\u043A\u0443\u0440\u0441\u043D\u044B\u0435 \u043F\u0440\u043E\u0435\u043A\u0442\u044B")))));
+                React.createElement("p", { className: 'each_categoryNews planchHidden', onClick: changeFiltr }, "\u041A\u043E\u043D\u043A\u0443\u0440\u0441\u043D\u044B\u0435 \u043F\u0440\u043E\u0435\u043A\u0442\u044B")))));
 };
