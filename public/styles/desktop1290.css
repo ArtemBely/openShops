@@ -386,4 +386,28 @@
       margin-top: 70px;
 }
 /*---*/
+
+/*projects*/
+.allPhotos {
+  grid-template-columns: 84% 16%;
+  width: 1200px;
+}
+.projectDescr {
+  width: 1200px;
+  grid-gap: 0px 20px;
+}
+.bottom_grey {
+  width: auto;
+}
+.first_photo_project {
+  width: 1200px !important;
+}
+.each_photo_project {
+  width: 184px;
+}
+.wrap_allImages {
+  width: 1200px;
+  grid-gap: 30px 20px;
+}
+/*---*/
 }

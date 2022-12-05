@@ -462,4 +462,35 @@
        margin-top: 70px;
  }
  /*---*/
+
+ /*projects*/
+ .allPhotos {
+   grid-template-columns: 1fr;
+   width: 992px;
+ }
+ .projectDescr {
+   width: 992px;
+   grid-gap: 0px 20px;
+ }
+ .bottom_grey {
+   width: auto;
+ }
+ .first_photo_project {
+   width: 992px !important;
+ }
+ .each_photo_project {
+   width: 148px;
+ }
+
+ #spec_data_style {
+    align-items: start !important;
+    justify-content: start !important;
+    grid-column: 1 / 3;
+    margin-top: 40px;
+ }
+ .wrap_allImages {
+   width: 992px;
+   grid-gap: 30px 20px;
+ }
+ /*---*/
 }
