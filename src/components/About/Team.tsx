@@ -6,7 +6,7 @@ export const Team = () => {
     return (
       <div className='wrap_teamBlock'>
           <div className='teamBlock'>
-            <p className='txt_about1Title first_title' style={{ gridColumn: '1 / 4' }}>Команда</p>
+            <p className='txt_about1Title first_title' id='team_spec_title' style={{ gridColumn: '1 / 4' }}>Команда</p>
               {team.map((participant) => (
                 <div>
                     <p className='foto1'></p>

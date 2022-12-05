@@ -17,14 +17,14 @@ export const Culture = () => {
                 <img src={fone2} />
                 <img src={fone3} />
                 <img src={fone4} />
-                <img src={fone5} />
-                <img src={fone6} />
-                <img src={fone7} />
+                <img src={fone5} className='hiddenImgs'/>
+                <img src={fone6} className='hiddenImgs'/>
+                <img src={fone7} className='hiddenImgs'/>
               </div>
               <div className='below_culture'>
                 <p className='txt_about1Title first_title' style={{ gridColumn: '1 / 3' }}>Ценности и культура бюро</p>
-                <p className='txt_about2'>As a Benoy employee, you will receive a progressive employment and benefits package, including dedicated mentoring and development. With our diverse and international workforce encompassing 33 nationalities and projects in over 50 countries, we also provide opportunities for global mobility. </p>
-                <p className='txt_about2'>Studio social events celebrate Benoy’s inclusive culture and include a number of regular clubs and groups including Sketch Club, Book Group, Softball, Tennis Club and more, alongside our regular ​‘Innovation Talks’ series. You will also be able to take part in our global Giving Back programme where we aim to apply cutting edge design thinking in support of great causes around the world.</p>
+                <p className='txt_about2 spec_txt_about3'>As a Benoy employee, you will receive a progressive employment and benefits package, including dedicated mentoring and development. With our diverse and international workforce encompassing 33 nationalities and projects in over 50 countries, we also provide opportunities for global mobility. </p>
+                <p className='txt_about2 spec_txt_about3'>Studio social events celebrate Benoy’s inclusive culture and include a number of regular clubs and groups including Sketch Club, Book Group, Softball, Tennis Club and more, alongside our regular ​‘Innovation Talks’ series. You will also be able to take part in our global Giving Back programme where we aim to apply cutting edge design thinking in support of great causes around the world.</p>
               </div>
           </div>
       </div>

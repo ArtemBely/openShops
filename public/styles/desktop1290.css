@@ -307,4 +307,83 @@
   bottom: 0px;
 }
 /*---*/
+
+/*about*/
+.about_title {
+    font-size: 60px;
+    line-height: 84px;
+    width: 1080px;
+    margin-bottom: 40px;
+}
+.wrap_belowScreen {
+    margin-top: 90px;
+}
+.aboutScreen > img {
+  height: 770px;
+}
+.aboutScreen, .belowScreen {
+  width: 1200px;
+}
+.wrap_years {
+  position: relative;
+  top: -20px;
+}
+.txt_aboutBold, .txt_about2, .txt_about1 {
+  font-size: 18px;
+  line-height: 25px;
+}
+.txt_aboutBold {
+  width: 586px;
+}
+.project_txt1 {
+    width: 578px;
+}
+.aboutCulture, .below_culture, .wrap_img_aboutCulture, .aboutChooseUs,
+#fone1_us, .teamBlock, .vacancies {
+  width: 1200px;
+}
+.below_culture {
+      margin-top: 45px;
+}
+.name_of, .lastname_of {
+  font-size: 18px;
+  line-height: 25px;
+}
+.foto1 {
+  height: 470px;
+}
+.wrap_teamBlock {
+    margin-top: 25px;
+}
+.wrap_vacancies {
+  margin-top: 60px;
+  margin-bottom: 120px;
+}
+.date_vacancy {
+  font-size: 18px;
+  line-height: 25px;
+}
+.each_vacancy {
+  width: 1136px;
+  height: 77px;
+}
+.second_title {
+  font-size: 45px !important;
+  line-height: 72px !important;
+}
+.first_title {
+    margin-bottom: 0px;
+    font-size: 45px !important;
+    line-height: 72px !important;
+}
+.spec_txt_about {
+    width: auto;
+}
+.spec_txt_about3 {
+  line-height: 28px;
+}
+.wrap_img_aboutChooseUs {
+      margin-top: 70px;
+}
+/*---*/
 }
