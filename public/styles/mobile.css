@@ -79,6 +79,7 @@
  .middle_foot {
      display: grid;
      height: 215px;
+     top: 0px !important;
  }
  .each_other {
        margin: 4px 0px;
@@ -92,9 +93,7 @@
    grid-template-columns: 1fr;
    grid-gap: 0px;
  }
- .middle_foot {
-       top: 0px !important;
- }
+
  .foot_links {
        margin-bottom: 31px;
  }
@@ -155,4 +154,500 @@
  .showDesctopAddress {
    display: none;
  }
+
+
+
+
+
+ /*contacts*/
+
+  .wrap_low_map {
+      height: 322px;
+      background: aliceblue;
+      position: relative;
+      top: -161px;
+      width: 320px;
+  }
+  .contsct_planchet {
+      margin-bottom: 20px;
+  }
+  .wrap_low_links_contact {
+        margin-top: 25px;
+  }
+  .contact_mail {
+        height: 83px;
+  }
+  .contact {
+     width: 320px;
+     grid-template-columns: 1fr;
+     height: 807px;
+ }
+ .navbar_style {
+   font-size: 18px;
+ }
+ .wrap_social_contacts_links > img {
+     width: 30px;
+     grid-gap: 20px;
+ }
+ .navbar {
+     width: 320px;
+ }
+ #tele_low {
+     width: 37px;
+ }
+ .contact_title {
+   font-size: 30px;
+   line-height: 48px;
+ }
+ .contact_info {
+       line-height: 29px;
+       font-size: 18px;
+ }
+ .wrap_social_contacts {
+       top: -68px;
+       grid-gap: 20px;
+ }
+
+ /*---*/
+
+  .detailed_txt {
+    font-size: 18px;
+    line-height: 29px;
+  }
+  .screen2, .screen3 {
+     grid-template-columns: 1fr;
+  }
+  #discuss_button2 {
+     top: -10px;
+     left: 0;
+  }
+  .wrap_fone2 {
+    grid-gap: 6px;
+  }
+  .wrap_fone {
+    margin: 0;
+  }
+  .discuss_button2 {
+    width: 320px;
+    height: 79px;
+    font-size: 18px;
+    top: -25px;
+    grid-column: 1 / 2;
+  }
+
+  .spec_city_title {
+    font-size: 40px;
+    margin-bottom: 67px;
+    margin-top: 33px;
+  }
+  #detailed_link {
+    font-size: 18px;
+    line-height: 29px;
+    width: 100px;
+    padding-bottom: 10px;
+  }
+  .detailed {
+      width: 611px;
+  }
+  .discuss_button {
+    width: 320px;
+    font-size: 18px;
+    margin-bottom: 59px;
+    height: 70px;
+  }
+  .wrap_screen {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 221.27%);
+        margin-top: 0px;
+  }
+  .hideMobile {
+    display: none;
+  }
+  .screen_imgs1 {
+     height: 274px;
+ }
+  .wrap_fone4 {
+        grid-template-columns: repeat(4, 1fr);
+        width: 320px;
+        grid-gap: 6px;
+  }
+  .screenFourDiscuss {
+     margin-top: 18px;
+  }
+  .screen_special {
+     width: 320px;
+ }
+ .project_title_special {
+     font-size: 40px;
+     line-height: 48px;
+     margin-bottom: 14px;
+     margin-top: 46px;
+ }
+ .project_title_special_below {
+     font-size: 24px;
+     line-height: 31px;
+     margin-bottom: 23px;
+ }
+ .discuss_button_special {
+   width: 300px;
+   height: 68px;
+   font-weight: 400;
+   font-size: 18px;
+ }
+  .wrap_screen::before {
+    height: 133%;
+    top: -120px;
+  }
+  .project_title {
+    font-size: 44px;
+    width: 312px;
+    line-height: 52px;
+    height: 300px;
+    margin-top: 15px;
+    margin-bottom: 0px;
+  }
+  .wrap_cube > img {
+        width: 361px;
+        mix-blend-mode: exclusion;
+  }
+  .wrap_cube {
+        margin-left: 52px;
+        position: relative;
+        top: -30px;
+  }
+  .screen1 {
+      display: grid;
+      grid-template-columns: 236px 1fr;
+  }
+
+  .wrap_detailed {
+      margin-bottom: 66px;
+  }
+
+    .middle_top_title {
+          margin: 14px 0px !important;
+    }
+    .middle_low_txt {
+          top: -189px !important;
+    }
+    .wrap_buildings {
+          margin-bottom: 64px;
+    }
+
+    .fone1 {
+     width: 290%;
+     height: 100%;
+     top: 88px;
+     left: -482px;
+     z-index: -1;
+     position: absolute;
+     transform: rotate(41deg);
+     background: radial-gradient(38.84% 28.23% at 35.16% 48.79%, rgba(40, 210, 239, 0.76) 0%, rgba(43, 230, 227, 0) 100%), linear-gradient(180deg, #010101 110.34%, rgba(1, 1, 1, 0) 221.34%);
+    }
+
+  .third_partner {
+    grid-column: 1 / 2
+  }
+
+  .each_building > img {
+     width: 278px;
+     height: 250px;
+ }
+
+  /*news*/
+  .aboutProject, #project_title, .news_inside {
+    width: 320px;
+  }
+  .news_inside {
+    grid-gap: 30px;
+  }
+  .navbar_style {
+    font-size: 18px;
+  }
+  .wrap_allNews {
+    grid-gap: 0px 30px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 967px;
+  }
+  .planchHidden {
+    display: none;
+  }
+  .spec_about_title {
+    margin-top: 42px !important;
+    width: 320px !important;
+    font-size: 40px;
+  }
+  #project_title {
+    margin-bottom: 0px;
+    margin-top: 20px;
+    width: 320px;
+  }
+  .date_style {
+     grid-column: 2 / 3;
+     justify-content: start;
+     margin: 0;
+  }
+  .wrap_each_news {
+    grid-template-columns: 178px 1fr;
+    width: 320px;
+    height: 187px;
+    grid-gap: 0px 20px;
+  }
+  .each_news_img {
+    height: 100%;
+  }
+  .wrap_buildings_inside {
+     margin-top: 30px;
+     margin-bottom: 90px;
+  }
+  .choosenCategory {
+     grid-column: 1 / 8;
+     margin-top: 0px;
+     margin-bottom: 0px;
+     position: relative;
+     top: 16px;
+  }
+  .wrap_each_news_img {
+     margin: 0;
+     position: relative;
+     overflow: hidden;
+     grid-row: 1 / 3;
+  }
+  .title_of_news, .description_of_news, .date_style, .choosenCategory {
+    font-size: 18px;
+    line-height: 25px;
+  }
+  .description_of_news {
+    width: auto;
+    height: 100px;
+    overflow: hidden;
+  }
+  .each_category, .each_categoryNews {
+    font-size: 18px;
+    line-height: 29px;
+  }
+  /*---*/
+
+  /*vacancy*/
+  .contentVacancy {
+    width: 320px;
+    grid-template-columns: 1fr;
+  }
+  .main_txt {
+        margin: 18px 0px;
+  }
+  .txt_about1Title {
+      font-size: 40px;
+      line-height: 70px;
+      margin-top: 10px;
+  }
+  .wrap_txtVacs {
+        grid-column: 1 / 2;
+  }
+  .spec_data_style {
+        grid-column: 1 / 2;
+  }
+  .wrap_contentVacancy {
+        margin-bottom: 70px;
+  }
+  .descr_of_vacs {
+      font-size: 40px;
+      margin-top: 35px;
+  }
+  .txt_vacancy, .bold_vacancy {
+      font-size: 18px;
+      line-height: 29px;
+  }
+  /*---*/
+
+  /*projects*/
+  .buildings_inside {
+    grid-gap: 20px;
+    width: 320px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .wrap_each_object {
+    height: 360px;
+  }
+  #project_spec_txt {
+        margin: 0 !important;
+  }
+  #project_spec {
+        margin-top: 33px !important;
+  }
+  #inputSearch {
+    width: 517px;
+    top: 18px;
+    grid-column: 1 / 3;
+    height: 0px;
+    margin: 7px 0px;
+  }
+  .wrap_each_object > img {
+    height: 360px;
+  }
+  .wrap_allCategory {
+    gap: 37px;
+    margin-top: 23px;
+  }
+  .aboutProject {
+
+  }
+  .wrap_each_object:hover > .each_project_img {
+    height: 300px !important;
+    width: 105%;
+  }
+  .common_titleObject, .common_addressObject {
+    font-size: 18px;
+    line-height: 25px;
+  }
+  .wrap_each_object:hover > .wrap_objectInfo {
+    bottom: 0px;
+  }
+  /*---*/
+
+  /*about*/
+  .about_title {
+      font-size: 40px;
+      line-height: 140%;
+      width: 320px;
+      margin-bottom: 40px;
+  }
+  .wrap_belowScreen {
+      margin-top: 60px;
+  }
+  .aboutScreen > img {
+    height: 386px;
+  }
+  .belowScreen {
+     grid-template-columns: 1fr;
+     grid-gap: 35px;
+  }
+  .hiddenImgs {
+    display: none;
+  }
+  #spec_four {
+     margin-top: 10px;
+ }
+  .wrap_years {
+    position: relative;
+    top: -20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .txt_aboutBold, .txt_about2, .txt_about1 {
+    font-size: 18px;
+    line-height: 25px;
+  }
+  .txt_aboutBold {
+    width: 320px;
+  }
+  .project_txt1 {
+    width: 544px;
+  }
+   .txt_aboutBold {
+   margin-bottom: 20px;
+ }
+ .wrap_img_aboutCulture {
+       grid-gap: 17px;
+       margin-top: 100px;
+       grid-template-columns: repeat(4, 1fr);
+ }
+  .aboutCulture, .below_culture, .wrap_img_aboutCulture, .aboutChooseUs,
+  #fone1_us, .teamBlock, .vacancies, .aboutScreen, .belowScreen {
+    width: 320px;
+  }
+  .teamBlock {
+     grid-gap: 12px 21px;
+     grid-template-columns: repeat(2, 1fr);
+  }
+  .below_culture {
+        margin-top: 45px;
+        grid-template-columns: 1fr;
+        grid-gap: 0px;
+  }
+  .name_of, .lastname_of {
+    font-size: 18px;
+    line-height: 25px;
+  }
+  #team_spec_title {
+    grid-column: 1 / 3 !important;
+  }
+  .foto1 {
+    height: 383px;
+  }
+  .wrap_teamBlock {
+      margin-top: 25px;
+  }
+  .wrap_vacancies {
+    margin-top: 60px;
+    margin-bottom: 120px;
+  }
+  .date_vacancy {
+    font-size: 18px;
+    line-height: 37px;
+  }
+  .each_vacancy {
+    width: 512px;
+    height: 100px;
+  }
+  .second_title {
+    font-size: 45px !important;
+    line-height: 72px !important;
+  }
+  .first_title {
+      margin-bottom: 0px;
+      grid-column: 1 / 2 !important;
+      font-size: 40px !important;
+      line-height: 70px !important;
+  }
+  .spec_txt_about {
+      width: auto;
+  }
+  .spec_txt_about3 {
+    line-height: 28px;
+    margin: 10px 0px;
+  }
+  .wrap_img_aboutChooseUs {
+        margin-top: 70px;
+  }
+  /*---*/
+
+  /*projects*/
+  .allPhotos {
+    grid-template-columns: 1fr;
+    width: 320px;
+  }
+  .projectDescr {
+    width: 320px;
+    grid-gap: 0px 20px;
+    grid-template-columns: 1fr;
+  }
+  .bottom_grey {
+    width: auto;
+  }
+  .descr_of_project {
+        grid-column: 1 / 2;
+  }
+  .first_photo_project {
+    width: 320px !important;
+    grid-column: 1 / 4;
+  }
+  .each_photo_project {
+    width: 178px;
+  }
+ #txt_about1TitleId {
+   width: 543px;
+ }
+  #spec_data_style {
+     align-items: start !important;
+     justify-content: start !important;
+     grid-column: 1 / 3;
+     margin-top: 40px;
+  }
+  .wrap_allImages {
+    width: 320px;
+    grid-gap: 30px 20px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  /*---*/
 }
