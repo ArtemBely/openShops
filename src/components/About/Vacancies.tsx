@@ -5,7 +5,7 @@ export const Vacancies = () => {
   return (
     <div className="wrap_vacancies">
       <div className="vacancies">
-        <p className="txt_about1Title second_title">Вакансии</p>
+        <p className="txt_about1Title second_title" id='vac1'>Вакансии</p>
         <div className="wrap_each_vacancy">
           <NavLink to="/about/1" className="each_vacancy">
             <div className="wrap_vacancy_txt">

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 export const Vacancies = () => {
     return (React.createElement("div", { className: "wrap_vacancies" },
         React.createElement("div", { className: "vacancies" },
-            React.createElement("p", { className: "txt_about1Title second_title" }, "\u0412\u0430\u043A\u0430\u043D\u0441\u0438\u0438"),
+            React.createElement("p", { className: "txt_about1Title second_title", id: 'vac1' }, "\u0412\u0430\u043A\u0430\u043D\u0441\u0438\u0438"),
             React.createElement("div", { className: "wrap_each_vacancy" },
                 React.createElement(NavLink, { to: "/about/1", className: "each_vacancy" },
                     React.createElement("div", { className: "wrap_vacancy_txt" },
