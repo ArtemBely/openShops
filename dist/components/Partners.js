@@ -6,7 +6,7 @@ const partner4 = '../../images/Group 403.svg';
 export const Partners = () => {
     return (React.createElement("div", { className: 'wrap_partners' },
         React.createElement("div", { className: 'partners' },
-            React.createElement("p", { className: 'big_title_main' }, "\u041F\u0430\u0440\u0442\u043D\u0435\u0440\u044B"),
+            React.createElement("p", { className: 'big_title_main', id: 'big_title_mainId' }, "\u041F\u0430\u0440\u0442\u043D\u0435\u0440\u044B"),
             React.createElement("a", { href: "#", className: 'partners_links' },
                 React.createElement("img", { src: partner1 })),
             React.createElement("a", { href: "#", className: 'partners_links' },
