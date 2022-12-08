@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { NavLink } from 'react-router-dom';
+import MobileMenu from "./MobileMenu";
 const logo = "../../images/Frame 1.svg";
 const spec_screen_logo = '../../images/Frame 1 — копия 3.svg';
 const white_logo = "../../images/Frame 1 — копия.svg";
@@ -17,6 +18,12 @@ export const Header = () => {
   const [headerIndicate, setHeader] = useState({});
   const [contactIndicate, setContact] = useState({});
   const [whiteHeader, setWhiteHeader] = useState({});
+  const [display, showDisplay] = useState(false);
+
+  const middleArrow:any = useRef();
+  const leftArrow:any = useRef();
+  const rightArrow:any = useRef();
+  const stableHeader:any = useRef();
 
   useEffect(() => {
     if(typeof window != "undefined" && window.location.pathname == '/') {
@@ -45,9 +52,17 @@ export const Header = () => {
 
   }, []);
 
+  const changeBurger = () => {
+    middleArrow.current.classList.toggle('dispNone');
+    leftArrow.current.classList.toggle('leftRotate');
+    rightArrow.current.classList.toggle('rightRotate');
+    stableHeader.current.classList.toggle('fixedHeader');
+    showDisplay(prevState => !prevState);
+  }
+
     return (
       <div className='wrap_header' style={{ backgroundColor: whiteHeader ? 'white' : 'transparent' }}>
-          <div className='header'>
+          <div className='header' ref={stableHeader}>
                 <NavLink to='/'><img src={!headerIndicate ? spec_screen_logo : imgIndicate ? logo : contactIndicate ? contact_header : white_logo} id='logo'/></NavLink>
                 <div className='wrap_menu'>
                   <NavLink to='/about' className='menu_links' activeClassName='active_menu_links' style={{ color: whiteHeader ? '#010101' : headerIndicate ? 'white' : '#2f4666' }}>О нас</NavLink>
@@ -55,6 +70,12 @@ export const Header = () => {
                   <NavLink to='/news' className='menu_links' activeClassName='active_menu_links' style={{ color: whiteHeader ? '#010101' : headerIndicate ? 'white' : '#2f4666' }}>Новости</NavLink>
                   <NavLink to='/contacts' className='menu_links' activeClassName='active_menu_links' style={{ color: whiteHeader ? '#010101' : headerIndicate ? 'white' : '#2f4666' }}>Контакты</NavLink>
                 </div>
+                <div className='burger' onClick={changeBurger}>
+                    <p className='each_burger_span' style={{ backgroundColor: whiteHeader ? '#010101' : headerIndicate ? 'white' : '#2f4666' }} ref={leftArrow}></p>
+                    <p className='each_burger_span' style={{ backgroundColor: whiteHeader ? '#010101' : headerIndicate ? 'white' : '#2f4666' }} ref={middleArrow}></p>
+                    <p className='each_burger_span' style={{ backgroundColor: whiteHeader ? '#010101' : headerIndicate ? 'white' : '#2f4666' }} ref={rightArrow}></p>
+                </div>
+                <MobileMenu display={display}/>
           </div>
       </div>
     )
