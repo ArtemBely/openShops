@@ -69,7 +69,7 @@ body {
 	margin: 0;
   position: relative;
 }
-.burger {
+.burger, .burgerMobile {
 	display: none;
 	width: 27px;
 	height: 13px;
@@ -112,7 +112,6 @@ body {
 }
 #logo {
   margin: 22px 0px;
-	z-index: 1;
 	position: relative;
 }
 .wrap_footer {
@@ -128,7 +127,7 @@ body {
 }
 
 .showPlanchetAddress, .mobile_menu_links, .wrap_mobileMenu,
-.wrap_footer_mobile {
+.wrap_footer_mobile, .mobile_logo_mobile {
 	display: none;
 }
 

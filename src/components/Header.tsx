@@ -52,9 +52,9 @@ export const Header = () => {
 
   }, []);
 
-  const changeBurger = () => {
-    middleArrow.current.classList.toggle('dispNone');
+  const changeBurger = ():any => {
     leftArrow.current.classList.toggle('leftRotate');
+    middleArrow.current.classList.toggle('dispNone');
     rightArrow.current.classList.toggle('rightRotate');
     stableHeader.current.classList.toggle('fixedHeader');
     showDisplay(prevState => !prevState);
@@ -71,11 +71,11 @@ export const Header = () => {
                   <NavLink to='/contacts' className='menu_links' activeClassName='active_menu_links' style={{ color: whiteHeader ? '#010101' : headerIndicate ? 'white' : '#2f4666' }}>Контакты</NavLink>
                 </div>
                 <div className='burger' onClick={changeBurger}>
-                    <p className='each_burger_span' style={{ backgroundColor: whiteHeader ? '#010101' : headerIndicate ? 'white' : '#2f4666' }} ref={leftArrow}></p>
-                    <p className='each_burger_span' style={{ backgroundColor: whiteHeader ? '#010101' : headerIndicate ? 'white' : '#2f4666' }} ref={middleArrow}></p>
-                    <p className='each_burger_span' style={{ backgroundColor: whiteHeader ? '#010101' : headerIndicate ? 'white' : '#2f4666' }} ref={rightArrow}></p>
+                    <p className='each_burger_span' style={{ backgroundColor: display ? 'white' : whiteHeader ? '#010101' : headerIndicate ? 'white' : '#2f4666' }} ref={leftArrow}></p>
+                    <p className='each_burger_span' style={{ backgroundColor: display ? 'white' : whiteHeader ? '#010101' : headerIndicate ? 'white' : '#2f4666' }} ref={middleArrow}></p>
+                    <p className='each_burger_span' style={{ backgroundColor: display ? 'white' : whiteHeader ? '#010101' : headerIndicate ? 'white' : '#2f4666' }} ref={rightArrow}></p>
                 </div>
-                <MobileMenu display={display}/>
+                <MobileMenu display={display} changeBurger={changeBurger}/>
           </div>
       </div>
     )

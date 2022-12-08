@@ -69,7 +69,7 @@ body {
 	margin: 0;
   position: relative;
 }
-.burger {
+.burger, .burgerMobile {
 	display: none;
 	width: 27px;
 	height: 13px;
@@ -112,7 +112,6 @@ body {
 }
 #logo {
   margin: 22px 0px;
-	z-index: 1;
 	position: relative;
 }
 .wrap_footer {
@@ -128,7 +127,7 @@ body {
 }
 
 .showPlanchetAddress, .mobile_menu_links, .wrap_mobileMenu,
-.wrap_footer_mobile {
+.wrap_footer_mobile, .mobile_logo_mobile {
 	display: none;
 }
 
@@ -2632,7 +2631,15 @@ width: 100%;
    display: grid;
    margin: 29px 0px;
    cursor: pointer;
-   z-index: 1;
+ }
+ .burgerMobile {
+    display: grid;
+    position: absolute;
+    right: 0;
+    top: 30px;
+ }
+ .wrap_mobile_Elements {
+   position: relative;
  }
  .leftRotate {
     transform: rotate(45deg);
@@ -2697,6 +2704,11 @@ width: 100%;
  }
  .contacts_mobile {
        top: -21px;
+ }
+ .mobile_logo_mobile {
+   display: block;
+   margin: 0;
+   position: absolute;
  }
  /*---*/
 }
@@ -3424,7 +3436,12 @@ width: 100%;
     display: grid;
     margin: 29px 0px;
     cursor: pointer;
-    z-index: 1;
+  }
+  .burgerMobile {
+    display: grid;
+    position: absolute;
+    right: 0;
+    top: 30px;
   }
   .leftRotate {
      transform: rotate(45deg);
@@ -3494,5 +3511,14 @@ width: 100%;
   .contacts_mobile {
         top: 106px;
   }
+  .mobile_logo_mobile {
+    display: block;
+    position: absolute;
+    margin: 0;
+  }
+  .wrap_mobile_Elements {
+    position: relative;
+  }
+/*---*/
 }
 

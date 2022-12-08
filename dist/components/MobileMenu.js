@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+const logo = "../../images/Frame 1.svg";
 const telegram = "../../images/icon-park-outline_telegram.svg";
 const phone = "../../images/ant-design_phone-filled.svg";
 const letter = "../../images/Vector-3.svg";
@@ -10,10 +11,18 @@ class MobileMenu extends React.Component {
     }
     render() {
         const state = this.props;
+        const closeMobile = () => { this.props.changeBurger(); };
         return (React.createElement("div", { className: 'wrap_mobileMenu', style: {
                 display: state.display ? 'flex' : 'none'
             } },
             React.createElement("div", { className: 'mobile_menu' },
+                React.createElement("div", { className: 'wrap_mobile_Elements' },
+                    React.createElement(NavLink, { to: '/', className: 'mobile_logo_mobile' },
+                        React.createElement("img", { src: logo, id: 'logo' })),
+                    React.createElement("div", { className: 'burgerMobile', onClick: closeMobile },
+                        React.createElement("p", { className: 'each_burger_span leftRotate', style: { backgroundColor: 'white' } }),
+                        React.createElement("p", { className: 'each_burger_span dispNone', style: { backgroundColor: 'white' } }),
+                        React.createElement("p", { className: 'each_burger_span rightRotate', style: { backgroundColor: 'white' } }))),
                 React.createElement("div", { className: 'mobile_menu_links' },
                     React.createElement(NavLink, { to: '/about', className: 'menu_linksBold', activeClassName: 'active_menu_links' }, "\u041E \u043D\u0430\u0441"),
                     React.createElement(NavLink, { to: '/projects', className: 'menu_linksBold', activeClassName: 'active_menu_links' }, "\u041F\u0440\u043E\u0435\u043A\u0442\u044B"),

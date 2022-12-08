@@ -721,7 +721,12 @@
     display: grid;
     margin: 29px 0px;
     cursor: pointer;
-    z-index: 1;
+  }
+  .burgerMobile {
+    display: grid;
+    position: absolute;
+    right: 0;
+    top: 30px;
   }
   .leftRotate {
      transform: rotate(45deg);
@@ -791,4 +796,13 @@
   .contacts_mobile {
         top: 106px;
   }
+  .mobile_logo_mobile {
+    display: block;
+    position: absolute;
+    margin: 0;
+  }
+  .wrap_mobile_Elements {
+    position: relative;
+  }
+/*---*/
 }

@@ -47,8 +47,8 @@ export const Header = () => {
         }
     }, []);
     const changeBurger = () => {
-        middleArrow.current.classList.toggle('dispNone');
         leftArrow.current.classList.toggle('leftRotate');
+        middleArrow.current.classList.toggle('dispNone');
         rightArrow.current.classList.toggle('rightRotate');
         stableHeader.current.classList.toggle('fixedHeader');
         showDisplay(prevState => !prevState);
@@ -63,8 +63,8 @@ export const Header = () => {
                 React.createElement(NavLink, { to: '/news', className: 'menu_links', activeClassName: 'active_menu_links', style: { color: whiteHeader ? '#010101' : headerIndicate ? 'white' : '#2f4666' } }, "\u041D\u043E\u0432\u043E\u0441\u0442\u0438"),
                 React.createElement(NavLink, { to: '/contacts', className: 'menu_links', activeClassName: 'active_menu_links', style: { color: whiteHeader ? '#010101' : headerIndicate ? 'white' : '#2f4666' } }, "\u041A\u043E\u043D\u0442\u0430\u043A\u0442\u044B")),
             React.createElement("div", { className: 'burger', onClick: changeBurger },
-                React.createElement("p", { className: 'each_burger_span', style: { backgroundColor: whiteHeader ? '#010101' : headerIndicate ? 'white' : '#2f4666' }, ref: leftArrow }),
-                React.createElement("p", { className: 'each_burger_span', style: { backgroundColor: whiteHeader ? '#010101' : headerIndicate ? 'white' : '#2f4666' }, ref: middleArrow }),
-                React.createElement("p", { className: 'each_burger_span', style: { backgroundColor: whiteHeader ? '#010101' : headerIndicate ? 'white' : '#2f4666' }, ref: rightArrow })),
-            React.createElement(MobileMenu, { display: display }))));
+                React.createElement("p", { className: 'each_burger_span', style: { backgroundColor: display ? 'white' : whiteHeader ? '#010101' : headerIndicate ? 'white' : '#2f4666' }, ref: leftArrow }),
+                React.createElement("p", { className: 'each_burger_span', style: { backgroundColor: display ? 'white' : whiteHeader ? '#010101' : headerIndicate ? 'white' : '#2f4666' }, ref: middleArrow }),
+                React.createElement("p", { className: 'each_burger_span', style: { backgroundColor: display ? 'white' : whiteHeader ? '#010101' : headerIndicate ? 'white' : '#2f4666' }, ref: rightArrow })),
+            React.createElement(MobileMenu, { display: display, changeBurger: changeBurger }))));
 };
