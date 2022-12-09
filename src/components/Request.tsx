@@ -14,7 +14,7 @@ render() {
 
 			return (
 				<div className='wrap_request'>
-          <div className='request'>
+          <div className='request' id='request_field'>
               <div className='leave_request'>
                     <form method='POST' id='req_form'>
                         <p className='big_title'>Оставьте заявку</p>

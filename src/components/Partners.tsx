@@ -10,8 +10,8 @@ export const Partners = () => {
       <div className='wrap_partners'>
           <div className='partners'>
               <p className='big_title_main' id='big_title_mainId'>Партнеры</p>
-              <a href="#" className='partners_links'><img src={partner1} /></a>
-              <a href="#" className='partners_links'><img src={partner2} /></a>
+              <a href="https://gk-osnova.ru/" className='partners_links'><img src={partner1} /></a>
+              <a href="https://www.speech.su/ru" className='partners_links'><img src={partner2} /></a>
               <a href="#" className='partners_links third_partner'><img src={partner3} /></a>
               <a href="#" className='partners_links'><img src={partner4} /></a>
           </div>

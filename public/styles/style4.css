@@ -1,6 +1,8 @@
 .aboutProject {
-  width: 1920px;
+  width: 1935px;
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr 517px;
   grid-template-columns: 1fr 517px;
 }
 #inputSearch {
@@ -21,12 +23,20 @@
   margin-top: 20px;
 }
 .wrap_allCategory {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
   grid-column: 1 / 3;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   gap: 133px;
 }
 .wrap_allNews {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
   grid-column: 1 / 3;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   gap: 124px;
 }
@@ -38,6 +48,8 @@
   background-position: bottom;
   background-size: 15px 1px;
   background-repeat: repeat-x;
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, #888888), color-stop(0%, rgba(255,255,255,0)));
+  background-image: -o-linear-gradient(left, #888888 50%, rgba(255,255,255,0) 0%);
   background-image: linear-gradient(to right, #888888 50%, rgba(255,255,255,0) 0%);
   cursor: pointer;
 }
@@ -53,19 +65,25 @@
       width: 1408px !important;
 }
 .buildings_inside {
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr 30px 1fr 30px 1fr 30px 1fr;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 30px;
   width: 1920px;
 }
 .news_inside {
+  display: -ms-grid;
   display: grid;
+  -ms-grid-columns: 1fr;
   grid-template-columns: 1fr;
   grid-gap: 0px;
   width: 1920px;
 }
 .wrap_each_news {
+  -ms-grid-columns: 400px 30px 1010px 30px 1fr;
   grid-template-columns: 400px 1010px 1fr;
+  display: -ms-grid;
   display: grid;
   grid-gap: 30px;
   cursor: pointer;
@@ -85,29 +103,42 @@
   margin: 0;
 }
 .wrap_each_object {
+  display: -ms-grid;
   display: grid;
   height: 600px;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
   transition: 0.2s;
   cursor: pointer;
   position: relative;
   overflow: hidden;
 }
 .wrap_objectInfo {
+  display: -ms-grid;
   display: grid;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
   transition: 0.5s;
   position: absolute;
   bottom: -85px;
 }
 .wrap_aboutProject {
   width: 100%;
+  display: -ms-grid;
   display: grid;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .wrap_each_object > img {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   z-index: 1;
   height: 600px;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
   transition: 0.5s;
 }
 .wrap_buildings_inside {
@@ -138,43 +169,67 @@
   font-size: 22px;
   line-height: 160%;
   color: #888888;
+  display: -ms-grid;
   display: grid;
-  justify-content: end;
-  align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .title_of_news, .description_of_news {
   margin: 0;
   color: black;
 }
 .wrap_description_of_news {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: column;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .wrap_contentVacancy {
   margin-top: 10px;
   margin-bottom: 120px;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .contentVacancy {
+  display: -ms-grid;
   display: grid;
   grid-gap: 0px 20px;
   width: 1920px;
   position: relative;
+  -ms-grid-columns: 1fr 20px 1fr;
   grid-template-columns: repeat(2, 1fr);
 }
 .contentVacancy > img {
   width: 100%;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
   grid-column: 1 / 3;
   margin-top: 30px;
 }
 .wrap_txtVacs {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
   grid-column: 2 / 3;
   margin: 10px 0px;
 }
 .main_txt {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
   grid-column: 1 / 2;
 }
 .descr_of_vacs {
@@ -192,12 +247,16 @@
   font-family: 'Inter-Bold';
 }
 .contentVacancy {
+  display: -ms-grid;
   display: grid;
   width: 1920px;
   position: relative;
+  -ms-grid-columns: 1fr 20px 1fr;
   grid-template-columns: repeat(2, 1fr);
 }
 .spec_data_style {
-  align-items: end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
   margin: 6px 0px;
 }

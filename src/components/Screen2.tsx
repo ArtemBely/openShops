@@ -7,7 +7,7 @@ export const Screen2 = () => {
       <div className='screen2'>
           <p className='wrap_fone'><img src={fone} /></p>
           <p className='project_title2 spec_city_title'>Интеграция в городскую среду</p>
-          <div className='discuss_button2'>Обсудить проект</div>
+          <a href="#request_field" className='request_field_link'><div className='discuss_button2'>Обсудить проект</div></a>
       </div>
     )
 }

@@ -21,7 +21,7 @@ export const Screen4 = () => {
               <img src={fone7} className='screen_imgs1 hideMobile'/>
           </div>
           <p className='project_title2'>Авторские решения</p>
-          <div className='discuss_button2 screenFourDiscuss'>Обсудить проект</div>
+          <a href="#request_field" className='request_field_link'><div className='discuss_button2 screenFourDiscuss'>Обсудить проект</div></a>
       </div>
     )
 }

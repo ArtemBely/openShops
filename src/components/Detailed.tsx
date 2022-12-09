@@ -1,5 +1,4 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 
 export const Detailed = () => {
 
@@ -11,7 +10,7 @@ export const Detailed = () => {
                опытом проектирования разнопрофильных объектов:
                жилых домов, офисных комплексов и объектов
                социально-культурного назначения.</p>
-               <p className='wrap_detailed_link'><NavLink to='#' id='detailed_link'>Подробнее</NavLink></p>
+               <p className='wrap_detailed_link'><a href='#buildings_link' id='detailed_link'>Подробнее</a></p>
           </div>
       </div>
     )

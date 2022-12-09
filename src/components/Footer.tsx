@@ -21,11 +21,11 @@ export const Footer = () => {
               </div>
               <div className='foot_links middle_foot'>
                   <p className='grey_link' id='projects_foot_title'>Проекты</p>
-                  <NavLink to="" className='each_other'>Все проекты</NavLink>
-                  <NavLink to="" className='each_other'>Категория 1</NavLink>
-                  <NavLink to="" className='each_other'>Категория 2</NavLink>
-                  <NavLink to="" className='each_other'>Категория 3</NavLink>
-                  <NavLink to="" className='each_other'>Категория 4</NavLink>
+                  <NavLink to="/projects" className='each_other'>Все проекты</NavLink>
+                  <NavLink to="/projects" className='each_other'>Категория 1</NavLink>
+                  <NavLink to="/projects" className='each_other'>Категория 2</NavLink>
+                  <NavLink to="/projects" className='each_other'>Категория 3</NavLink>
+                  <NavLink to="/projects" className='each_other'>Категория 4</NavLink>
               </div>
               <div className='foot_links'>
                   <p className='grey_link'>Контакты</p>

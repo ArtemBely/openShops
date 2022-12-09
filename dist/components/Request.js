@@ -4,7 +4,7 @@ const whatsapp = '../../images/akar-icons_whatsapp-fill.svg';
 class Request extends Component {
     render() {
         return (React.createElement("div", { className: 'wrap_request' },
-            React.createElement("div", { className: 'request' },
+            React.createElement("div", { className: 'request', id: 'request_field' },
                 React.createElement("div", { className: 'leave_request' },
                     React.createElement("form", { method: 'POST', id: 'req_form' },
                         React.createElement("p", { className: 'big_title' }, "\u041E\u0441\u0442\u0430\u0432\u044C\u0442\u0435 \u0437\u0430\u044F\u0432\u043A\u0443"),

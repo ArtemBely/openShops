@@ -4,7 +4,7 @@ const building2 = '../../images/Frame 459.png';
 const building3 = '../../images/Frame 460.png';
 export const Buildings = () => {
     return (React.createElement("div", { className: 'wrap_buildings' },
-        React.createElement("div", { className: 'buildings' },
+        React.createElement("div", { className: 'buildings', id: 'buildings_link' },
             React.createElement("p", { className: 'fone1' }),
             React.createElement("div", { className: 'each_building' },
                 React.createElement("img", { src: building1 }),

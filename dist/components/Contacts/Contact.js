@@ -1,6 +1,7 @@
 import React from "react";
 const telegram = "../../../images/icon-park-outline_telegram.svg";
 const whatsapp = "../../../images/Vector-4.svg";
+const map = '../../../images/Снимок экрана 2022-10-05 в 18.50 1-2.png';
 export const Contact = () => {
     return (React.createElement("div", { className: 'wrap_contact' },
         React.createElement("div", { className: 'contact' },
@@ -18,5 +19,6 @@ export const Contact = () => {
                         React.createElement("img", { src: whatsapp })),
                     React.createElement("a", { href: '#', className: 'wrap_social_contacts_links' },
                         React.createElement("img", { src: telegram, id: 'tele_low' })))),
-            React.createElement("div", { className: 'wrap_low_map' }))));
+            React.createElement("div", { className: 'wrap_low_map' },
+                React.createElement("img", { src: map })))));
 };

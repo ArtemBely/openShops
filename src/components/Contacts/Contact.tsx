@@ -1,6 +1,7 @@
 import React from "react";
 const telegram = "../../../images/icon-park-outline_telegram.svg";
 const whatsapp = "../../../images/Vector-4.svg";
+const map = '../../../images/Снимок экрана 2022-10-05 в 18.50 1-2.png';
 
 export const Contact = () => {
 
@@ -26,6 +27,7 @@ export const Contact = () => {
               </div>
 
               <div className='wrap_low_map'>
+                  <img src={map} />
               </div>
           </div>
       </div>

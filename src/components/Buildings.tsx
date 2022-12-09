@@ -7,7 +7,7 @@ export const Buildings = () => {
 
     return (
       <div className='wrap_buildings'>
-          <div className='buildings'>
+          <div className='buildings' id='buildings_link'>
           <p className='fone1'></p>
                 <div className='each_building'>
                     <img src={building1} />

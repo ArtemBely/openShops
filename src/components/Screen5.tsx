@@ -13,7 +13,7 @@ export const Screen5 = () => {
               <img src={fone3} className='screen_imgs1'/>
           </div>
           <p className='project_title2'>Интересная среда для детей, молодёжи и взрослых</p>
-          <div className='discuss_button2' id='discuss_button2'>Обсудить проект</div>
+          <a href="#request_field" className='request_field_link'><div className='discuss_button2' id='discuss_button2'>Обсудить проект</div></a>
       </div>
     )
 }
