@@ -174,8 +174,8 @@
   width: 1920px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[2];
-  grid-template-columns: repeat(2, 1fr);
+  -ms-grid-columns: 1005px 1fr;
+  grid-template-columns: 1005px 1fr;
 }
 .wrap_cube {
   margin: 0;

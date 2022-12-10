@@ -322,6 +322,10 @@
     -ms-grid-columns: 870px 1fr;
     grid-template-columns: 870px 1fr;
   }
+  .wrap_each_object > img {
+    width: 117%;
+    height: 479px;
+  }
   .wrap_each_object:hover > .each_project_img {
     height: 400px !important;
     width: 105%;
