@@ -188,7 +188,7 @@
         height: 322px;
         background: aliceblue;
         position: relative;
-        top: -187px;
+        top: -146px;
         width: 320px;
         overflow: hidden;
     }
@@ -230,7 +230,7 @@
          font-size: 16px;
    }
    .wrap_social_contacts {
-         top: -86px;
+         top: -63px;
          grid-gap: 20px;
    }
 
@@ -646,7 +646,12 @@
     }
     .txt_aboutBold, .txt_about2, .txt_about1 {
       font-size: 16px;
+    }
+    .txt_aboutBold, .txt_about1{
       line-height: 22px;
+    }
+    .txt_about2 {
+      line-height: 26px !important;
     }
     .txt_aboutBold {
       width: 320px;
@@ -932,5 +937,11 @@
     display: grid;
     -ms-grid-columns: 1fr 517px;
     grid-template-columns: 225px 1fr;
+  }
+  .desktopHidden {
+    display: block;
+  }
+  .mobileHidden {
+    display: none;
   }
 }

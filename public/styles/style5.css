@@ -73,3 +73,6 @@
 .technical_p {
   margin-top: 20px;
 }
+.desktopHidden {
+  display: none;
+}

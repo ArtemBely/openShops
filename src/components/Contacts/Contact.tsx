@@ -11,9 +11,14 @@ export const Contact = () => {
               <div className='wrap_contacts_inside'>
                   <div>
                       <p className='contact_title contsct_planchet'>Контакты</p>
-                      <p className='contact_info'>Россия, г. Москва,</p>
-                      <p className='contact_info'>107076, ул. Богородский Вал, д. 3, стр. 32,</p>
-                      <p className='contact_info'>пом. I, ком. 65, эт. 1</p>
+
+                      <p className='contact_info mobileHidden'>Россия, г. Москва,</p>
+                      <p className='contact_info mobileHidden'>107076, ул. Богородский Вал, д. 3, стр. 32,</p>
+                      <p className='contact_info mobileHidden'>пом. I, ком. 65, эт. 1</p>
+
+                      <p className='contact_info desktopHidden'>Россия, г. Москва, 107076, ул.</p>
+                      <p className='contact_info desktopHidden'>Богородский Вал, д. 3, стр. 32, пом. I,</p>
+                      <p className='contact_info desktopHidden'>ком. 65, эт. 1</p>
                   </div>
                   <div className='wrap_low_links_contact'>
                       <a href='tel:+74997536333' className='contact_info'>+7 499 753 63 33 (2046)</a>

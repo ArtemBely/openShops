@@ -431,9 +431,13 @@
    -ms-grid-columns: 370px 1fr;
    grid-template-columns: 370px 1fr;
  }
- .txt_aboutBold, .txt_about2, .txt_about1 {
+ .txt_aboutBold, .txt_about1 {
    font-size: 18px;
    line-height: 25px;
+ }
+ .txt_about2 {
+   font-size: 18px;
+   line-height: 28px;
  }
  .txt_aboutBold {
    width: 833px;

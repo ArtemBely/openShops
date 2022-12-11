@@ -1357,6 +1357,9 @@ width: 100%;
 .technical_p {
   margin-top: 20px;
 }
+.desktopHidden {
+  display: none;
+}
 
 @media (min-width: 1290px) and (max-width: 1920px) {
 
@@ -1716,9 +1719,13 @@ width: 100%;
     position: relative;
     top: -20px;
   }
-  .txt_aboutBold, .txt_about2, .txt_about1 {
+  .txt_aboutBold, .txt_about1 {
     font-size: 18px;
     line-height: 25px;
+  }
+  .txt_about2 {
+    font-size: 18px;
+    line-height: 28px;
   }
   .txt_aboutBold {
     width: 586px;
@@ -2242,9 +2249,13 @@ width: 100%;
    -ms-grid-columns: 370px 1fr;
    grid-template-columns: 370px 1fr;
  }
- .txt_aboutBold, .txt_about2, .txt_about1 {
+ .txt_aboutBold, .txt_about1 {
    font-size: 18px;
    line-height: 25px;
+ }
+ .txt_about2 {
+   font-size: 18px;
+   line-height: 28px;
  }
  .txt_aboutBold {
    width: 833px;
@@ -2981,9 +2992,13 @@ width: 100%;
    -ms-grid-columns: (1fr)[2];
    grid-template-columns: repeat(2, 1fr);
  }
- .txt_aboutBold, .txt_about2, .txt_about1 {
+ .txt_aboutBold, .txt_about1 {
    font-size: 18px;
    line-height: 25px;
+ }
+ .txt_about2 {
+   font-size: 18px;
+   line-height: 28px;
  }
  .txt_aboutBold {
    width: 576px;
@@ -3430,7 +3445,7 @@ width: 100%;
         height: 322px;
         background: aliceblue;
         position: relative;
-        top: -187px;
+        top: -146px;
         width: 320px;
         overflow: hidden;
     }
@@ -3472,7 +3487,7 @@ width: 100%;
          font-size: 16px;
    }
    .wrap_social_contacts {
-         top: -86px;
+         top: -63px;
          grid-gap: 20px;
    }
 
@@ -3888,7 +3903,12 @@ width: 100%;
     }
     .txt_aboutBold, .txt_about2, .txt_about1 {
       font-size: 16px;
+    }
+    .txt_aboutBold, .txt_about1{
       line-height: 22px;
+    }
+    .txt_about2 {
+      line-height: 26px !important;
     }
     .txt_aboutBold {
       width: 320px;
@@ -4174,6 +4194,12 @@ width: 100%;
     display: grid;
     -ms-grid-columns: 1fr 517px;
     grid-template-columns: 225px 1fr;
+  }
+  .desktopHidden {
+    display: block;
+  }
+  .mobileHidden {
+    display: none;
   }
 }
 
