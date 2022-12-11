@@ -11,10 +11,10 @@ export const ChooseUs = () => {
               </div>
               <div className='below_culture'>
                 <p className='txt_about1Title first_title' style={{ gridColumn: '1 / 3' }}>Почему нас выбирают?</p>
-                <p className='txt_about2 spec_txt_about spec_txt_about3'>At Benoy, we want to be the place where talent succeeds. The place that gives you scope and freedom in your work. That enables you to become the very best version of yourself. </p>
-                <p className='txt_about2 spec_txt_about spec_txt_about3'>At Benoy, we want to be the place where talent succeeds. The place that gives you scope and freedom in your work. That enables you to become the very best version of yourself. </p>
-                <p className='txt_about2 spec_txt_about spec_txt_about3'>We are always looking for people who want to be part of something different – passionate people who can ignite a spark of change. And as an inclusive employer, we welcome people from all backgrounds and cultures. </p>
-                <p className='txt_about2 spec_txt_about spec_txt_about3'>We are always looking for people who want to be part of something different – passionate people who can ignite a spark of change. And as an inclusive employer, we welcome people from all backgrounds and cultures.</p>
+                <p className='txt_about2 spec_txt_about spec_txt_about3'>Мы предлагаем качественные услуги по дизайну и проектированию зданий и интерьеров. Наши специалисты имеют большой опыт работы и постоянно совершенствуют свои знания и умения. </p>
+                <p className='txt_about2 spec_txt_about spec_txt_about3'>Наши клиенты ценят нас за уровень профессионализма, оперативность и ответственность. Мы стремимся создать доверительные и продуктивные отношения с нашими клиентами, чтобы сделать их задумки реальностью. </p>
+                <p className='txt_about2 spec_txt_about spec_txt_about3'>Cтремимся предложить нашим клиентам конкурентные цены и гибкие условия сотрудничества. Мы слушаем пожелания наших клиентов и стараемся индивидуально подходить к каждому проекту.</p>
+                <p className='txt_about2 spec_txt_about spec_txt_about3'>Если вы ищете надежного партнера для реализации своих проектов, обращайтесь к нам в проектное бюро!</p>
               </div>
           </div>
       </div>

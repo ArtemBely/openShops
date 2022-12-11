@@ -23,8 +23,17 @@ export const Culture = () => {
               </div>
               <div className='below_culture'>
                 <p className='txt_about1Title first_title' style={{ gridColumn: '1 / 3' }}>Ценности и культура бюро</p>
-                <p className='txt_about2 spec_txt_about3'>As a Benoy employee, you will receive a progressive employment and benefits package, including dedicated mentoring and development. With our diverse and international workforce encompassing 33 nationalities and projects in over 50 countries, we also provide opportunities for global mobility. </p>
-                <p className='txt_about2 spec_txt_about3'>Studio social events celebrate Benoy’s inclusive culture and include a number of regular clubs and groups including Sketch Club, Book Group, Softball, Tennis Club and more, alongside our regular ​‘Innovation Talks’ series. You will also be able to take part in our global Giving Back programme where we aim to apply cutting edge design thinking in support of great causes around the world.</p>
+                <div className='txt_about2 spec_txt_about3'>
+                    <p className='txt_about2'>В бюро мы опираемся на следующие ценности:</p>
+                    <p className='txt_about2'>1. Инновации: мы постоянно стремимся улучшать и инновационировать наши процессы и методы работы, чтобы предлагать нашим клиентам самые современные и эффективные решения.</p>
+                    <p className='txt_about2'>2. Сотрудничество: мы ценим партнёрские отношения с нашими клиентами и поставщиками, и стремимся быть открытыми и честными в нашей работе.</p>
+                    <p className='txt_about2'>3. Качество: мы гордимся тем, что наши проекты всегда выполняются на высоком уровне качества, что позволяет нам доверять нашим клиентам.</p>
+                    <p className='txt_about2'>4. Ответственность: мы понимаем, что наши проекты имеют большое значение для наших клиентов и общества, и поэтому мы всегда берём на себя полную ответственность за результаты нашей работы.</p>
+                </div>
+                <div className='txt_about2 spec_txt_about3'>
+                    <p className='txt_about2'>Мы объединили специалистов с разным опытом работы, чтобы создать команду с богатым креативным потенциалом. Мы верим в силу творчества и коллективного мышления, и поэтому обеспечиваем нашим сотрудникам оптимальные условия для развития их талантов.</p>
+                    <p className='txt_about2'>Наша культура — это социальная ответственность, доверие, уважение и честность. Мы придерживаемся чётко определённых этических принципов, которые помогают нам взаимодействовать с нашими клиентами, партнёрами и сотрудниками.</p>
+                </div>
               </div>
           </div>
       </div>

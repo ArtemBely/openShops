@@ -515,6 +515,7 @@
     /*vacancy*/
     .contentVacancy {
       width: 320px;
+      grid-gap: 0px;
       -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
     }

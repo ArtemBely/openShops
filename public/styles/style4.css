@@ -208,11 +208,14 @@
 .contentVacancy {
   display: -ms-grid;
   display: grid;
-  grid-gap: 0px 20px;
+  grid-gap: 0px 183px;
   width: 1920px;
   position: relative;
   -ms-grid-columns: 1fr 20px 1fr;
   grid-template-columns: repeat(2, 1fr);
+}
+.spec_descr {
+  margin: 10px 0px !important;
 }
 .contentVacancy > img {
   width: 100%;
@@ -242,6 +245,9 @@
   font-size: 22px;
   line-height: 160%;
   margin: 0;
+}
+.txt_vacancy {
+  margin-bottom: 20px;
 }
 .bold_vacancy {
   font-family: 'Inter-Bold';

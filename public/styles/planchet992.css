@@ -342,6 +342,7 @@
  /*vacancy*/
  .contentVacancy {
    width: 992px;
+   grid-gap: 0px 33px;
  }
  .txt_about1Title {
      font-size: 60px;
