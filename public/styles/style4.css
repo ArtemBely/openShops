@@ -29,7 +29,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 133px;
+  flex-wrap: wrap;
+  /* gap: 133px; */
+  gap: 0px 55px;
 }
 .wrap_allNews {
   -ms-grid-column: 1;
@@ -40,29 +42,25 @@
   display: flex;
   gap: 124px;
 }
-.each_category, .each_categoryNews {
+.each_category,
+.each_categoryNews {
   font-size: 22px;
   line-height: 160%;
   color: #888888;
-  padding-bottom: 10px;
-  background-position: bottom;
-  background-size: 15px 1px;
-  background-repeat: repeat-x;
-  background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, #888888), color-stop(0%, rgba(255,255,255,0)));
-  background-image: -o-linear-gradient(left, #888888 50%, rgba(255,255,255,0) 0%);
-  background-image: linear-gradient(to right, #888888 50%, rgba(255,255,255,0) 0%);
   cursor: pointer;
+  margin-block-start: 10px;
+  margin-block-end: 10px;
 }
 .choosenCategory {
   color: #010101;
   font-size: 22px;
   background: none !important;
   line-height: 140%;
-  font-family: 'Inter-Bold';
+  font-family: "Inter-Bold";
 }
 .spec_about_title {
-      margin: 0 !important;
-      width: 1408px !important;
+  margin: 0 !important;
+  width: 1408px !important;
 }
 .buildings_inside {
   display: -ms-grid;
@@ -91,13 +89,13 @@
   width: 1920px;
 }
 .common_addressObject {
-  font-size: 22px;
+  font-size: 20px;
   line-height: 160%;
   color: #010101;
   margin: 0;
 }
 .common_titleObject {
-  font-size: 22px;
+  font-size: 20px;
   line-height: 160%;
   color: #888888;
   margin: 0;
@@ -120,15 +118,15 @@
   -o-transition: 0.5s;
   transition: 0.5s;
   position: absolute;
-  bottom: -85px;
+  bottom: -90px;
 }
 .wrap_aboutProject {
   width: 100%;
   display: -ms-grid;
   display: grid;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 .wrap_each_object > img {
   width: 117%;
@@ -140,10 +138,18 @@
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
+  filter: grayscale(100%);
+  transition: all 0.5s;
 }
+
+.wrap_each_object > img:hover {
+  filter: grayscale(0%);
+  transition: all 0.5s;
+}
+
 .wrap_buildings_inside {
-      margin-top: 30px;
-      margin-bottom: 120px;
+  margin-top: 30px;
+  margin-bottom: 120px;
 }
 .wrap_each_object:hover > .each_project_img {
   height: 515px !important;
@@ -158,7 +164,7 @@
 .title_of_news {
   font-size: 22px;
   line-height: 140%;
-  font-family: 'Inter-Bold';
+  font-family: "Inter-Bold";
 }
 .description_of_news {
   font-size: 22px;
@@ -172,13 +178,14 @@
   display: -ms-grid;
   display: grid;
   -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: end;
+  -ms-flex-pack: end;
+  justify-content: end;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
-.title_of_news, .description_of_news {
+.title_of_news,
+.description_of_news {
   margin: 0;
   color: black;
 }
@@ -188,11 +195,11 @@
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 .wrap_contentVacancy {
   margin-top: 10px;
@@ -202,8 +209,8 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 .contentVacancy {
   display: -ms-grid;
@@ -237,11 +244,12 @@
 }
 .descr_of_vacs {
   font-size: 55px;
-  font-family: 'Oswald-Bold';
+  font-family: "Oswald-Bold";
   line-height: 160%;
   margin-bottom: 12px;
 }
-.txt_vacancy, .bold_vacancy {
+.txt_vacancy,
+.bold_vacancy {
   font-size: 22px;
   line-height: 160%;
   margin: 0;
@@ -250,7 +258,8 @@
   margin-bottom: 20px;
 }
 .bold_vacancy {
-  font-family: 'Inter-Bold';
+  font-family: "Inter-Bold";
+  font-weight: 600;
 }
 .contentVacancy {
   display: -ms-grid;
@@ -262,7 +271,7 @@
 }
 .spec_data_style {
   -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: end;
+  -ms-flex-align: end;
+  align-items: end;
   margin: 6px 0px;
 }

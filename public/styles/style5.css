@@ -4,8 +4,8 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   margin-top: 20px;
 }
 .wrap_projectDescr {
@@ -14,8 +14,8 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   margin-bottom: 100px;
 }
 .projectDescr {
@@ -35,9 +35,11 @@
 }
 .first_photo_project {
   width: 1920px !important;
+  height: 675px !important;
   -ms-grid-column: 1;
   -ms-grid-column-span: 6;
   grid-column: 1 / 7;
+  filter: grayscale(0%) !important;
 }
 .wrap_allImages {
   display: -ms-grid;
@@ -54,8 +56,17 @@
 }
 .each_photo_project {
   width: 275px;
+  height: 103px;
   cursor: pointer;
+  filter: grayscale(100%);
+  transition: all 0.5s;
 }
+
+.each_photo_project:hover {
+  filter: grayscale(0%);
+  transition: all 0.5s;
+}
+
 .each_descr_div {
   margin-bottom: 30px;
 }

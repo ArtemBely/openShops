@@ -29,7 +29,10 @@
   "scripts": {
     "start": "webpack && node serverDirection/server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "build:tsc": "tsc --watch",
+    "dev": "npm-run-all --parallel build:tsc watch:server watch:build",
+    "watch:build": "webpack --watch",
+    "watch:server": "nodemon serverDirection/server.js --watch \"./dist\""
   },
   "author": "Artem Belyshev",
   "license": "ISC",
