@@ -7,7 +7,7 @@ export const ProjectDescription = () => {
     <div className="wrap_projectDescr">
       <div className="projectDescr">
         <p className="descr_of_vacs descr_of_project">Описание проекта</p>
-        <div>
+        <div className="project-wrapper">
           <div className="each_descr_div">
             <p className="bold_vacancy">Наименование объекта </p>
             <p className="txt_vacancy">ЖК UNO Старокоптевский</p>
@@ -73,9 +73,9 @@ export const ProjectDescription = () => {
           </div>
         </div>
 
-        <div>
+        <div className="project-wrapper">
           <div className="each_descr_div">
-            <img src={logo} alt="uno" style={{ width: 575 }} />
+            <img src={logo} alt="uno" className="project-img" />
             <p className="bold_vacancy">
               Жилой комплекс UNO Старокоптевский – новое современное
               переосмысление домашнего пространства жилого квартала в изменяемой

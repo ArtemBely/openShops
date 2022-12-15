@@ -241,6 +241,10 @@
     height: auto;
   }
 
+  .footer-bottom {
+    margin-top: -60px;
+  }
+
   .middle_foot {
     display: -ms-grid;
     display: grid;

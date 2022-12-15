@@ -12,6 +12,15 @@
   .screen3 {
     width: 320px;
   }
+
+  .project-wrapper {
+    width: 320px;
+  }
+
+  .project-img {
+    width: 320px;
+  }
+
   .project_title2 {
     font-size: 30px;
     line-height: 36px;
