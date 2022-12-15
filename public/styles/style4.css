@@ -140,6 +140,7 @@
   transition: 0.5s;
   filter: grayscale(100%);
   transition: all 0.5s;
+  object-fit: cover;
 }
 
 .wrap_each_object > img:hover {

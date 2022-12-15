@@ -186,6 +186,7 @@ html {
 .footer-top {
   display: flex;
   justify-content: space-between;
+  width: 1125px;
 }
 
 .footer-bottom p:last-child {

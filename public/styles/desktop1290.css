@@ -121,7 +121,7 @@
   }
 
   .footer-bottom {
-    margin-top: -60px;
+    margin-top: -30px;
   }
 
   .middle_foot {
@@ -133,7 +133,7 @@
     width: 1200px;
     -ms-grid-columns: 299px 88px 288px 88px 129px 88px 221px;
     grid-template-columns: 299px 288px 129px 221px;
-    grid-gap: 88px;
+    grid-gap: 70px;
   }
   .msg_us_btn {
     width: 511px;
@@ -144,6 +144,7 @@
   .grey_link {
     margin-bottom: 7px;
   }
+
   .each_other,
   .each_address {
     font-size: 18px;
@@ -344,6 +345,7 @@
   .wrap_each_object > img {
     width: 117%;
     height: 479px;
+    object-fit: cover;
   }
   .wrap_each_object:hover > .each_project_img {
     height: 400px !important;

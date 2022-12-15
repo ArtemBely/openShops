@@ -20,16 +20,25 @@ export const Footer = () => {
               Все проекты
             </NavLink>
             <NavLink to="/projects" className="each_other">
-              Категория 1
+              Жилые комплексы
             </NavLink>
             <NavLink to="/projects" className="each_other">
-              Категория 2
+              Общественно-деловые комплексы
             </NavLink>
             <NavLink to="/projects" className="each_other">
-              Категория 3
+              Гостиничные комплексы
             </NavLink>
             <NavLink to="/projects" className="each_other">
-              Категория 4
+              Градостроительные концепции
+            </NavLink>
+            <NavLink to="/projects" className="each_other">
+              Развлекательные комплексы
+            </NavLink>
+            <NavLink to="/projects" className="each_other">
+              Конкурсы
+            </NavLink>
+            <NavLink to="/projects" className="each_other">
+              Интерьеры
             </NavLink>
           </div>
           <div className="foot_links footerCorrect">

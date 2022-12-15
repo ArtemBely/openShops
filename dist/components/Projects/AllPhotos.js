@@ -55,6 +55,5 @@ export const AllPhotos = () => {
                 React.createElement("img", { src: fone21, className: "each_photo_project hideMobile" }),
                 React.createElement("img", { src: fone22, className: "each_photo_project hideMobile" }),
                 React.createElement("img", { src: fone23, className: "each_photo_project hideMobile" }),
-                React.createElement("img", { src: fone24, className: "each_photo_project hideMobile" }),
                 React.createElement("img", { src: fone25, className: "each_photo_project hideMobile" })))));
 };

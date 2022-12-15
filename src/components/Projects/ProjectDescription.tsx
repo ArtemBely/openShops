@@ -75,7 +75,6 @@ export const ProjectDescription = () => {
 
         <div className="project-wrapper">
           <div className="each_descr_div">
-            <img src={logo} alt="uno" className="project-img" />
             <p className="bold_vacancy">
               Жилой комплекс UNO Старокоптевский – новое современное
               переосмысление домашнего пространства жилого квартала в изменяемой

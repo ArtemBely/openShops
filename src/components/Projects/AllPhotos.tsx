@@ -65,7 +65,6 @@ export const AllPhotos = () => {
           <img src={fone21} className="each_photo_project hideMobile" />
           <img src={fone22} className="each_photo_project hideMobile" />
           <img src={fone23} className="each_photo_project hideMobile" />
-          <img src={fone24} className="each_photo_project hideMobile" />
           <img src={fone25} className="each_photo_project hideMobile" />
         </div>
       </div>

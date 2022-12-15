@@ -186,6 +186,7 @@ html {
 .footer-top {
   display: flex;
   justify-content: space-between;
+  width: 1125px;
 }
 
 .footer-bottom p:last-child {
@@ -1236,6 +1237,7 @@ width: 100%;
   transition: 0.5s;
   filter: grayscale(100%);
   transition: all 0.5s;
+  object-fit: cover;
 }
 
 .wrap_each_object > img:hover {
@@ -1409,7 +1411,7 @@ width: 100%;
 }
 .first_photo_project {
   width: 1920px !important;
-  height: 675px !important;
+  height: 775px !important;
   -ms-grid-column: 1;
   -ms-grid-column-span: 6;
   grid-column: 1 / 7;
@@ -1585,7 +1587,7 @@ width: 100%;
   }
 
   .footer-bottom {
-    margin-top: -60px;
+    margin-top: -30px;
   }
 
   .middle_foot {
@@ -1597,7 +1599,7 @@ width: 100%;
     width: 1200px;
     -ms-grid-columns: 299px 88px 288px 88px 129px 88px 221px;
     grid-template-columns: 299px 288px 129px 221px;
-    grid-gap: 88px;
+    grid-gap: 70px;
   }
   .msg_us_btn {
     width: 511px;
@@ -1608,6 +1610,7 @@ width: 100%;
   .grey_link {
     margin-bottom: 7px;
   }
+
   .each_other,
   .each_address {
     font-size: 18px;
@@ -1808,6 +1811,7 @@ width: 100%;
   .wrap_each_object > img {
     width: 117%;
     height: 479px;
+    object-fit: cover;
   }
   .wrap_each_object:hover > .each_project_img {
     height: 400px !important;
@@ -2356,6 +2360,7 @@ width: 100%;
   }
   .wrap_each_object > img {
     height: 360px;
+    object-fit: cover;
   }
   .wrap_allCategory {
     gap: 25px;
@@ -3152,6 +3157,7 @@ width: 100%;
   }
   .wrap_each_object > img {
     height: 360px;
+    object-fit: cover;
   }
   .wrap_allCategory {
     gap: 37px;
@@ -3335,6 +3341,7 @@ width: 100%;
   }
   .first_photo_project {
     width: 576px !important;
+    height: 675px !important;
     -ms-grid-column: 1;
     -ms-grid-column-span: 3;
     grid-column: 1 / 4;
@@ -3455,10 +3462,11 @@ width: 100%;
     position: relative;
     margin-bottom: -56px;
     top: 0;
+    width: 246px;
   }
   .middle_foot_mobile {
-    top: 0 !important;
-    left: 148px;
+    top: -114px !important;
+    left: 350px;
     display: -ms-grid;
     display: grid;
     height: 238px;
@@ -3478,7 +3486,7 @@ width: 100%;
     top: 143px;
   }
   .contacts_mobile {
-    top: -21px;
+    top: -80px;
   }
   .mobile_logo_mobile {
     display: block;
@@ -4149,6 +4157,7 @@ width: 100%;
   }
   .wrap_each_object > img {
     height: 200px;
+    object-fit: cover;
   }
   .wrap_allCategory {
     gap: 27px;
