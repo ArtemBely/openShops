@@ -1,132 +1,143 @@
-const path = require('path');
-const webpack = require('webpack');
-var nodeExternals = require('webpack-node-externals');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require("path");
+const webpack = require("webpack");
+var nodeExternals = require("webpack-node-externals");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const NodemonPlugin = require("nodemon-webpack-plugin");
 
 var browserConfig = {
-      entry: ['babel-regenerator-runtime', './dist/browser/index.js'],
-      output: {
-        path: path.resolve(__dirname, 'public'),
-        filename: 'bundles/bundle.js',
-        publicPath: '/'
-      },
-      mode: 'production',
-      module: {
-        rules: [
-          {
-            test: /\.(js|jsx)$/,
-            exclude: /node_modules/,
-            use: {
-              loader: 'babel-loader'
-            }
-          },
-          {
-            test: /\.tsx?$/,
-            use: 'ts-loader',
-            exclude: /node_modules/
-          },
-          {
-            test: /\.css$/,
-            exclude: /node_modules/,
-            use: [MiniCssExtractPlugin.loader, 'css-loader']
-          },
-          {
-            test: /\.(jpe?g|jpg|png|gif|svg|ico)$/i,
-            use: [
-                {
-                    loader: 'file-loader',
-                    options: {
-                      name: 'images/[name].[ext]'
-                }
-              }
-            ]
-          },
-          {
-            test: /\.(woff(2)?|ttf|eot)$/,
-            use: {
-                loader: "file-loader",
-                options: {
-                    name: "fonts/[name].[ext]"
-              }
-            }
-         }
-        ]
-      },
-      resolve: {
-          extensions: ['.tsx', '.ts', '.js'],
-      },
-      plugins: [
-        new webpack.DefinePlugin({
-          __isBrowser__: "true"
-        }),
-        new MiniCssExtractPlugin({
-          filename: '[name].css'
-        })
-      ]
-}
-
-var serverConfig = {
-  entry: ['babel-regenerator-runtime', './dist/server/index.js'],
-  target: 'node',
-  externals: [nodeExternals()],
-  output: {
-    path: __dirname,
-    filename: 'serverDirection/server.js',
-    publicPath: '/'
+  entry: ["babel-regenerator-runtime", "./dist/browser/index.js"],
+  //watch: true,
+  watchOptions: {
+    aggregateTimeout: 3000,
+    poll: 5000,
   },
-  mode: 'production',
+  output: {
+    path: path.resolve(__dirname, "public"),
+    filename: "bundles/bundle.js",
+    publicPath: "/",
+  },
+  mode: "production",
   module: {
     rules: [
       {
-          test: /\.(js|jsx)$/,
-          exclude: /node_modules/,
-          use: {
-             loader: 'babel-loader',
-           }
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+        },
       },
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/
+        use: "ts-loader",
+        exclude: /node_modules/,
       },
       {
-         test: /\.css$/,
-         exclude: /node_modules/,
-         use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        test: /\.css$/,
+        exclude: /node_modules/,
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
       {
-         test: /\.(jpe?g|jpg|png|gif|svg|ico)$/i,
-         use: [
-              {
-                  loader: 'file-loader',
-                  options: {
-                    name: 'images/[name].[ext]'
-              }
-            }
-          ]
-        },
+        test: /\.(jpe?g|jpg|png|gif|svg|ico)$/i,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "images/[name].[ext]",
+            },
+          },
+        ],
+      },
       {
         test: /\.(woff(2)?|ttf|eot)$/,
         use: {
-            loader: "file-loader",
-            options: {
-                name: "fonts/[name].[ext]"
-          }
-        }
-      }
-    ]
+          loader: "file-loader",
+          options: {
+            name: "fonts/[name].[ext]",
+          },
+        },
+      },
+    ],
   },
   resolve: {
-      extensions: ['.tsx', '.ts', '.js'],
+    extensions: [".tsx", ".ts", ".js"],
   },
   plugins: [
     new webpack.DefinePlugin({
-      __isBrowser__: "false"
+      __isBrowser__: "true",
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].css'
-    })
-  ]
-}
+      filename: "[name].css",
+    }),
+  ],
+};
 
-module.exports = [browserConfig, serverConfig]
+var serverConfig = {
+  entry: ["babel-regenerator-runtime", "./dist/server/index.js"],
+  //watch: true,
+  watchOptions: {
+    aggregateTimeout: 3000,
+    poll: 5000,
+  },
+  target: "node",
+  externals: [nodeExternals()],
+  output: {
+    path: __dirname,
+    filename: "serverDirection/server.js",
+    publicPath: "/",
+  },
+  mode: "production",
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+        },
+      },
+      {
+        test: /\.tsx?$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
+      },
+      {
+        test: /\.(jpe?g|jpg|png|gif|svg|ico)$/i,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "images/[name].[ext]",
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot)$/,
+        use: {
+          loader: "file-loader",
+          options: {
+            name: "fonts/[name].[ext]",
+          },
+        },
+      },
+    ],
+  },
+  resolve: {
+    extensions: [".tsx", ".ts", ".js"],
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      __isBrowser__: "false",
+    }),
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+    }),
+  ],
+};
+
+module.exports = [browserConfig, serverConfig];
