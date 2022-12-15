@@ -605,6 +605,7 @@
     gap: 37px;
     margin-top: 23px;
     width: 1300px;
+    flex-wrap: inherit;
   }
   .aboutProject {
     width: 800px;

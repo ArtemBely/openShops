@@ -335,7 +335,7 @@
     top: 103px;
   }
   .wrap_allCategory {
-    gap: 55px;
+    gap: 0px 55px;
   }
   .aboutProject {
     -ms-grid-columns: 870px 1fr;

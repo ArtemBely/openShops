@@ -646,6 +646,7 @@
     margin-top: 23px;
     width: 937px;
     overflow: scroll;
+    flex-wrap: inherit;
   }
   .aboutProject {
     width: 545px;

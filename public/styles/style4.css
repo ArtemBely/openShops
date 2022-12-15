@@ -29,7 +29,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 133px;
+  flex-wrap: wrap;
+  /* gap: 133px; */
+  gap: 0px 55px;
 }
 .wrap_allNews {
   -ms-grid-column: 1;
@@ -46,6 +48,8 @@
   line-height: 160%;
   color: #888888;
   cursor: pointer;
+  margin-block-start: 10px;
+  margin-block-end: 10px;
 }
 .choosenCategory {
   color: #010101;
