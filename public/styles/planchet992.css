@@ -410,6 +410,7 @@
   }
   .wrap_each_object > img {
     height: 360px;
+    object-fit: cover;
   }
   .wrap_allCategory {
     gap: 25px;
