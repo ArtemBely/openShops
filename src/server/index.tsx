@@ -20,6 +20,7 @@ import abouttRouter from './routers/about';
 import projectsRouter from './routers/projects';
 import newsRouter from './routers/news';
 import adminRouter from './routers/pannel';
+import loginRouter from './routers/login';
 import http from 'http';
 import https from 'https';
 import path from 'path';
@@ -82,6 +83,7 @@ app.use('/contacts', contactRouter);
 app.use('/about', abouttRouter);
 app.use('/projects', projectsRouter);
 app.use('/news', newsRouter);
+app.use('/login', loginRouter);
 
 app.get('*', (req: Request, res: Response, next: NextFunction) => {
   const activeRouter: any = Routes.find((route: any) => matchPath(req.url, route)) || {};

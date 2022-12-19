@@ -7,6 +7,7 @@ import MainProjects from './Projects/MainProjects';
 import MainNews from './News/MainNews';
 import { EachProject } from './Projects/EachProject';
 import MainAdmin from './Admin/MainAdmin';
+import Login from './Admin/Login';
 
 const routes:Array<Object> = [
   {
@@ -38,6 +39,11 @@ const routes:Array<Object> = [
     path: '/pannel',
     exact: true,
     component: MainAdmin
+  },
+  {
+    path: '/login',
+    exact: true,
+    component: Login
   },
   {
     path: '/about/:id',

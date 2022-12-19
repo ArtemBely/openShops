@@ -18,6 +18,7 @@ import abouttRouter from './routers/about';
 import projectsRouter from './routers/projects';
 import newsRouter from './routers/news';
 import adminRouter from './routers/pannel';
+import loginRouter from './routers/login';
 import http from 'http';
 import https from 'https';
 import path from 'path';
@@ -67,6 +68,7 @@ app.use('/contacts', contactRouter);
 app.use('/about', abouttRouter);
 app.use('/projects', projectsRouter);
 app.use('/news', newsRouter);
+app.use('/login', loginRouter);
 app.get('*', (req, res, next) => {
     const activeRouter = Routes.find((route) => matchPath(req.url, route)) || {};
     const promise = activeRouter.fetchInitialData ?

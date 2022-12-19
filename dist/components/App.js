@@ -10,6 +10,7 @@ import '../../public/styles/desktop1290.css';
 import '../../public/styles/planchet992.css';
 import '../../public/styles/planchet576.css';
 import '../../public/styles/mobile.css';
+import '../../public/styles/login.css';
 export class App extends Component {
     render() {
         return (React.createElement("div", { className: 'main_wrap' },
