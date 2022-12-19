@@ -1,12 +1,6 @@
-import React, { useEffect, useState, useRef } from "react";
+import React from "react";
 
 export const Form = () => {
-
-  useEffect(() => {
-    if (typeof window != "undefined" && window.location.pathname == "/login") {
-      document.body.style.backgroundColor = "#f2f2f5";
-    }
-  });
 
     return(
       <div className='wrap_form'>

@@ -35,7 +35,8 @@ const routes = [
         component: MainNews
     },
     {
-        path: '/pannel',
+        path: ['/pannel', '/pannel/projects', '/pannel/news',
+            '/pannel/vacancies', '/pannel/team'],
         exact: true,
         component: MainAdmin
     },
