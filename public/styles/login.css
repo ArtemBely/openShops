@@ -7,7 +7,7 @@
   align-items: center;
 }
 .header_admin {
-  width: 100%;
+  width: 1920px;
   display: grid;
   grid-template-columns: 301px 1fr 100px;
   height: 100%;

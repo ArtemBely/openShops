@@ -11,6 +11,7 @@ import '../../public/styles/planchet992.css';
 import '../../public/styles/planchet576.css';
 import '../../public/styles/mobile.css';
 import '../../public/styles/login.css';
+import '../../public/styles/admin.css';
 
 export class App extends Component<any> {
   render() {
