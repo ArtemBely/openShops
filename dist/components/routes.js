@@ -8,6 +8,7 @@ import MainNews from './News/MainNews';
 import { EachProject } from './Projects/EachProject';
 import MainAdmin from './Admin/MainAdmin';
 import Login from './Admin/Login';
+import MainPublication from './Admin/MainPublication';
 const routes = [
     {
         path: '/',
@@ -39,6 +40,12 @@ const routes = [
             '/pannel/vacancies', '/pannel/team'],
         exact: true,
         component: MainAdmin
+    },
+    {
+        path: ['/publication', '/publication/projects', '/publication/news',
+            '/publication/vacancies', '/publication/team'],
+        exact: true,
+        component: MainPublication
     },
     {
         path: '/login',

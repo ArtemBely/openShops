@@ -20,6 +20,7 @@ import abouttRouter from './routers/about';
 import projectsRouter from './routers/projects';
 import newsRouter from './routers/news';
 import adminRouter from './routers/pannel';
+import adminPublicationRouter from './routers/publication';
 import loginRouter from './routers/login';
 import http from 'http';
 import https from 'https';
@@ -79,6 +80,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/pannel', adminRouter);
+app.use('/publication', adminPublicationRouter);
 app.use('/contacts', contactRouter);
 app.use('/about', abouttRouter);
 app.use('/projects', projectsRouter);
