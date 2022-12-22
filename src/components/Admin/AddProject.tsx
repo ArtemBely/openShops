@@ -1,5 +1,8 @@
 import React from "react";
 import { categories } from './categories';
+import { Characteristics } from "./Characteristics";
+import { Description } from "./Description";
+import { Technical } from "./Technical";
 
 export const AddProject = () => {
     return(
@@ -12,7 +15,8 @@ export const AddProject = () => {
               <p className='post_name'>Категория</p>
               <select className='news_post_input' id='select_category'>
                   {categories.map((item:any, key:any) => (
-                      <option value={key==0 ? '' : item.name}
+                      <option key={key}
+                              value={key==0 ? '' : item.name}
                               disabled={key==0 ? true : false}>
                       {item.name}</option>
                   ))}
@@ -26,6 +30,13 @@ export const AddProject = () => {
               <p className='post_name'>Дата публикации / Тэг</p>
               <input type='text' className='news_post_input'/>
           </div>
+
+          <div className='wrap_main_project_issues'>
+              <Characteristics />
+              <Technical />
+              <Description />
+          </div>
+
       </div>
     )
 }

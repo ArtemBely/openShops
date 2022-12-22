@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
 import { Projects } from "./Projects";
 export const Publication = () => {
     const [txtPublic, setTxtPublic] = useState('проектов');
@@ -33,7 +32,7 @@ export const Publication = () => {
         React.createElement("p", { className: 'txtPublic' },
             "\u041F\u0443\u0431\u043B\u0438\u043A\u0430\u0446\u0438\u044F ",
             txtPublic),
-        React.createElement(NavLink, { to: `/publication/` + page, className: 'txtBelow' },
+        React.createElement("a", { href: `/publication/` + page, className: 'txtBelow' },
             React.createElement("span", null, "+"),
             " ",
             txtBelow),

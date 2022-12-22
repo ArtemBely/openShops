@@ -4812,7 +4812,7 @@ width: 100%;
   text-decoration: none;
   grid-column: 1 / 2;
 }
-.txtBelow > span {
+.txtBelow > span, .add_block > span {
   color: #808080;
   font-size: 30px;
   position: relative;
@@ -4935,7 +4935,7 @@ width: 100%;
   line-height: 140%;
   margin-bottom: 5px;
 }
-.post_input, .news_post_input {
+.post_input, .news_post_input, .main_characteristics_input {
   background: #FFFFFF;
   border: 1px solid #000000;
   border-radius: 10px;
@@ -4953,17 +4953,19 @@ width: 100%;
   width: 1260px;
   cursor: pointer;
 }
-.post_area {
+.post_area, .main_characteristics_area {
   background: #FFFFFF;
   border: 1px solid #000000;
   border-radius: 10px;
   margin-bottom: 20px;
-  width: 910px;
   height: 220px;
   padding: 10px;
   font-size: 18px;
   line-height: 140%;
   cursor: pointer;
+}
+.post_area {
+  width: 910px;
 }
 .mainFile {
   grid-column: 1 / 2;
@@ -4982,5 +4984,25 @@ select {
 .each_option {
   font-size: 18px;
   line-height: 140%;
+}
+.main_characteristics_input, .main_characteristics_area {
+  width: 590px;
+}
+.wrap_main_project_issues {
+  grid-column: 1 / 3;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+}
+.bold_name {
+  margin: 30px 0px;
+  font-family: "Inter-Bold";
+}
+.add_block {
+  cursor: pointer;
+  margin: 0;
+}
+.special_descr {
+  margin-top: 0px;
 }
 

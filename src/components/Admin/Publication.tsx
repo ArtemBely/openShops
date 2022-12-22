@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
 import { Projects } from "./Projects";
 
 export const Publication = () => {
@@ -36,7 +35,7 @@ export const Publication = () => {
     return(
       <div className='wrap_public_txt'>
           <p className='txtPublic'>Публикация {txtPublic}</p>
-          <NavLink to={`/publication/` + page} className='txtBelow'><span>+</span> {txtBelow}</NavLink>
+          <a href={`/publication/` + page} className='txtBelow'><span>+</span> {txtBelow}</a>
           <div className='wrap_each_project'>
               <Projects page={page}/>
               <Projects page={page}/>
