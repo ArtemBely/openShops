@@ -8,7 +8,7 @@ export const Technical = () => {
   const increaseCount = () => { setCount((prevState) => (prevState + 1)); }
 
   useEffect(() => {
-    arr.push(count); console.log(arr)
+    arr.push(count);
   }, [count]);
 
   const returnFields = () => {
@@ -17,9 +17,9 @@ export const Technical = () => {
           {arr.map((key:number) => (
             <div>
                 <p className='post_name'>Заголовок {key+1}</p>
-                <input type='text' className='main_characteristics_input' name={`technicalTitle${key+1}`}/>
+                <input type='text' className='main_characteristics_input' form='projectsForm' required name='technicalTitle' />
                 <p className='post_name special_descr'>Описание {key+1}</p>
-                <input type='text' className='main_characteristics_input' name={`technicalDescription${key+1}`}/>
+                <input type='text' className='main_characteristics_input' form='projectsForm' required name='technicalDescription'/>
             </div>
           ))}
       </div>

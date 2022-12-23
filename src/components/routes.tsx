@@ -43,8 +43,8 @@ const routes:Array<Object> = [
     component: MainAdmin
   },
   {
-    path: ['/publication', '/publication/projects', '/publication/news',
-  '/publication/vacancies', '/publication/team'],
+    path: ['/publication', '/publication/projects', '/publication/projects/:id', '/publication/news', '/publication/news/:id',
+  '/publication/vacancies', '/publication/vacancies/:id', '/publication/team', '/publication/team/:id'],
     exact: true,
     component: MainPublication
   },

@@ -5005,4 +5005,11 @@ select {
 .special_descr {
   margin-top: 0px;
 }
+#projectsForm {
+  position: absolute;
+}
+.wrap_each_change {
+  text-decoration: none;
+  color: #000000;
+}
 

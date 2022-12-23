@@ -17,9 +17,9 @@ export const Characteristics = () => {
         {arr.map((key:number) => (
           <div>
               <p className='post_name'>Заголовок {key+1}</p>
-              <input type='text' className='main_characteristics_input'/>
+              <input type='text' name='mainName' form='projectsForm' required className='main_characteristics_input'/>
               <p className='post_name special_descr'>Описание {key+1}</p>
-              <input type='text' className='main_characteristics_input'/>
+              <input type='text' name='mainDescription' form='projectsForm' required className='main_characteristics_input'/>
           </div>
         ))}
       </div>

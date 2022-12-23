@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 export const AddNews = () => {
     const [defineNews, setDefineNews] = useState('');
     useEffect(() => {
-        if (typeof window != "undefined" && window.location.pathname.split('/').pop() == 'news') {
+        if (typeof window != "undefined" && window.location.pathname.split('/')[2] == 'news') {
             setDefineNews('news');
         }
-        else if (typeof window != "undefined" && window.location.pathname.split('/').pop() == 'vacancies') {
+        else if (typeof window != "undefined" && window.location.pathname.split('/')[2] == 'vacancies') {
             setDefineNews('vacancies');
         }
     });

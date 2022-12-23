@@ -6,14 +6,15 @@ import { Technical } from "./Technical";
 
 export const AddProject = () => {
     return(
-      <div className='wrap_post_project' style={{ display: typeof window != "undefined" && window.location.pathname.split('/').pop() == 'projects' ? 'grid' : 'none' }}>
+      <div className='wrap_post_project' style={{ display: typeof window != "undefined" && window.location.pathname.split('/')[2] == 'projects' ? 'grid' : 'none' }}>
+      <form action='/publication/projects' method='POST' id='projectsForm'></form>
           <div>
               <p className='post_name'>Название проекта</p>
-              <input type='text' className='news_post_input'/>
+              <input type='text' name='title' form='projectsForm' required className='news_post_input'/>
           </div>
           <div>
               <p className='post_name'>Категория</p>
-              <select className='news_post_input' id='select_category'>
+              <select className='news_post_input' name='category' required form='projectsForm' id='select_category'>
                   {categories.map((item:any, key:any) => (
                       <option key={key}
                               value={key==0 ? '' : item.name}
@@ -24,11 +25,11 @@ export const AddProject = () => {
           </div>
           <div>
               <p className='post_name'>Вторая строка превью</p>
-              <input type='text' className='news_post_input'/>
+              <input type='text' name='secondString' form='projectsForm' required className='news_post_input'/>
           </div>
           <div>
               <p className='post_name'>Дата публикации / Тэг</p>
-              <input type='text' className='news_post_input'/>
+              <input type='text' name='tag' form='projectsForm' required className='news_post_input'/>
           </div>
 
           <div className='wrap_main_project_issues'>

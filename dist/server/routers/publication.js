@@ -16,19 +16,27 @@ import MainPublication from '../../components/Admin/MainPublication';
 import { Team } from '../models/team.js';
 import { News } from '../models/news.js';
 import { Vacancy } from '../models/vacancy.js';
+import { Project } from '../models/project.js';
 const router = express.Router();
-router.get(['/', '/projects', '/news', '/vacancies', '/team'], (req, res) => {
-    let cond = true;
+router.get(['/', '/projects', '/projects/:id', '/news', '/news/:id',
+    '/vacancies', '/vacancies/:id', '/team', '/team/:id'], (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    let projects = yield Project.find();
+    let news = yield News.find();
+    let vacancies = yield Vacancy.find();
+    let team = yield Team.find();
     const congrats = renderToString(React.createElement(StaticRouter, null,
         React.createElement(MainPublication, null)));
     res.send(`<!DOCTYPE html>
         <html>
             <head>
               <title>Проверка кода</title>
-                   <link rel="stylesheet" type="text/css" href="../main.css">
+                   <link rel="stylesheet" type="text/css" href="../../main.css">
                      <meta name="viewport" content="width=device-width, initial-scale=1">
-                       <script src='../bundles/bundle.js' defer></script>
-                       <script>window.__INITIAL_STATE__ = ${serialize(cond)}</script>
+                       <script src='../../bundles/bundle.js' defer></script>
+                       <script>window.__INITIAL_PROJECTS__ = ${serialize(projects)}</script>
+                       <script>window.__INITIAL_NEWS__ = ${serialize(news)}</script>
+                       <script>window.__INITIAL_VACANCIES__ = ${serialize(vacancies)}</script>
+                       <script>window.__INITIAL_TEAM__ = ${serialize(team)}</script>
                        </head>
                      <body>
                    <div id="app">
@@ -36,7 +44,7 @@ router.get(['/', '/projects', '/news', '/vacancies', '/team'], (req, res) => {
               </div>
             </body>
         </html>`);
-});
+}));
 router.post('/team', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         var { name, title } = req.body;
@@ -45,6 +53,7 @@ router.post('/team', (req, res) => __awaiter(void 0, void 0, void 0, function* (
             title: title
         });
         newParticipant = newParticipant.save();
+        console.log(newParticipant, " obj");
         res.redirect('/publication/team');
     }
     catch (err) {
@@ -62,6 +71,7 @@ router.post('/news', (req, res) => __awaiter(void 0, void 0, void 0, function* (
             tag: tag
         });
         newNews = yield newNews.save();
+        console.log(newNews, " obj");
         res.redirect('/publication/news');
     }
     catch (err) {
@@ -79,7 +89,31 @@ router.post('/vacancies', (req, res) => __awaiter(void 0, void 0, void 0, functi
             tag: tag
         });
         newVacancy = yield newVacancy.save();
+        console.log(newVacancy, " obj");
         res.redirect('/publication/vacancies');
+    }
+    catch (err) {
+        if (err)
+            throw err;
+        console.log(err);
+    }
+}));
+router.post('/projects', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        console.log(req.body);
+        var { title, category, secondString, tag, mainName, mainDescription, technicalTitle, technicalDescription, descriptionTitle, descriptionTxt } = req.body;
+        var newProject = new Project({
+            title: title,
+            category: category,
+            secondString: secondString,
+            tag: tag,
+            mainArray: [mainName, mainDescription],
+            technicalArray: [technicalTitle, technicalDescription],
+            descriptionArray: [descriptionTitle, descriptionTxt]
+        });
+        newProject = yield newProject.save();
+        console.log(newProject, " obj");
+        res.redirect('/publication/projects');
     }
     catch (err) {
         if (err)

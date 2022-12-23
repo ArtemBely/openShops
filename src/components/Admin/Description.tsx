@@ -15,9 +15,9 @@ export const Description = () => {
           {arr.map((key:number) => (
             <div>
                 <p className='post_name'>Заголовок {key+1}</p>
-                <input type='text' className='main_characteristics_input'/>
+                <input type='text' name='descriptionTitle' form='projectsForm' required className='main_characteristics_input'/>
                 <p className='post_name special_descr'>Описание {key+1}</p>
-                <textarea className='main_characteristics_area'/>
+                <textarea name='descriptionTxt' form='projectsForm' required className='main_characteristics_area'/>
             </div>
           ))}
       </div>

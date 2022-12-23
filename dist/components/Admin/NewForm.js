@@ -12,9 +12,9 @@ export const NewForm = () => {
         if (typeof window != "undefined") {
             return window.location.pathname.split('/').pop() == 'vacancies' ? 'vacancyForm' :
                 window.location.pathname.split('/').pop() == 'news' ? 'newsForm' :
-                    window.location.pathname.split('/').pop() == 'team' ? 'teamForm' : 'projectForm';
+                    window.location.pathname.split('/').pop() == 'team' ? 'teamForm' : 'projectsForm';
         }
-        return 'projectForm';
+        return 'projectsForm';
     };
     return (React.createElement("div", { className: 'wrap_main_form_admin' },
         React.createElement("div", { className: 'main_form_admin' },
