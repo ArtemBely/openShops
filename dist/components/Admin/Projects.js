@@ -4,7 +4,7 @@ const fone = '../../../images/Rectangle 205.png';
 export const Projects = (props) => {
     return (React.createElement("div", { className: 'each_project' },
         React.createElement("p", { className: 'date_of_publication', style: { opacity: props.page == 'team' ? 0 : 1 } }, props.page == 'team' ? 'tag' : props.item.tag),
-        React.createElement("a", { href: '#', className: 'each_project_link' },
+        React.createElement("a", { href: `/publication/${props.page}/delete/${props.item._id}`, className: 'each_project_link' },
             React.createElement("img", { src: close })),
         React.createElement("a", { href: `/publication/${props.page}/${props.item._id}`, className: 'wrap_each_change' },
             React.createElement("div", { className: 'wrap_each_publication' },

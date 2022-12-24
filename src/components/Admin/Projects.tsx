@@ -7,7 +7,7 @@ export const Projects = (props:any) => {
     return(
       <div className='each_project'>
           <p className='date_of_publication' style={{ opacity: props.page == 'team' ? 0 : 1 }}>{props.page == 'team' ? 'tag' : props.item.tag}</p>
-          <a href='#' className='each_project_link'><img src={close} /></a>
+          <a href={`/publication/${props.page}/delete/${props.item._id}`} className='each_project_link'><img src={close} /></a>
           <a href={`/publication/${props.page}/${props.item._id}`} className='wrap_each_change'>
               <div className='wrap_each_publication'>
                   <p className='wrap_inside_each_publication' style={{ display: props.page == 'vacancies' ? 'none' : 'block' }}><img src={fone} /></p>

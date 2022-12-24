@@ -88,9 +88,22 @@ router.post('/team', async(req: Request, res: Response) => {
         name: name,
         title: title
     });
-    newParticipant = newParticipant.save();
-    console.log(newParticipant, " obj");
-    res.redirect('/publication/team');
+    newParticipant = await newParticipant.save();
+    res.redirect('/pannel/team');
+  }
+  catch(err) {
+        if (err) throw err;
+        console.log(err);
+  }
+});
+router.post('/team/:id', async(req: Request, res: Response) => {
+  try{
+    var { name, title } = req.body;
+    let actualTeam:object | any = await Team.findById(req.params.id);
+    actualTeam.name = name;
+    actualTeam.title = title;
+    actualTeam = await actualTeam.save();
+    res.redirect('/pannel/team');
   }
   catch(err) {
         if (err) throw err;
@@ -108,7 +121,22 @@ router.post('/news', async(req: Request, res: Response) => {
     });
     newNews = await newNews.save();
     console.log(newNews, " obj");
-    res.redirect('/publication/news');
+    res.redirect('/pannel/news');
+  }
+  catch(err) {
+        if (err) throw err;
+        console.log(err);
+  }
+});
+router.post('/news/:id', async(req: Request, res: Response) => {
+  try{
+    var { title, tag, description } = req.body;
+    let actualNews:object | any = await News.findById(req.params.id);
+    actualNews.title = title;
+    actualNews.description = description;
+    actualNews.tag = tag;
+    actualNews = await actualNews.save();
+    res.redirect('/pannel/news');
   }
   catch(err) {
         if (err) throw err;
@@ -126,7 +154,22 @@ router.post('/vacancies', async(req: Request, res: Response) => {
     });
     newVacancy = await newVacancy.save();
     console.log(newVacancy, " obj");
-    res.redirect('/publication/vacancies');
+    res.redirect('/pannel/vacancies');
+  }
+  catch(err) {
+        if (err) throw err;
+        console.log(err);
+  }
+});
+router.post('/vacancies/:id', async(req: Request, res: Response) => {
+  try{
+    var { title, tag, description } = req.body;
+    let actualVacancy:object | any = await Vacancy.findById(req.params.id);
+    actualVacancy.title = title;
+    actualVacancy.description = description;
+    actualVacancy.tag = tag;
+    actualVacancy = await actualVacancy.save();
+    res.redirect('/pannel/vacancies');
   }
   catch(err) {
         if (err) throw err;
@@ -157,6 +200,39 @@ router.post('/projects', async(req: Request, res: Response) => {
         if (err) throw err;
         console.log(err);
   }
+});
+router.post('/projects/:id', async(req: Request, res: Response) => {
+  try{
+    let actualProject:object | any = await Project.findById(req.params.id);
+    let i:number;
+    for(i=0; i<Object.keys(req.body).length; i++) {
+      actualProject[Object.keys(req.body)[i]] = Object.values(req.body)[i];
+    }
+    actualProject = await actualProject.save();
+    res.redirect('/pannel/projects');
+  }
+  catch(err) {
+        if (err) throw err;
+        console.log(err);
+  }
+});
+
+//delete functions
+router.get('/team/delete/:id', async(req: Request, res: Response) => {
+  await Team.deleteOne({ _id: req.params.id });
+  res.redirect('/pannel/team');
+});
+router.get('/vacancies/delete/:id', async(req: Request, res: Response) => {
+  await Vacancy.deleteOne({ _id: req.params.id });
+  res.redirect('/pannel/vacancies');
+});
+router.get('/projects/delete/:id', async(req: Request, res: Response) => {
+  await Project.deleteOne({ _id: req.params.id });
+  res.redirect('/pannel/projects');
+});
+router.get('/news/delete/:id', async(req: Request, res: Response) => {
+  await News.deleteOne({ _id: req.params.id });
+  res.redirect('/pannel/news');
 });
 
 export default router;

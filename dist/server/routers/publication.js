@@ -84,9 +84,23 @@ router.post('/team', (req, res) => __awaiter(void 0, void 0, void 0, function* (
             name: name,
             title: title
         });
-        newParticipant = newParticipant.save();
-        console.log(newParticipant, " obj");
-        res.redirect('/publication/team');
+        newParticipant = yield newParticipant.save();
+        res.redirect('/pannel/team');
+    }
+    catch (err) {
+        if (err)
+            throw err;
+        console.log(err);
+    }
+}));
+router.post('/team/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        var { name, title } = req.body;
+        let actualTeam = yield Team.findById(req.params.id);
+        actualTeam.name = name;
+        actualTeam.title = title;
+        actualTeam = yield actualTeam.save();
+        res.redirect('/pannel/team');
     }
     catch (err) {
         if (err)
@@ -104,7 +118,23 @@ router.post('/news', (req, res) => __awaiter(void 0, void 0, void 0, function* (
         });
         newNews = yield newNews.save();
         console.log(newNews, " obj");
-        res.redirect('/publication/news');
+        res.redirect('/pannel/news');
+    }
+    catch (err) {
+        if (err)
+            throw err;
+        console.log(err);
+    }
+}));
+router.post('/news/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        var { title, tag, description } = req.body;
+        let actualNews = yield News.findById(req.params.id);
+        actualNews.title = title;
+        actualNews.description = description;
+        actualNews.tag = tag;
+        actualNews = yield actualNews.save();
+        res.redirect('/pannel/news');
     }
     catch (err) {
         if (err)
@@ -122,7 +152,23 @@ router.post('/vacancies', (req, res) => __awaiter(void 0, void 0, void 0, functi
         });
         newVacancy = yield newVacancy.save();
         console.log(newVacancy, " obj");
-        res.redirect('/publication/vacancies');
+        res.redirect('/pannel/vacancies');
+    }
+    catch (err) {
+        if (err)
+            throw err;
+        console.log(err);
+    }
+}));
+router.post('/vacancies/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        var { title, tag, description } = req.body;
+        let actualVacancy = yield Vacancy.findById(req.params.id);
+        actualVacancy.title = title;
+        actualVacancy.description = description;
+        actualVacancy.tag = tag;
+        actualVacancy = yield actualVacancy.save();
+        res.redirect('/pannel/vacancies');
     }
     catch (err) {
         if (err)
@@ -152,5 +198,38 @@ router.post('/projects', (req, res) => __awaiter(void 0, void 0, void 0, functio
             throw err;
         console.log(err);
     }
+}));
+router.post('/projects/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        let actualProject = yield Project.findById(req.params.id);
+        let i;
+        for (i = 0; i < Object.keys(req.body).length; i++) {
+            actualProject[Object.keys(req.body)[i]] = Object.values(req.body)[i];
+        }
+        actualProject = yield actualProject.save();
+        res.redirect('/pannel/projects');
+    }
+    catch (err) {
+        if (err)
+            throw err;
+        console.log(err);
+    }
+}));
+//delete functions
+router.get('/team/delete/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    yield Team.deleteOne({ _id: req.params.id });
+    res.redirect('/pannel/team');
+}));
+router.get('/vacancies/delete/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    yield Vacancy.deleteOne({ _id: req.params.id });
+    res.redirect('/pannel/vacancies');
+}));
+router.get('/projects/delete/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    yield Project.deleteOne({ _id: req.params.id });
+    res.redirect('/pannel/projects');
+}));
+router.get('/news/delete/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    yield News.deleteOne({ _id: req.params.id });
+    res.redirect('/pannel/news');
 }));
 export default router;

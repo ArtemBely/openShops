@@ -44,7 +44,7 @@ const routes:Array<Object> = [
   },
   {
     path: ['/publication', '/publication/projects', '/publication/projects/:id', '/publication/news', '/publication/news/:id',
-  '/publication/vacancies', '/publication/vacancies/:id', '/publication/team', '/publication/team/:id'],
+   '/publication/vacancies', '/publication/vacancies/:id', '/publication/team', '/publication/team/:id'],
     exact: true,
     component: MainPublication
   },

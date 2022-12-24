@@ -14,9 +14,9 @@ export const NewForm = () => {
     const showFile = () => { setMainFile(prevState => !prevState); };
     const defineForm = () => {
         if (typeof window != "undefined") {
-            return window.location.pathname.split('/').pop() == 'vacancies' ? 'vacancyForm' :
-                window.location.pathname.split('/').pop() == 'news' ? 'newsForm' :
-                    window.location.pathname.split('/').pop() == 'team' ? 'teamForm' : 'projectsForm';
+            return window.location.pathname.split('/')[2] == 'vacancies' ? 'vacancyForm' :
+                window.location.pathname.split('/')[2] == 'news' ? 'newsForm' :
+                    window.location.pathname.split('/')[2] == 'team' ? 'teamForm' : 'projectsForm';
         }
         return 'projectsForm';
     };

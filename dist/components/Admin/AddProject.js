@@ -3,6 +3,7 @@ import { categories } from './categories';
 import { Characteristics } from "./Characteristics";
 import { Description } from "./Description";
 import { Technical } from "./Technical";
+import { defineUpdate } from './defineUpdate';
 export const AddProject = (props) => {
     const [name, setData] = useState({
         title: '',
@@ -19,7 +20,7 @@ export const AddProject = (props) => {
         setData(Object.assign(Object.assign({}, name), { [e.target.name]: e.target.value }));
     };
     return (React.createElement("div", { className: 'wrap_post_project', style: { display: typeof window != "undefined" && window.location.pathname.split('/')[2] == 'projects' ? 'grid' : 'none' } },
-        React.createElement("form", { action: '/publication/projects', method: 'POST', id: 'projectsForm' }),
+        React.createElement("form", { action: `/publication/${defineUpdate()}`, method: 'POST', id: 'projectsForm' }),
         React.createElement("div", null,
             React.createElement("p", { className: 'post_name' }, "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"),
             React.createElement("input", { type: 'text', name: 'title', form: 'projectsForm', value: props.data ? name.title : undefined, required: true, onChange: handleChange, className: 'news_post_input' })),
