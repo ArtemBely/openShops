@@ -1,16 +1,25 @@
 import React, { useState } from "react";
+import  { Switch, Route } from 'react-router-dom';
+//import { BrowserRouter as Router, Route, Routes, NavLink } from 'react-router-dom';
 import { AddNews } from "./AddNews";
 import { AddProject } from "./AddProject";
 import { AddTeam } from "./AddTeam";
 const close = '../../../images/Vector.svg';
+let data:object;
+
+declare global {
+    interface Window {
+        __INITIAL_INFO__:object;
+    }
+}
 
 export const NewForm = () => {
 
+    if(typeof window != "undefined") { data = window.__INITIAL_INFO__; }
+
     const [mainFile, setMainFile] = useState(false);
 
-    const showFile = () => {
-      setMainFile(prevState => !prevState);
-    }
+    const showFile = () => { setMainFile(prevState => !prevState); }
 
     const defineForm = ():string => {
       if(typeof window != "undefined"){
@@ -32,10 +41,10 @@ export const NewForm = () => {
                       <button type='submit' onClick={() => { history.back() }} className='btn_admin'><img src={close} id='close_admin'/> Отменить публикацию</button>
                       <button type='submit' className='btn_admin' form={defineForm()}>Опубликовать</button>
                   </div>
-              <AddTeam />
+              <Route path={["/publication/team", "/publication/team/:id"]}><AddTeam data={data}/></Route>
               </div>
-              <AddNews />
-              <AddProject />
+              <Route path={["/publication/news", "/publication/news/:id", "/publication/vacancies", "/publication/vacancies/:id"]}><AddNews data={data}/></Route>
+              <Route path={["/publication/projects", "/publication/projects/:id"]}><AddProject data={data}/></Route>
           </div>
       </div>
     )

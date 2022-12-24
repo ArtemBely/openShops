@@ -10,8 +10,7 @@ import { Vacancy } from '../models/vacancy.js';
 import { Project } from '../models/project.js';
 const router = express.Router();
 
-router.get(['/', '/projects', '/projects/:id', '/news', '/news/:id',
- '/vacancies', '/vacancies/:id', '/team', '/team/:id'], async(req: Request, res: Response) => {
+router.get(['/', '/projects', '/news', '/vacancies', '/team'], async(req: Request, res: Response) => {
   let projects = await Project.find();
   let news = await News.find();
   let vacancies = await Vacancy.find();
@@ -26,9 +25,48 @@ router.get(['/', '/projects', '/projects/:id', '/news', '/news/:id',
         <html>
             <head>
               <title>Проверка кода</title>
+                   <link rel="stylesheet" type="text/css" href="../main.css">
+                     <meta name="viewport" content="width=device-width, initial-scale=1">
+                       <script src='../bundles/bundle.js' defer></script>
+                       <script>window.__INITIAL_PROJECTS__ = ${serialize(projects)}</script>
+                       <script>window.__INITIAL_NEWS__ = ${serialize(news)}</script>
+                       <script>window.__INITIAL_VACANCIES__ = ${serialize(vacancies)}</script>
+                       <script>window.__INITIAL_TEAM__ = ${serialize(team)}</script>
+                       </head>
+                     <body>
+                   <div id="app">
+                 ${congrats}
+              </div>
+            </body>
+        </html>`
+    );
+});
+
+router.get(['/projects/:id', '/news/:id', '/team/:id', '/vacancies/:id'], async(req: Request, res: Response) => {
+  let defineLocation:string = req.originalUrl.split('/')[2];
+  let editObject:object | any;
+  let projects = await Project.find();
+  let news = await News.find();
+  let vacancies = await Vacancy.find();
+  let team = await Team.find();
+  defineLocation == 'projects' ? editObject = await Project.findById(req.params.id) :
+  defineLocation == 'vacancies' ? editObject = await Vacancy.findById(req.params.id) :
+  defineLocation == 'news' ? editObject = await News.findById(req.params.id) :
+  editObject = await Team.findById(req.params.id);
+  const congrats = renderToString(
+    <StaticRouter>
+       <MainPublication />
+    </StaticRouter>
+  )
+  res.send(
+    `<!DOCTYPE html>
+        <html>
+            <head>
+              <title>Проверка кода</title>
                    <link rel="stylesheet" type="text/css" href="../../main.css">
                      <meta name="viewport" content="width=device-width, initial-scale=1">
                        <script src='../../bundles/bundle.js' defer></script>
+                       <script>window.__INITIAL_INFO__ = ${serialize(editObject)}</script>
                        <script>window.__INITIAL_PROJECTS__ = ${serialize(projects)}</script>
                        <script>window.__INITIAL_NEWS__ = ${serialize(news)}</script>
                        <script>window.__INITIAL_VACANCIES__ = ${serialize(vacancies)}</script>

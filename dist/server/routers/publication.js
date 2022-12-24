@@ -18,8 +18,7 @@ import { News } from '../models/news.js';
 import { Vacancy } from '../models/vacancy.js';
 import { Project } from '../models/project.js';
 const router = express.Router();
-router.get(['/', '/projects', '/projects/:id', '/news', '/news/:id',
-    '/vacancies', '/vacancies/:id', '/team', '/team/:id'], (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.get(['/', '/projects', '/news', '/vacancies', '/team'], (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     let projects = yield Project.find();
     let news = yield News.find();
     let vacancies = yield Vacancy.find();
@@ -30,9 +29,42 @@ router.get(['/', '/projects', '/projects/:id', '/news', '/news/:id',
         <html>
             <head>
               <title>Проверка кода</title>
+                   <link rel="stylesheet" type="text/css" href="../main.css">
+                     <meta name="viewport" content="width=device-width, initial-scale=1">
+                       <script src='../bundles/bundle.js' defer></script>
+                       <script>window.__INITIAL_PROJECTS__ = ${serialize(projects)}</script>
+                       <script>window.__INITIAL_NEWS__ = ${serialize(news)}</script>
+                       <script>window.__INITIAL_VACANCIES__ = ${serialize(vacancies)}</script>
+                       <script>window.__INITIAL_TEAM__ = ${serialize(team)}</script>
+                       </head>
+                     <body>
+                   <div id="app">
+                 ${congrats}
+              </div>
+            </body>
+        </html>`);
+}));
+router.get(['/projects/:id', '/news/:id', '/team/:id', '/vacancies/:id'], (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    let defineLocation = req.originalUrl.split('/')[2];
+    let editObject;
+    let projects = yield Project.find();
+    let news = yield News.find();
+    let vacancies = yield Vacancy.find();
+    let team = yield Team.find();
+    defineLocation == 'projects' ? editObject = yield Project.findById(req.params.id) :
+        defineLocation == 'vacancies' ? editObject = yield Vacancy.findById(req.params.id) :
+            defineLocation == 'news' ? editObject = yield News.findById(req.params.id) :
+                editObject = yield Team.findById(req.params.id);
+    const congrats = renderToString(React.createElement(StaticRouter, null,
+        React.createElement(MainPublication, null)));
+    res.send(`<!DOCTYPE html>
+        <html>
+            <head>
+              <title>Проверка кода</title>
                    <link rel="stylesheet" type="text/css" href="../../main.css">
                      <meta name="viewport" content="width=device-width, initial-scale=1">
                        <script src='../../bundles/bundle.js' defer></script>
+                       <script>window.__INITIAL_INFO__ = ${serialize(editObject)}</script>
                        <script>window.__INITIAL_PROJECTS__ = ${serialize(projects)}</script>
                        <script>window.__INITIAL_NEWS__ = ${serialize(news)}</script>
                        <script>window.__INITIAL_VACANCIES__ = ${serialize(vacancies)}</script>
