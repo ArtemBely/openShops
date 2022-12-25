@@ -104,16 +104,23 @@
   grid-template-columns: 580px 1fr;
   grid-gap: 0px 30px;
 }
-.btn_admin {
-  border: 1px solid #000000;
+.btn_admin, .delete_admin {
   border-radius: 10px;
   font-size: 18px;
   line-height: 140%;
-  color: #000000;
   cursor: pointer;
   padding: 10px 30px;
   background: transparent;
 }
+ .btn_admin {
+   border: 1px solid #000000;
+   color: #000000;
+ }
+ .delete_admin {
+   border: 1px solid #CD0000;
+   color: #CD0000;
+ }
+
 #close_admin {
   padding-right: 12px;
 }
@@ -214,4 +221,5 @@ select {
 .wrap_each_change {
   text-decoration: none;
   color: #000000;
+  grid-column: 1 / 3;
 }

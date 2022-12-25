@@ -4,8 +4,17 @@ import { Characteristics } from "./Characteristics";
 import { Description } from "./Description";
 import { Technical } from "./Technical";
 import { defineUpdate } from './defineUpdate';
+let data1:object | any;
+
+declare global {
+    interface Window {
+        __INITIAL_INFO__:object;
+    }
+}
 
 export const AddProject = (props:any) => {
+
+  if(typeof window != "undefined") { data1 = window.__INITIAL_INFO__; }
 
   const [name, setData] = useState({
     title: '',
@@ -15,8 +24,10 @@ export const AddProject = (props:any) => {
   });
 
   useEffect(() => {
-    if(props.data) setData({title: props.data.title, category: props.data.category,
+    if(props.data) {setData({title: props.data.title, category: props.data.category,
              secondString: props.data.secondString, tag: props.data.tag});
+             console.log(props.data.mainArray);
+           }
   },[]);
 
   const handleChange = (e:any) => {
@@ -25,7 +36,6 @@ export const AddProject = (props:any) => {
        [e.target.name]: e.target.value
      });
   }
-
 
     return(
       <div className='wrap_post_project' style={{ display: typeof window != "undefined" && window.location.pathname.split('/')[2] == 'projects' ? 'grid' : 'none' }}>
@@ -56,9 +66,9 @@ export const AddProject = (props:any) => {
           </div>
 
           <div className='wrap_main_project_issues'>
-              <Characteristics />
-              <Technical />
-              <Description />
+              <Characteristics val={data1 ? data1.mainArray : null} />
+              <Technical data={props.data ? props.data : null} />
+              <Description data={props.data ? props.data : null} />
           </div>
 
       </div>

@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 var arr = [0];
-export const Technical = () => {
+export const Technical = (props) => {
     const [count, setCount] = useState(1);
-    const increaseCount = () => { setCount((prevState) => (prevState + 1)); };
-    useEffect(() => {
-        arr.push(count);
-    }, [count]);
+    const increaseCount = () => { setCount((prevState) => (prevState + 1)); arr.push(count); };
+    //useEffect(() => { arr.push(count); }, [count]);
     const returnFields = () => {
         return (React.createElement("div", null, arr.map((key) => (React.createElement("div", null,
             React.createElement("p", { className: 'post_name' },

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 var arr:Array<number> = [0];
 
-export const Description = () => {
+export const Description = (props:any) => {
 
   const [count, setCount] = useState(1);
 
-  const increaseCount = () => { setCount((prevState) => (prevState + 1)); }
+  const increaseCount = () => { setCount((prevState) => (prevState + 1)); arr.push(count) }
 
-  useEffect(() => { arr.push(count) }, [count]);
+  //useEffect(() => { arr.push(count) }, [count]);
 
   const returnFields = () => {
     return(

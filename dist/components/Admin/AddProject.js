@@ -4,7 +4,11 @@ import { Characteristics } from "./Characteristics";
 import { Description } from "./Description";
 import { Technical } from "./Technical";
 import { defineUpdate } from './defineUpdate';
+let data1;
 export const AddProject = (props) => {
+    if (typeof window != "undefined") {
+        data1 = window.__INITIAL_INFO__;
+    }
     const [name, setData] = useState({
         title: '',
         category: '',
@@ -12,9 +16,11 @@ export const AddProject = (props) => {
         tag: ''
     });
     useEffect(() => {
-        if (props.data)
+        if (props.data) {
             setData({ title: props.data.title, category: props.data.category,
                 secondString: props.data.secondString, tag: props.data.tag });
+            console.log(props.data.mainArray);
+        }
     }, []);
     const handleChange = (e) => {
         setData(Object.assign(Object.assign({}, name), { [e.target.name]: e.target.value }));
@@ -34,7 +40,7 @@ export const AddProject = (props) => {
             React.createElement("p", { className: 'post_name' }, "\u0414\u0430\u0442\u0430 \u043F\u0443\u0431\u043B\u0438\u043A\u0430\u0446\u0438\u0438 / \u0422\u044D\u0433"),
             React.createElement("input", { type: 'text', name: 'tag', form: 'projectsForm', required: true, value: props.data ? name.tag : undefined, onChange: handleChange, className: 'news_post_input' })),
         React.createElement("div", { className: 'wrap_main_project_issues' },
-            React.createElement(Characteristics, null),
-            React.createElement(Technical, null),
-            React.createElement(Description, null))));
+            React.createElement(Characteristics, { val: data1 ? data1.mainArray : null }),
+            React.createElement(Technical, { data: props.data ? props.data : null }),
+            React.createElement(Description, { data: props.data ? props.data : null }))));
 };
