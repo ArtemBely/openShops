@@ -38,7 +38,7 @@ export const AddProject = (props:any) => {
 
     return(
       <div className='wrap_post_project' style={{ display: typeof window != "undefined" && window.location.pathname.split('/')[2] == 'projects' ? 'grid' : 'none' }}>
-      <form action={`/publication/${defineUpdate()}`} method='POST' id='projectsForm'></form>
+      <form action={`/publication/${defineUpdate()}`} method='POST' id='projectsForm' encType="multipart/form-data"></form>
           <div>
               <p className='post_name'>Название проекта</p>
               <input type='text' name='title' form='projectsForm' value={props.data ? name.title : undefined} required onChange={handleChange} className='news_post_input'/>

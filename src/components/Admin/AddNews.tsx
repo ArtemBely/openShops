@@ -31,7 +31,7 @@ export const AddNews = (props:any) => {
 
     return(
       <div style={{ display: defineNews == 'vacancies' || defineNews == 'news' ? 'block' : 'none' }}>
-          <form action={`/publication/${defineUpdate()}`} method='POST' id={defineNews == 'vacancies' ? 'vacancyForm' : 'newsForm'}></form>
+          <form action={`/publication/${defineUpdate()}`} method='POST' id={defineNews == 'vacancies' ? 'vacancyForm' : 'newsForm'} encType="multipart/form-data"></form>
           <p className='post_name'>Название {defineNews == 'vacancies' ? 'вакансии' : 'новости'}</p>
               <input type='text' name='title' form={defineNews == 'vacancies' ? 'vacancyForm' : 'newsForm'} value={props.data ? name.title : undefined} onChange={handleChange} required className='news_post_input'/>
           <p className='post_name'>Дата публикации / Тэг</p>

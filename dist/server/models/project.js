@@ -6,6 +6,7 @@ const projectSchema = new Schema({
     tag: { type: String, required: true },
     mainArray: { type: Array },
     technicalArray: { type: Array },
-    descriptionArray: { type: Array }
+    descriptionArray: { type: Array },
+    noExchangeFile: { type: String }
 });
 export const Project = model("Project", projectSchema);

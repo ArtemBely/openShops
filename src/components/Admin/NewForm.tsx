@@ -5,7 +5,7 @@ import { AddNews } from "./AddNews";
 import { AddProject } from "./AddProject";
 import { AddTeam } from "./AddTeam";
 const close = '../../../images/Vector.svg';
-let data:object;
+let data:object | any;
 
 declare global {
     interface Window {
@@ -16,10 +16,6 @@ declare global {
 export const NewForm = () => {
 
     if(typeof window != "undefined") { data = window.__INITIAL_INFO__; }
-
-    const [mainFile, setMainFile] = useState(false);
-
-    const showFile = () => { setMainFile(prevState => !prevState); }
 
     const defineForm = ():string => {
       if(typeof window != "undefined"){
@@ -47,8 +43,9 @@ export const NewForm = () => {
       <div className='wrap_main_form_admin'>
           <div className='main_form_admin'>
               <p className='txtPublic'>Публикация команды</p>
-              <p className='txtBelow' onClick={showFile}><span>+</span> {!mainFile ? 'Добавить основное изображение' : 'Скрыть'}</p>
-              <input type='file' className='mainFile' style={{ display: mainFile ? 'block' : 'none'}}/>
+              <p className='txtBelow'><span>+</span> Добавить основное изображение</p>
+              <input type='file' name='noExchangeFile' form={defineForm()} className='mainFile' />
+              <p className='wrap_avatar'><img src={typeof data != "undefined" && data.noExchangeFile != null ? `../../../uploads/${data.noExchangeFile}` : '../../../images/question-mark.png'} /></p>
               <div className='wrap_post_team'>
                   <div className='wrap_btn_admin'>
                       <Route path={["/publication/news/:id", "/publication/vacancies/:id", "/publication/team/:id", "/publication/projects/:id"]}>

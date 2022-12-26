@@ -8,7 +8,31 @@ import { Team } from '../models/team.js';
 import { News } from '../models/news.js';
 import { Vacancy } from '../models/vacancy.js';
 import { Project } from '../models/project.js';
+import multer from 'multer';
+import path from 'path';
 const router = express.Router();
+
+//Set Storage
+const storage = multer.diskStorage({
+  destination: './public/uploads/',
+  filename: function(req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now() +
+    path.extname(file.originalname));
+  }
+});
+
+const fileFilter = (req:Request, file:any, cb:any) => {
+  if( file.mimetype === 'image/png' || file.mimetype === 'image/jpg' || file.mimetype === 'image/jpeg' || file.mimetipe === 'image/svg') {
+    cb(null, true);
+  }
+  else  { cb(null, false); }
+};
+
+var upload = multer({
+  fileFilter: fileFilter,
+  limits:{ fileSize: 5000000 },
+  storage: storage
+});
 
 router.get(['/', '/projects', '/news', '/vacancies', '/team'], async(req: Request, res: Response) => {
   let projects = await Project.find();
@@ -81,12 +105,15 @@ router.get(['/projects/:id', '/news/:id', '/team/:id', '/vacancies/:id'], async(
     );
 });
 
-router.post('/team', async(req: Request, res: Response) => {
+router.post('/team', upload.single('noExchangeFile'), async(req: Request, res: Response) => {
+  var { name, title } = req.body;
+  let fileName = req.file != null ? req.file.filename : null;
+  console.log(req.file?.filename, "  is file");
   try{
-    var { name, title } = req.body;
     var newParticipant:any = new Team({
         name: name,
-        title: title
+        title: title,
+        noExchangeFile: fileName
     });
     newParticipant = await newParticipant.save();
     res.redirect('/pannel/team');
@@ -111,13 +138,16 @@ router.post('/team/:id', async(req: Request, res: Response) => {
   }
 });
 
-router.post('/news', async(req: Request, res: Response) => {
+router.post('/news', upload.single('noExchangeFile'), async(req: Request, res: Response) => {
+  var { title, tag, description } = req.body;
+  let fileName = req.file != null ? req.file.filename : null;
+  console.log(req.file?.filename, "  is file");
   try{
-    var { title, tag, description } = req.body;
     var newNews:any = new News({
         title: title,
         description: description,
-        tag: tag
+        tag: tag,
+        noExchangeFile: fileName
     });
     newNews = await newNews.save();
     console.log(newNews, " obj");
@@ -144,13 +174,16 @@ router.post('/news/:id', async(req: Request, res: Response) => {
   }
 });
 
-router.post('/vacancies', async(req: Request, res: Response) => {
+router.post('/vacancies', upload.single('noExchangeFile'), async(req: Request, res: Response) => {
+  var { title, tag, description } = req.body;
+  let fileName = req.file != null ? req.file.filename : null;
+  console.log(req.file?.filename, "  is file");
   try{
-    var { title, tag, description } = req.body;
     var newVacancy:any = new Vacancy({
         title: title,
         description: description,
-        tag: tag
+        tag: tag,
+        noExchangeFile: fileName
     });
     newVacancy = await newVacancy.save();
     console.log(newVacancy, " obj");
@@ -177,12 +210,14 @@ router.post('/vacancies/:id', async(req: Request, res: Response) => {
   }
 });
 
-router.post('/projects', async(req: Request, res: Response) => {
+router.post('/projects', upload.single('noExchangeFile'), async(req: Request, res: Response) => {
+  var { title, category, secondString, tag, mainName,
+     mainDescription, technicalTitle, technicalDescription,
+     descriptionTitle, descriptionTxt } = req.body;
+  let fileName = req.file != null ? req.file.filename : null;
+  console.log(req.file?.filename, "  is file");
   try{
     console.log(req.body);
-    var { title, category, secondString, tag, mainName,
-       mainDescription, technicalTitle, technicalDescription,
-       descriptionTitle, descriptionTxt } = req.body;
     var newProject:any = new Project({
         title: title,
         category: category,
@@ -190,7 +225,8 @@ router.post('/projects', async(req: Request, res: Response) => {
         tag: tag,
         mainArray: [typeof mainName == 'string' ? [mainName] : mainName, typeof mainDescription == 'string' ? [mainDescription] : mainDescription],
         technicalArray: [typeof technicalTitle == 'string' ? [technicalTitle] : technicalTitle, typeof technicalDescription == 'string' ? [technicalDescription] : technicalDescription],
-        descriptionArray: [typeof descriptionTitle == 'string' ? [descriptionTitle] : descriptionTitle, typeof descriptionTxt== 'string' ? [descriptionTxt] : descriptionTxt]
+        descriptionArray: [typeof descriptionTitle == 'string' ? [descriptionTitle] : descriptionTitle, typeof descriptionTxt== 'string' ? [descriptionTxt] : descriptionTxt],
+        noExchangeFile: fileName
     });
     newProject = await newProject.save();
     console.log(newProject, " obj");

@@ -22,7 +22,7 @@ export const AddNews = (props) => {
         setData(Object.assign(Object.assign({}, name), { [e.target.name]: e.target.value }));
     };
     return (React.createElement("div", { style: { display: defineNews == 'vacancies' || defineNews == 'news' ? 'block' : 'none' } },
-        React.createElement("form", { action: `/publication/${defineUpdate()}`, method: 'POST', id: defineNews == 'vacancies' ? 'vacancyForm' : 'newsForm' }),
+        React.createElement("form", { action: `/publication/${defineUpdate()}`, method: 'POST', id: defineNews == 'vacancies' ? 'vacancyForm' : 'newsForm', encType: "multipart/form-data" }),
         React.createElement("p", { className: 'post_name' },
             "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 ",
             defineNews == 'vacancies' ? 'вакансии' : 'новости'),
