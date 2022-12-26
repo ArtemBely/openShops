@@ -185,13 +185,13 @@ router.post('/projects', (req, res) => __awaiter(void 0, void 0, void 0, functio
             category: category,
             secondString: secondString,
             tag: tag,
-            mainArray: [mainName, mainDescription],
-            technicalArray: [technicalTitle, technicalDescription],
-            descriptionArray: [descriptionTitle, descriptionTxt]
+            mainArray: [typeof mainName == 'string' ? [mainName] : mainName, typeof mainDescription == 'string' ? [mainDescription] : mainDescription],
+            technicalArray: [typeof technicalTitle == 'string' ? [technicalTitle] : technicalTitle, typeof technicalDescription == 'string' ? [technicalDescription] : technicalDescription],
+            descriptionArray: [typeof descriptionTitle == 'string' ? [descriptionTitle] : descriptionTitle, typeof descriptionTxt == 'string' ? [descriptionTxt] : descriptionTxt]
         });
         newProject = yield newProject.save();
         console.log(newProject, " obj");
-        res.redirect('/publication/projects');
+        res.redirect('/pannel/projects');
     }
     catch (err) {
         if (err)
@@ -201,12 +201,25 @@ router.post('/projects', (req, res) => __awaiter(void 0, void 0, void 0, functio
 }));
 router.post('/projects/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        var { title, category, secondString, tag, mainName, mainDescription, technicalTitle, technicalDescription, descriptionTitle, descriptionTxt } = req.body;
         let actualProject = yield Project.findById(req.params.id);
-        let i;
-        for (i = 0; i < Object.keys(req.body).length; i++) {
-            actualProject[Object.keys(req.body)[i]] = Object.values(req.body)[i];
-        }
+        actualProject.title = title;
+        actualProject.category = category;
+        actualProject.secondString = secondString;
+        actualProject.tag = tag;
+        if (typeof mainName != 'string')
+            actualProject.mainArray = [mainName, mainDescription];
+        else
+            actualProject.mainArray = [[mainName], [mainDescription]];
+        if (typeof technicalTitle != 'string')
+            actualProject.technicalArray = [technicalTitle, technicalDescription];
+        else
+            actualProject.technicalArray = [[technicalTitle], [technicalDescription]];
+        if (typeof descriptionTitle != 'string')
+            actualProject.descriptionArray = [descriptionTitle, descriptionTxt];
+        actualProject.descriptionArray = [[descriptionTitle], [descriptionTxt]];
         actualProject = yield actualProject.save();
+        console.log(req.body, " body");
         res.redirect('/pannel/projects');
     }
     catch (err) {

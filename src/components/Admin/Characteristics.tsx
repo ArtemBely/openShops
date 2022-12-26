@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 var arr:Array<number> = [0];
+let mainNameArr:any;
+let mainDescriptionArr:any;
 
 export const Characteristics = (props:any) => {
 
   const [count, setCount] = useState(1);
   const [name, setData] = useState({
-    mainName: '',
-    mainDescription: ''
+    mainName: [],
+    mainDescription: []
   });
 
   const increaseCount = () => {
@@ -16,16 +18,13 @@ export const Characteristics = (props:any) => {
 
   useEffect(() => {
     /*arr.push(count);*/
-    if(typeof window != "undefined" && window.location.pathname.split('/').length == 4) arr.pop()
+    if(typeof window != "undefined" && window.location.pathname.split('/').length == 4) arr.pop();
+    if(props.val && props.val != null) {
+        setData({ mainName: props.val[0], mainDescription: props.val[1] });
+        mainNameArr = [...name.mainName];
+        mainDescriptionArr = [...name.mainDescription];
+     }
    }, []);
-
-  const handleChange = (e:any) => {
-    setData({
-       ...name,
-       [e.target.name]: e.target.value
-     });
-     console.log(e.target.value);
-  }
 
   //existed values
   const returnFields = () => {
@@ -35,9 +34,15 @@ export const Characteristics = (props:any) => {
         {props.val[0].map((item:any, key:number) => (
           <div>
               <p className='post_name'>Заголовок {key+1}</p>
-              <input type='text' name='mainName' form='projectsForm' value={props.val ? props.val[0][key] : undefined} onChange={handleChange} required className='main_characteristics_input'/>
+              <input type='text' name='mainName' form='projectsForm' value={props.val ? name.mainName[key] : undefined} onChange={(e:any) => {
+                mainNameArr[key] = e.target.value;
+                setData({ ...name, mainName: mainNameArr })
+              }} required className='main_characteristics_input'/>
               <p className='post_name special_descr'>Описание {key+1}</p>
-              <input type='text' name='mainDescription' form='projectsForm' value={props.val ? props.val[1][key] : undefined} onChange={handleChange} required className='main_characteristics_input'/>
+              <input type='text' name='mainDescription' form='projectsForm' value={props.val ? name.mainDescription[key] : undefined} onChange={(e:any) => {
+                mainDescriptionArr[key] = e.target.value;
+                setData({ ...name, mainDescription: mainDescriptionArr });
+              }} required className='main_characteristics_input'/>
           </div>
         ))}
       </div>
@@ -66,8 +71,8 @@ export const Characteristics = (props:any) => {
     return(
       <div>
           <p className='post_name bold_name'>Основные характеристики</p>
-          {returnFields()}
-          {returnNewFields()}
+            {returnFields()}
+            {returnNewFields()}
           <p className='post_name add_block' onClick={increaseCount}><span>+</span> Добавить блок</p>
       </div>
     )

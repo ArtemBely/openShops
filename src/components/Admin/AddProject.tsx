@@ -26,7 +26,6 @@ export const AddProject = (props:any) => {
   useEffect(() => {
     if(props.data) {setData({title: props.data.title, category: props.data.category,
              secondString: props.data.secondString, tag: props.data.tag});
-             console.log(props.data.mainArray);
            }
   },[]);
 
@@ -67,8 +66,8 @@ export const AddProject = (props:any) => {
 
           <div className='wrap_main_project_issues'>
               <Characteristics val={data1 ? data1.mainArray : null} />
-              <Technical data={props.data ? props.data : null} />
-              <Description data={props.data ? props.data : null} />
+              <Technical val={data1 ? data1.technicalArray : null} />
+              <Description val={data1 ? data1.descriptionArray : null} />
           </div>
 
       </div>

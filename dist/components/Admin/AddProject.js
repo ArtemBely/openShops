@@ -19,7 +19,6 @@ export const AddProject = (props) => {
         if (props.data) {
             setData({ title: props.data.title, category: props.data.category,
                 secondString: props.data.secondString, tag: props.data.tag });
-            console.log(props.data.mainArray);
         }
     }, []);
     const handleChange = (e) => {
@@ -41,6 +40,6 @@ export const AddProject = (props) => {
             React.createElement("input", { type: 'text', name: 'tag', form: 'projectsForm', required: true, value: props.data ? name.tag : undefined, onChange: handleChange, className: 'news_post_input' })),
         React.createElement("div", { className: 'wrap_main_project_issues' },
             React.createElement(Characteristics, { val: data1 ? data1.mainArray : null }),
-            React.createElement(Technical, { data: props.data ? props.data : null }),
-            React.createElement(Description, { data: props.data ? props.data : null }))));
+            React.createElement(Technical, { val: data1 ? data1.technicalArray : null }),
+            React.createElement(Description, { val: data1 ? data1.descriptionArray : null }))));
 };

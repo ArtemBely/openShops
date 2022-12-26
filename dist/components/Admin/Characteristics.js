@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 var arr = [0];
+let mainNameArr;
+let mainDescriptionArr;
 export const Characteristics = (props) => {
     const [count, setCount] = useState(1);
     const [name, setData] = useState({
-        mainName: '',
-        mainDescription: ''
+        mainName: [],
+        mainDescription: []
     });
     const increaseCount = () => {
         setCount((prevState) => (prevState + 1));
@@ -14,11 +16,12 @@ export const Characteristics = (props) => {
         /*arr.push(count);*/
         if (typeof window != "undefined" && window.location.pathname.split('/').length == 4)
             arr.pop();
+        if (props.val && props.val != null) {
+            setData({ mainName: props.val[0], mainDescription: props.val[1] });
+            mainNameArr = [...name.mainName];
+            mainDescriptionArr = [...name.mainDescription];
+        }
     }, []);
-    const handleChange = (e) => {
-        setData(Object.assign(Object.assign({}, name), { [e.target.name]: e.target.value }));
-        console.log(e.target.value);
-    };
     //existed values
     const returnFields = () => {
         if (props.val && props.val != null)
@@ -26,11 +29,17 @@ export const Characteristics = (props) => {
                 React.createElement("p", { className: 'post_name' },
                     "\u0417\u0430\u0433\u043E\u043B\u043E\u0432\u043E\u043A ",
                     key + 1),
-                React.createElement("input", { type: 'text', name: 'mainName', form: 'projectsForm', value: props.val ? props.val[0][key] : undefined, onChange: handleChange, required: true, className: 'main_characteristics_input' }),
+                React.createElement("input", { type: 'text', name: 'mainName', form: 'projectsForm', value: props.val ? name.mainName[key] : undefined, onChange: (e) => {
+                        mainNameArr[key] = e.target.value;
+                        setData(Object.assign(Object.assign({}, name), { mainName: mainNameArr }));
+                    }, required: true, className: 'main_characteristics_input' }),
                 React.createElement("p", { className: 'post_name special_descr' },
                     "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435 ",
                     key + 1),
-                React.createElement("input", { type: 'text', name: 'mainDescription', form: 'projectsForm', value: props.val ? props.val[1][key] : undefined, onChange: handleChange, required: true, className: 'main_characteristics_input' }))))));
+                React.createElement("input", { type: 'text', name: 'mainDescription', form: 'projectsForm', value: props.val ? name.mainDescription[key] : undefined, onChange: (e) => {
+                        mainDescriptionArr[key] = e.target.value;
+                        setData(Object.assign(Object.assign({}, name), { mainDescription: mainDescriptionArr }));
+                    }, required: true, className: 'main_characteristics_input' }))))));
         return;
     };
     //new values
