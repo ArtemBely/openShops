@@ -4,6 +4,8 @@ import { Screen2 } from "./Screen2";
 import { Screen3 } from "./Screen3";
 import { Screen4 } from "./Screen4";
 import { Screen5 } from "./Screen5";
+import { Screen6 } from "./Screen6";
+import Screen7 from "./Screen7";
 // import { Screen6 } from "./Screen6";
 
 interface iState {
@@ -27,7 +29,7 @@ class Screen extends React.Component<{}, iState> {
       window.localStorage.setItem(
         "count",
         JSON.stringify(
-          Number(window.localStorage.getItem("count")) + 1 >= 5
+          Number(window.localStorage.getItem("count")) + 1 >= 6
             ? 1
             : Number(window.localStorage.getItem("count")) + 1
         )
@@ -44,6 +46,8 @@ class Screen extends React.Component<{}, iState> {
       <Screen4 />
     ) : this.state.count == 4 ? (
       <Screen5 />
+    ) : this.state.count == 5 ? (
+      <Screen7 />
     ) : (
       <Screen2 />
     );

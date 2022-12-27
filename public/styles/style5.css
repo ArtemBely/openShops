@@ -34,7 +34,7 @@
   width: 1920px;
 }
 .first_photo_project {
-  width: 1920px !important;
+  width: -webkit-fill-available !important;
   height: 775px !important;
   -ms-grid-column: 1;
   -ms-grid-column-span: 6;
