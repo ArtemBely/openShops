@@ -41,7 +41,7 @@ var upload = multer({
     limits: { fileSize: 5000000 },
     storage: storage
 });
-router.get(['/', '/projects', '/news', '/vacancies', '/team'], (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.get(['/', '/projects', '/news', '/vacancies', '/team'], isLogin, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     let projects = yield Project.find();
     let news = yield News.find();
     let vacancies = yield Vacancy.find();
@@ -67,7 +67,7 @@ router.get(['/', '/projects', '/news', '/vacancies', '/team'], (req, res) => __a
             </body>
         </html>`);
 }));
-router.get(['/projects/:id', '/news/:id', '/team/:id', '/vacancies/:id'], (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.get(['/projects/:id', '/news/:id', '/team/:id', '/vacancies/:id'], isLogin, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     let defineLocation = req.originalUrl.split('/')[2];
     let editObject;
     let projects = yield Project.find();
@@ -100,7 +100,7 @@ router.get(['/projects/:id', '/news/:id', '/team/:id', '/vacancies/:id'], (req, 
             </body>
         </html>`);
 }));
-router.post('/team', upload.single('noExchangeFile'), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.post('/team', isLogin, upload.single('noExchangeFile'), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
     var { name, title } = req.body;
     let fileName = req.file != null ? req.file.filename : null;
@@ -120,12 +120,17 @@ router.post('/team', upload.single('noExchangeFile'), (req, res) => __awaiter(vo
         console.log(err);
     }
 }));
-router.post('/team/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.post('/team/:id', isLogin, upload.single('noExchangeFile'), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    var _b;
+    var { name, title } = req.body;
+    let fileName = req.file != null ? req.file.filename : null;
+    console.log((_b = req.file) === null || _b === void 0 ? void 0 : _b.filename, "  is file");
     try {
-        var { name, title } = req.body;
         let actualTeam = yield Team.findById(req.params.id);
         actualTeam.name = name;
         actualTeam.title = title;
+        actualTeam.noExchangeFile = typeof fileName != "undefined" && fileName != null ?
+            fileName : actualTeam.noExchangeFile;
         actualTeam = yield actualTeam.save();
         res.redirect('/pannel/team');
     }
@@ -135,11 +140,11 @@ router.post('/team/:id', (req, res) => __awaiter(void 0, void 0, void 0, functio
         console.log(err);
     }
 }));
-router.post('/news', upload.single('noExchangeFile'), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    var _b;
+router.post('/news', isLogin, upload.single('noExchangeFile'), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    var _c;
     var { title, tag, description } = req.body;
     let fileName = req.file != null ? req.file.filename : null;
-    console.log((_b = req.file) === null || _b === void 0 ? void 0 : _b.filename, "  is file");
+    console.log((_c = req.file) === null || _c === void 0 ? void 0 : _c.filename, "  is file");
     try {
         var newNews = new News({
             title: title,
@@ -157,13 +162,18 @@ router.post('/news', upload.single('noExchangeFile'), (req, res) => __awaiter(vo
         console.log(err);
     }
 }));
-router.post('/news/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.post('/news/:id', isLogin, upload.single('noExchangeFile'), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    var _d;
+    var { title, tag, description } = req.body;
+    let fileName = req.file != null ? req.file.filename : null;
+    console.log((_d = req.file) === null || _d === void 0 ? void 0 : _d.filename, "  is file");
     try {
-        var { title, tag, description } = req.body;
         let actualNews = yield News.findById(req.params.id);
         actualNews.title = title;
         actualNews.description = description;
         actualNews.tag = tag;
+        actualNews.noExchangeFile = typeof fileName != "undefined" && fileName != null ?
+            fileName : actualNews.noExchangeFile;
         actualNews = yield actualNews.save();
         res.redirect('/pannel/news');
     }
@@ -173,11 +183,11 @@ router.post('/news/:id', (req, res) => __awaiter(void 0, void 0, void 0, functio
         console.log(err);
     }
 }));
-router.post('/vacancies', upload.single('noExchangeFile'), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    var _c;
+router.post('/vacancies', isLogin, upload.single('noExchangeFile'), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    var _e;
     var { title, tag, description } = req.body;
     let fileName = req.file != null ? req.file.filename : null;
-    console.log((_c = req.file) === null || _c === void 0 ? void 0 : _c.filename, "  is file");
+    console.log((_e = req.file) === null || _e === void 0 ? void 0 : _e.filename, "  is file");
     try {
         var newVacancy = new Vacancy({
             title: title,
@@ -195,13 +205,18 @@ router.post('/vacancies', upload.single('noExchangeFile'), (req, res) => __await
         console.log(err);
     }
 }));
-router.post('/vacancies/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.post('/vacancies/:id', isLogin, upload.single('noExchangeFile'), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    var _f;
+    var { title, tag, description } = req.body;
+    let fileName = req.file != null ? req.file.filename : null;
+    console.log((_f = req.file) === null || _f === void 0 ? void 0 : _f.filename, "  is file");
     try {
-        var { title, tag, description } = req.body;
         let actualVacancy = yield Vacancy.findById(req.params.id);
         actualVacancy.title = title;
         actualVacancy.description = description;
         actualVacancy.tag = tag;
+        actualVacancy.noExchangeFile = typeof fileName != "undefined" && fileName != null ?
+            fileName : actualVacancy.noExchangeFile;
         actualVacancy = yield actualVacancy.save();
         res.redirect('/pannel/vacancies');
     }
@@ -211,11 +226,21 @@ router.post('/vacancies/:id', (req, res) => __awaiter(void 0, void 0, void 0, fu
         console.log(err);
     }
 }));
-router.post('/projects', upload.single('noExchangeFile'), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    var _d;
+router.post('/projects', isLogin, upload.fields([{ name: 'noExchangeFile' }, { name: 'arrayFiles' }]), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    let arrayOfImages = [];
+    let singleFile = '';
     var { title, category, secondString, tag, mainName, mainDescription, technicalTitle, technicalDescription, descriptionTitle, descriptionTxt } = req.body;
-    let fileName = req.file != null ? req.file.filename : null;
-    console.log((_d = req.file) === null || _d === void 0 ? void 0 : _d.filename, "  is file");
+    let fileName = req.files != null ? req.files : null;
+    if (typeof fileName.noExchangeFile != "undefined") {
+        singleFile = fileName.noExchangeFile[0].filename;
+    }
+    if (typeof fileName.arrayFiles != "undefined") {
+        fileName.arrayFiles.forEach((item) => {
+            arrayOfImages.push(item.filename);
+            console.log(arrayOfImages, "arrrr");
+        });
+    }
+    console.log(singleFile, fileName.noExchangeFile, ' string');
     try {
         console.log(req.body);
         var newProject = new Project({
@@ -226,11 +251,12 @@ router.post('/projects', upload.single('noExchangeFile'), (req, res) => __awaite
             mainArray: [typeof mainName == 'string' ? [mainName] : mainName, typeof mainDescription == 'string' ? [mainDescription] : mainDescription],
             technicalArray: [typeof technicalTitle == 'string' ? [technicalTitle] : technicalTitle, typeof technicalDescription == 'string' ? [technicalDescription] : technicalDescription],
             descriptionArray: [typeof descriptionTitle == 'string' ? [descriptionTitle] : descriptionTitle, typeof descriptionTxt == 'string' ? [descriptionTxt] : descriptionTxt],
-            noExchangeFile: fileName
+            noExchangeFile: singleFile,
+            arrayOfFiles: arrayOfImages
         });
         newProject = yield newProject.save();
         console.log(newProject, " obj");
-        res.redirect('/pannel/projects');
+        res.redirect(`/pannel/projects`);
     }
     catch (err) {
         if (err)
@@ -238,9 +264,22 @@ router.post('/projects', upload.single('noExchangeFile'), (req, res) => __awaite
         console.log(err);
     }
 }));
-router.post('/projects/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.post('/projects/:id', isLogin, upload.fields([{ name: 'noExchangeFile' }, { name: 'arrayFiles' }]), (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    let arrayOfImages = [];
+    let singleFile = '';
+    var { title, category, secondString, tag, mainName, mainDescription, technicalTitle, technicalDescription, descriptionTitle, descriptionTxt } = req.body;
+    let fileName = req.files != null ? req.files : null;
+    if (typeof fileName.noExchangeFile != "undefined") {
+        singleFile = fileName.noExchangeFile[0].filename;
+    }
+    console.log(req.files, ' req files');
+    if (typeof fileName.arrayFiles != "undefined") {
+        fileName.arrayFiles.forEach((item) => {
+            arrayOfImages.push(item.filename);
+            console.log(arrayOfImages, "arrrr");
+        });
+    }
     try {
-        var { title, category, secondString, tag, mainName, mainDescription, technicalTitle, technicalDescription, descriptionTitle, descriptionTxt } = req.body;
         let actualProject = yield Project.findById(req.params.id);
         actualProject.title = title;
         actualProject.category = category;
@@ -256,10 +295,15 @@ router.post('/projects/:id', (req, res) => __awaiter(void 0, void 0, void 0, fun
             actualProject.technicalArray = [[technicalTitle], [technicalDescription]];
         if (typeof descriptionTitle != 'string')
             actualProject.descriptionArray = [descriptionTitle, descriptionTxt];
-        actualProject.descriptionArray = [[descriptionTitle], [descriptionTxt]];
+        else
+            actualProject.descriptionArray = [[descriptionTitle], [descriptionTxt]];
+        actualProject.noExchangeFile = typeof singleFile != "undefined" && singleFile != null && singleFile.length > 1 ?
+            singleFile : actualProject.noExchangeFile;
+        actualProject.arrayOfFiles = typeof actualProject.arrayOfFiles != "undefined" && actualProject.arrayOfFiles != null ?
+            [...actualProject.arrayOfFiles, ...arrayOfImages] : arrayOfImages;
         actualProject = yield actualProject.save();
         console.log(req.body, " body");
-        res.redirect('/pannel/projects');
+        res.redirect(`/publication/projects/${req.params.id}`);
     }
     catch (err) {
         if (err)
@@ -268,20 +312,43 @@ router.post('/projects/:id', (req, res) => __awaiter(void 0, void 0, void 0, fun
     }
 }));
 //delete functions
-router.get('/team/delete/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.get('/team/delete/:id', isLogin, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     yield Team.deleteOne({ _id: req.params.id });
     res.redirect('/pannel/team');
 }));
-router.get('/vacancies/delete/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.get('/vacancies/delete/:id', isLogin, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     yield Vacancy.deleteOne({ _id: req.params.id });
     res.redirect('/pannel/vacancies');
 }));
-router.get('/projects/delete/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.get('/projects/delete/:id', isLogin, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     yield Project.deleteOne({ _id: req.params.id });
     res.redirect('/pannel/projects');
 }));
-router.get('/news/delete/:id', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+//delete separate image from project
+router.get('/projects/delete/:id/:pathParam1', isLogin, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    let project = yield Project.findOne({ _id: req.params.id });
+    let index = project === null || project === void 0 ? void 0 : project.arrayOfFiles.findIndex((item) => item == req.params.pathParam1);
+    try {
+        if (typeof project != "undefined" && project != null) {
+            project.arrayOfFiles.splice(index, 1);
+            project = yield project.save();
+        }
+    }
+    catch (err) {
+        if (err)
+            throw err;
+        console.log(err);
+    }
+    res.redirect('/pannel/projects');
+}));
+router.get('/news/delete/:id', isLogin, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     yield News.deleteOne({ _id: req.params.id });
     res.redirect('/pannel/news');
 }));
+function isLogin(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect('/login');
+}
 export default router;

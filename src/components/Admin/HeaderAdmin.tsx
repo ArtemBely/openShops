@@ -23,7 +23,7 @@ function HeaderAdmin(){
                   <NavLink to='/pannel/team' className={typeof window != "undefined" && window.location.pathname.split('/')[2] == "team" ? 'admin_links active_menu_links' : 'admin_links'} activeClassName='active_menu_links'>Команда</NavLink>
               </div>
               <div className='wrap_admin_exit' style={{ display: typeof window != "undefined" && window.location.pathname == "/login" ? 'none' : 'flex' }}>
-                  <a href='#'>Выйти</a>
+                  <a href='/login/logout'>Выйти</a>
               </div>
           </div>
       </div>

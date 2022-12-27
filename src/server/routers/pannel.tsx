@@ -1,5 +1,5 @@
 import React from 'react';
-import express, { Request, Response } from 'express';
+import express, { NextFunction, Request, Response } from 'express';
 import serialize from 'serialize-javascript';
 import { StaticRouter } from 'react-router-dom';
 import { renderToString } from 'react-dom/server';
@@ -10,7 +10,7 @@ import { Vacancy } from '../models/vacancy.js';
 import { Project } from '../models/project.js';
 const router = express.Router();
 
-router.get(['/', '/projects', '/news', '/vacancies', '/team'], async(req: Request, res: Response) => {
+router.get(['/', '/projects', '/news', '/vacancies', '/team'], isLogin, async(req: Request, res: Response) => {
   let projects = await Project.find();
   let news = await News.find();
   let vacancies = await Vacancy.find();
@@ -42,5 +42,11 @@ router.get(['/', '/projects', '/news', '/vacancies', '/team'], async(req: Reques
     );
 });
 
+function isLogin(req:Request, res:Response, next:NextFunction) {
+  if(req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('/login');
+}
 
 export default router;

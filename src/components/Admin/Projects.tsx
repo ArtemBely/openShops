@@ -10,7 +10,8 @@ export const Projects = (props:any) => {
           <a href={`/publication/${props.page}/delete/${props.item._id}`} className='each_project_link'><img src={close} /></a>
           <a href={`/publication/${props.page}/${props.item._id}`} className='wrap_each_change'>
               <div className='wrap_each_publication'>
-                  <p className='wrap_inside_each_publication' style={{ display: props.page == 'vacancies' ? 'none' : 'block' }}><img src={fone} /></p>
+                  <p className='wrap_inside_each_publication' style={{ display: props.page == 'vacancies' ? 'none' : 'block' }}>
+                      <img src={props.item.noExchangeFile ? `../../../uploads/${props.item.noExchangeFile}` : fone} /></p>
                   <p className='title_of_publication' style={{ display: props.page == 'projects' ? 'block' : 'none' }}>{props.item.title}</p>
 
                   <div className='wrap_each_admin_post' style={{ display: props.page == 'news' ? 'block' : 'none' }}>

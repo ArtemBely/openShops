@@ -28,7 +28,7 @@ export const Description = (props:any) => {
      if(props.val && props.val != null)
      return (
        <div>
-         {props.val[0].map((item:any, key:number) => (
+         {props.val[0].map((item:any, key:number) => ( 
            <div>
                <p className='post_name'>Заголовок {key+1}</p>
                <input type='text' name='descriptionTitle' form='projectsForm' value={props.val ? name.mainName[key] : undefined} onChange={(e:any) => {

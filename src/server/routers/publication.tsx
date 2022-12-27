@@ -1,5 +1,5 @@
 import React from 'react';
-import express, { Request, Response } from 'express';
+import express, { NextFunction, Request, Response } from 'express';
 import serialize from 'serialize-javascript';
 import { StaticRouter } from 'react-router-dom';
 import { renderToString } from 'react-dom/server';
@@ -11,6 +11,7 @@ import { Project } from '../models/project.js';
 import multer from 'multer';
 import path from 'path';
 const router = express.Router();
+
 
 //Set Storage
 const storage = multer.diskStorage({
@@ -34,7 +35,7 @@ var upload = multer({
   storage: storage
 });
 
-router.get(['/', '/projects', '/news', '/vacancies', '/team'], async(req: Request, res: Response) => {
+router.get(['/', '/projects', '/news', '/vacancies', '/team'], isLogin, async(req: Request, res: Response) => {
   let projects = await Project.find();
   let news = await News.find();
   let vacancies = await Vacancy.find();
@@ -66,7 +67,7 @@ router.get(['/', '/projects', '/news', '/vacancies', '/team'], async(req: Reques
     );
 });
 
-router.get(['/projects/:id', '/news/:id', '/team/:id', '/vacancies/:id'], async(req: Request, res: Response) => {
+router.get(['/projects/:id', '/news/:id', '/team/:id', '/vacancies/:id'], isLogin, async(req: Request, res: Response) => {
   let defineLocation:string = req.originalUrl.split('/')[2];
   let editObject:object | any;
   let projects = await Project.find();
@@ -105,7 +106,7 @@ router.get(['/projects/:id', '/news/:id', '/team/:id', '/vacancies/:id'], async(
     );
 });
 
-router.post('/team', upload.single('noExchangeFile'), async(req: Request, res: Response) => {
+router.post('/team', isLogin, upload.single('noExchangeFile'), async(req: Request, res: Response) => {
   var { name, title } = req.body;
   let fileName = req.file != null ? req.file.filename : null;
   console.log(req.file?.filename, "  is file");
@@ -123,12 +124,16 @@ router.post('/team', upload.single('noExchangeFile'), async(req: Request, res: R
         console.log(err);
   }
 });
-router.post('/team/:id', async(req: Request, res: Response) => {
+router.post('/team/:id', isLogin, upload.single('noExchangeFile'), async(req: Request, res: Response) => {
+  var { name, title } = req.body;
+  let fileName = req.file != null ? req.file.filename : null;
+  console.log(req.file?.filename, "  is file");
   try{
-    var { name, title } = req.body;
     let actualTeam:object | any = await Team.findById(req.params.id);
     actualTeam.name = name;
     actualTeam.title = title;
+    actualTeam.noExchangeFile = typeof fileName != "undefined" && fileName != null ?
+    fileName : actualTeam.noExchangeFile;
     actualTeam = await actualTeam.save();
     res.redirect('/pannel/team');
   }
@@ -138,7 +143,7 @@ router.post('/team/:id', async(req: Request, res: Response) => {
   }
 });
 
-router.post('/news', upload.single('noExchangeFile'), async(req: Request, res: Response) => {
+router.post('/news', isLogin, upload.single('noExchangeFile'), async(req: Request, res: Response) => {
   var { title, tag, description } = req.body;
   let fileName = req.file != null ? req.file.filename : null;
   console.log(req.file?.filename, "  is file");
@@ -158,13 +163,17 @@ router.post('/news', upload.single('noExchangeFile'), async(req: Request, res: R
         console.log(err);
   }
 });
-router.post('/news/:id', async(req: Request, res: Response) => {
+router.post('/news/:id', isLogin, upload.single('noExchangeFile'), async(req: Request, res: Response) => {
+  var { title, tag, description } = req.body;
+  let fileName = req.file != null ? req.file.filename : null;
+  console.log(req.file?.filename, "  is file");
   try{
-    var { title, tag, description } = req.body;
     let actualNews:object | any = await News.findById(req.params.id);
     actualNews.title = title;
     actualNews.description = description;
     actualNews.tag = tag;
+    actualNews.noExchangeFile = typeof fileName != "undefined" && fileName != null ?
+    fileName : actualNews.noExchangeFile;
     actualNews = await actualNews.save();
     res.redirect('/pannel/news');
   }
@@ -174,7 +183,7 @@ router.post('/news/:id', async(req: Request, res: Response) => {
   }
 });
 
-router.post('/vacancies', upload.single('noExchangeFile'), async(req: Request, res: Response) => {
+router.post('/vacancies', isLogin, upload.single('noExchangeFile'), async(req: Request, res: Response) => {
   var { title, tag, description } = req.body;
   let fileName = req.file != null ? req.file.filename : null;
   console.log(req.file?.filename, "  is file");
@@ -194,13 +203,17 @@ router.post('/vacancies', upload.single('noExchangeFile'), async(req: Request, r
         console.log(err);
   }
 });
-router.post('/vacancies/:id', async(req: Request, res: Response) => {
+router.post('/vacancies/:id', isLogin, upload.single('noExchangeFile'), async(req: Request, res: Response) => {
+  var { title, tag, description } = req.body;
+  let fileName = req.file != null ? req.file.filename : null;
+  console.log(req.file?.filename, "  is file");
   try{
-    var { title, tag, description } = req.body;
     let actualVacancy:object | any = await Vacancy.findById(req.params.id);
     actualVacancy.title = title;
     actualVacancy.description = description;
     actualVacancy.tag = tag;
+    actualVacancy.noExchangeFile = typeof fileName != "undefined" && fileName != null ?
+    fileName : actualVacancy.noExchangeFile;
     actualVacancy = await actualVacancy.save();
     res.redirect('/pannel/vacancies');
   }
@@ -210,12 +223,23 @@ router.post('/vacancies/:id', async(req: Request, res: Response) => {
   }
 });
 
-router.post('/projects', upload.single('noExchangeFile'), async(req: Request, res: Response) => {
+router.post('/projects', isLogin, upload.fields([{name: 'noExchangeFile'}, {name: 'arrayFiles'}]), async(req: Request, res: Response) => {
+  let arrayOfImages:Array<string> = [];
+  let singleFile:string = '';
   var { title, category, secondString, tag, mainName,
      mainDescription, technicalTitle, technicalDescription,
      descriptionTitle, descriptionTxt } = req.body;
-  let fileName = req.file != null ? req.file.filename : null;
-  console.log(req.file?.filename, "  is file");
+
+  let fileName:object | any = req.files !=null ? req.files : null;
+  if(typeof fileName.noExchangeFile != "undefined") { singleFile = fileName.noExchangeFile[0].filename; }
+
+  if(typeof fileName.arrayFiles != "undefined") {
+    fileName.arrayFiles.forEach((item:any) => {
+      arrayOfImages.push(item.filename);
+      console.log(arrayOfImages, "arrrr");
+    });
+  }
+  console.log(singleFile, fileName.noExchangeFile, ' string')
   try{
     console.log(req.body);
     var newProject:any = new Project({
@@ -226,21 +250,36 @@ router.post('/projects', upload.single('noExchangeFile'), async(req: Request, re
         mainArray: [typeof mainName == 'string' ? [mainName] : mainName, typeof mainDescription == 'string' ? [mainDescription] : mainDescription],
         technicalArray: [typeof technicalTitle == 'string' ? [technicalTitle] : technicalTitle, typeof technicalDescription == 'string' ? [technicalDescription] : technicalDescription],
         descriptionArray: [typeof descriptionTitle == 'string' ? [descriptionTitle] : descriptionTitle, typeof descriptionTxt== 'string' ? [descriptionTxt] : descriptionTxt],
-        noExchangeFile: fileName
+        noExchangeFile: singleFile,
+        arrayOfFiles: arrayOfImages
     });
     newProject = await newProject.save();
     console.log(newProject, " obj");
-    res.redirect('/pannel/projects');
+    res.redirect(`/pannel/projects`);
   }
   catch(err) {
         if (err) throw err;
         console.log(err);
   }
 });
-router.post('/projects/:id', async(req: Request, res: Response) => {
+router.post('/projects/:id', isLogin, upload.fields([{name: 'noExchangeFile'}, {name: 'arrayFiles'}]), async(req: Request, res: Response) => {
+  let arrayOfImages:Array<string> = [];
+  let singleFile:string = '';
+  var { title, category, secondString, tag, mainName, mainDescription,
+  technicalTitle, technicalDescription, descriptionTitle, descriptionTxt  } = req.body;
+
+  let fileName:object | any = req.files !=null ? req.files : null;
+  if(typeof fileName.noExchangeFile != "undefined") { singleFile = fileName.noExchangeFile[0].filename; }
+
+  console.log(req.files, ' req files');
+  if(typeof fileName.arrayFiles != "undefined") {
+    fileName.arrayFiles.forEach((item:any) => {
+      arrayOfImages.push(item.filename);
+      console.log(arrayOfImages, "arrrr");
+    });
+  }
+
   try{
-    var { title, category, secondString, tag, mainName, mainDescription,
-    technicalTitle, technicalDescription, descriptionTitle, descriptionTxt  } = req.body;
     let actualProject:object | any = await Project.findById(req.params.id);
     actualProject.title = title;
     actualProject.category = category;
@@ -251,10 +290,14 @@ router.post('/projects/:id', async(req: Request, res: Response) => {
     if(typeof technicalTitle != 'string') actualProject.technicalArray = [technicalTitle, technicalDescription];
       else actualProject.technicalArray = [[technicalTitle], [technicalDescription]];
     if(typeof descriptionTitle != 'string') actualProject.descriptionArray = [descriptionTitle, descriptionTxt];
-      actualProject.descriptionArray = [[descriptionTitle], [descriptionTxt]];
+      else actualProject.descriptionArray = [[descriptionTitle], [descriptionTxt]];
+    actualProject.noExchangeFile = typeof singleFile != "undefined" && singleFile != null && singleFile.length > 1 ?
+    singleFile : actualProject.noExchangeFile;
+    actualProject.arrayOfFiles = typeof actualProject.arrayOfFiles != "undefined" && actualProject.arrayOfFiles != null ?
+    [...actualProject.arrayOfFiles, ...arrayOfImages] : arrayOfImages;
     actualProject = await actualProject.save();
     console.log(req.body, " body")
-    res.redirect('/pannel/projects');
+    res.redirect(`/publication/projects/${req.params.id}`);
   }
   catch(err) {
         if (err) throw err;
@@ -263,21 +306,44 @@ router.post('/projects/:id', async(req: Request, res: Response) => {
 });
 
 //delete functions
-router.get('/team/delete/:id', async(req: Request, res: Response) => {
+router.get('/team/delete/:id', isLogin, async(req: Request, res: Response) => {
   await Team.deleteOne({ _id: req.params.id });
   res.redirect('/pannel/team');
 });
-router.get('/vacancies/delete/:id', async(req: Request, res: Response) => {
+router.get('/vacancies/delete/:id', isLogin, async(req: Request, res: Response) => {
   await Vacancy.deleteOne({ _id: req.params.id });
   res.redirect('/pannel/vacancies');
 });
-router.get('/projects/delete/:id', async(req: Request, res: Response) => {
+router.get('/projects/delete/:id', isLogin, async(req: Request, res: Response) => {
   await Project.deleteOne({ _id: req.params.id });
   res.redirect('/pannel/projects');
 });
-router.get('/news/delete/:id', async(req: Request, res: Response) => {
+//delete separate image from project
+router.get('/projects/delete/:id/:pathParam1', isLogin, async(req: Request, res: Response) => {
+  let project = await Project.findOne({ _id: req.params.id });
+  let index:number | any = project?.arrayOfFiles.findIndex((item:any) => item == req.params.pathParam1);
+  try {
+    if(typeof project != "undefined" && project != null) {
+        project.arrayOfFiles.splice(index, 1);
+        project = await project.save();
+    }
+  }
+  catch(err) {
+        if (err) throw err;
+        console.log(err);
+  }
+  res.redirect('/pannel/projects');
+});
+router.get('/news/delete/:id', isLogin, async(req: Request, res: Response) => {
   await News.deleteOne({ _id: req.params.id });
   res.redirect('/pannel/news');
 });
+
+function isLogin(req:Request, res:Response, next:NextFunction) {
+  if(req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('/login');
+}
 
 export default router;

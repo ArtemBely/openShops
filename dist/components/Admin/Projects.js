@@ -9,7 +9,7 @@ export const Projects = (props) => {
         React.createElement("a", { href: `/publication/${props.page}/${props.item._id}`, className: 'wrap_each_change' },
             React.createElement("div", { className: 'wrap_each_publication' },
                 React.createElement("p", { className: 'wrap_inside_each_publication', style: { display: props.page == 'vacancies' ? 'none' : 'block' } },
-                    React.createElement("img", { src: fone })),
+                    React.createElement("img", { src: props.item.noExchangeFile ? `../../../uploads/${props.item.noExchangeFile}` : fone })),
                 React.createElement("p", { className: 'title_of_publication', style: { display: props.page == 'projects' ? 'block' : 'none' } }, props.item.title),
                 React.createElement("div", { className: 'wrap_each_admin_post', style: { display: props.page == 'news' ? 'block' : 'none' } },
                     React.createElement("p", { className: 'name_vacancy' }, props.item.title),

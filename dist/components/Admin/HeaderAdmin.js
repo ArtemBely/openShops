@@ -19,6 +19,6 @@ function HeaderAdmin() {
                 React.createElement(NavLink, { to: '/pannel/vacancies', className: typeof window != "undefined" && window.location.pathname.split('/')[2] == "vacancies" ? 'admin_links active_menu_links' : 'admin_links', activeClassName: 'active_menu_links' }, "\u0412\u0430\u043A\u0430\u043D\u0441\u0438\u0438"),
                 React.createElement(NavLink, { to: '/pannel/team', className: typeof window != "undefined" && window.location.pathname.split('/')[2] == "team" ? 'admin_links active_menu_links' : 'admin_links', activeClassName: 'active_menu_links' }, "\u041A\u043E\u043C\u0430\u043D\u0434\u0430")),
             React.createElement("div", { className: 'wrap_admin_exit', style: { display: typeof window != "undefined" && window.location.pathname == "/login" ? 'none' : 'flex' } },
-                React.createElement("a", { href: '#' }, "\u0412\u044B\u0439\u0442\u0438")))));
+                React.createElement("a", { href: '/login/logout' }, "\u0412\u044B\u0439\u0442\u0438")))));
 }
 export default HeaderAdmin;

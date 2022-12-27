@@ -8,7 +8,8 @@ interface IProject extends Document {
   mainArray: Array<object>,
   technicalArray: Array<object>,
   descriptionArray: Array<object>,
-  noExchangeFile: string
+  noExchangeFile: string,
+  arrayOfFiles: Array<string>
 }
 
 const projectSchema = new Schema <IProject>({
@@ -19,7 +20,8 @@ const projectSchema = new Schema <IProject>({
     mainArray: { type:Array },
     technicalArray: { type:Array },
     descriptionArray: { type:Array },
-    noExchangeFile: { type: String }
+    noExchangeFile: { type: String },
+    arrayOfFiles: { type:Array }
   });
 
 export const Project = model<IProject>("Project", projectSchema);

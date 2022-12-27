@@ -18,7 +18,7 @@ import { News } from '../models/news.js';
 import { Vacancy } from '../models/vacancy.js';
 import { Project } from '../models/project.js';
 const router = express.Router();
-router.get(['/', '/projects', '/news', '/vacancies', '/team'], (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.get(['/', '/projects', '/news', '/vacancies', '/team'], isLogin, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     let projects = yield Project.find();
     let news = yield News.find();
     let vacancies = yield Vacancy.find();
@@ -44,4 +44,10 @@ router.get(['/', '/projects', '/news', '/vacancies', '/team'], (req, res) => __a
             </body>
         </html>`);
 }));
+function isLogin(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect('/login');
+}
 export default router;
