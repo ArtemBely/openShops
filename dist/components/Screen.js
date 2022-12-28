@@ -4,11 +4,12 @@ import { Screen2 } from "./Screen2";
 import { Screen3 } from "./Screen3";
 import { Screen4 } from "./Screen4";
 import { Screen5 } from "./Screen5";
+import Screen7 from "./Screen7";
 class Screen extends React.Component {
     constructor(iState) {
         super(iState);
         this.returnScreen = () => {
-            return this.state.count == 1 ? (React.createElement(Screen2, null)) : this.state.count == 2 ? (React.createElement(Screen3, null)) : this.state.count == 3 ? (React.createElement(Screen4, null)) : this.state.count == 4 ? (React.createElement(Screen5, null)) : (React.createElement(Screen2, null));
+            return this.state.count == 1 ? (React.createElement(Screen2, null)) : this.state.count == 2 ? (React.createElement(Screen3, null)) : this.state.count == 3 ? (React.createElement(Screen4, null)) : this.state.count == 4 ? (React.createElement(Screen5, null)) : this.state.count == 5 ? (React.createElement(Screen7, null)) : (React.createElement(Screen2, null));
         };
         this.state = {
             count: 1,
@@ -19,7 +20,7 @@ class Screen extends React.Component {
             this.setState({
                 count: Number(window.localStorage.getItem("count")) + 1,
             });
-            window.localStorage.setItem("count", JSON.stringify(Number(window.localStorage.getItem("count")) + 1 >= 5
+            window.localStorage.setItem("count", JSON.stringify(Number(window.localStorage.getItem("count")) + 1 >= 6
                 ? 1
                 : Number(window.localStorage.getItem("count")) + 1));
         }

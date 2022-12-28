@@ -16,5 +16,5 @@ export const Form = () => {
             React.createElement("input", { type: 'email', name: 'email', form: 'signinForm', required: true, className: 'login_inputs email_inp' }),
             React.createElement("input", { type: 'password', name: 'password', form: 'signinForm', required: true, className: 'login_inputs pass_inp' }),
             React.createElement("button", { className: 'login_btn', form: 'signinForm', type: 'submit' }, "\u0412\u0445\u043E\u0434"),
-            React.createElement("p", { className: 'err' }, err))));
+            React.createElement("p", { style: { color: 'red' } }, err))));
 };
