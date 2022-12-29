@@ -1,8 +1,14 @@
-import React from "react";
+import React, { FC } from "react";
 
-const logo = "../../../images/projects/15.jpg";
+import { IProject } from "../../server/models/project";
 
-export const ProjectDescription = () => {
+interface IProjectDescriptionProps {
+  currentProject: IProject;
+}
+
+export const ProjectDescription: FC<IProjectDescriptionProps> = ({
+  currentProject,
+}) => {
   return (
     <div className="wrap_projectDescr">
       <div className="projectDescr">
@@ -10,7 +16,7 @@ export const ProjectDescription = () => {
         <div className="project-wrapper">
           <div className="each_descr_div">
             <p className="bold_vacancy">Наименование объекта </p>
-            <p className="txt_vacancy">ЖК UNO Старокоптевский</p>
+            <p className="txt_vacancy">{currentProject.title}</p>
           </div>
           <div className="each_descr_div">
             <p className="bold_vacancy">Aдрес</p>

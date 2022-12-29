@@ -1,6 +1,6 @@
 import { model, Schema, Document } from 'mongoose';
 
-interface IVacancy extends Document {
+export interface IVacancy extends Document {
   title: string,
   tag: string,
   description: string,
@@ -13,5 +13,5 @@ const vacancySchema = new Schema <IVacancy>({
     description: { type: String, required: true },
     noExchangeFile: { type: String }
   });
-
+ 
 export const Vacancy = model<IVacancy>("Vacancy", vacancySchema);

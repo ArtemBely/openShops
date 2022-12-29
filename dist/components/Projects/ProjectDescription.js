@@ -1,13 +1,12 @@
 import React from "react";
-const logo = "../../../images/projects/15.jpg";
-export const ProjectDescription = () => {
+export const ProjectDescription = ({ currentProject, }) => {
     return (React.createElement("div", { className: "wrap_projectDescr" },
         React.createElement("div", { className: "projectDescr" },
             React.createElement("p", { className: "descr_of_vacs descr_of_project" }, "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435 \u043F\u0440\u043E\u0435\u043A\u0442\u0430"),
             React.createElement("div", { className: "project-wrapper" },
                 React.createElement("div", { className: "each_descr_div" },
                     React.createElement("p", { className: "bold_vacancy" }, "\u041D\u0430\u0438\u043C\u0435\u043D\u043E\u0432\u0430\u043D\u0438\u0435 \u043E\u0431\u044A\u0435\u043A\u0442\u0430"),
-                    React.createElement("p", { className: "txt_vacancy" }, "\u0416\u041A UNO \u0421\u0442\u0430\u0440\u043E\u043A\u043E\u043F\u0442\u0435\u0432\u0441\u043A\u0438\u0439")),
+                    React.createElement("p", { className: "txt_vacancy" }, currentProject.title)),
                 React.createElement("div", { className: "each_descr_div" },
                     React.createElement("p", { className: "bold_vacancy" }, "A\u0434\u0440\u0435\u0441"),
                     React.createElement("p", { className: "txt_vacancy" }, "\u0433.\u041C\u043E\u0441\u043A\u0432\u0430, \u0421\u0410\u041E, \u0421\u0442\u0430\u0440\u043E\u043A\u043E\u043F\u0442\u0435\u0432\u0441\u043A\u0438\u0439 \u043F\u0435\u0440\u0435\u0443\u043B\u043E\u043A, \u0432\u043B.4")),

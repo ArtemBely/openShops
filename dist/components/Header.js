@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-import { NavLink } from "react-router-dom";
 import MobileMenu from "./MobileMenu";
 const logo = "../../images/Frame 1.svg";
 const spec_screen_logo = "../../images/Frame 1 — копия 3.svg";
@@ -63,7 +62,7 @@ export const Header = () => {
     };
     return (React.createElement("div", { className: "wrap_header", style: { backgroundColor: whiteHeader ? "white" : "transparent" } },
         React.createElement("div", { className: "header", ref: stableHeader },
-            React.createElement(NavLink, { to: "/" },
+            React.createElement("a", { href: "/" },
                 React.createElement("img", { src: !headerIndicate
                         ? spec_screen_logo
                         : imgIndicate
@@ -72,28 +71,36 @@ export const Header = () => {
                                 ? contact_header
                                 : white_logo, id: "logo" })),
             React.createElement("div", { className: "wrap_menu" },
-                React.createElement(NavLink, { to: "/about", className: "menu_links", activeClassName: "active_menu_links", style: {
+                React.createElement("a", { href: "/about", className: "menu_links", 
+                    // activeClassName="active_menu_links"
+                    style: {
                         color: whiteHeader
                             ? "#010101"
                             : headerIndicate
                                 ? "white"
                                 : "#2f4666",
                     } }, "\u041E \u043D\u0430\u0441"),
-                React.createElement(NavLink, { to: "/projects", className: "menu_links", activeClassName: "active_menu_links", style: {
+                React.createElement("a", { href: "/projects", className: "menu_links", 
+                    // activeClassName="active_menu_links"
+                    style: {
                         color: whiteHeader
                             ? "#010101"
                             : headerIndicate
                                 ? "white"
                                 : "#2f4666",
                     } }, "\u041F\u0440\u043E\u0435\u043A\u0442\u044B"),
-                React.createElement(NavLink, { to: "/news", className: "menu_links", activeClassName: "active_menu_links", style: {
+                React.createElement("a", { href: "/news", className: "menu_links", 
+                    // activeClassName="active_menu_links"
+                    style: {
                         color: whiteHeader
                             ? "#010101"
                             : headerIndicate
                                 ? "white"
                                 : "#2f4666",
                     } }, "\u041D\u043E\u0432\u043E\u0441\u0442\u0438"),
-                React.createElement(NavLink, { to: "/contacts", className: "menu_links", activeClassName: "active_menu_links", style: {
+                React.createElement("a", { href: "/contacts", className: "menu_links", 
+                    // activeClassName="active_menu_links"
+                    style: {
                         color: whiteHeader
                             ? "#010101"
                             : headerIndicate

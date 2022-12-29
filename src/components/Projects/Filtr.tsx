@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Buildings } from "./Buildings";
 
 export const Filtr = () => {
+  const [searchInput, setSearchInput] = useState(" ");
+
   const changeFiltr = (e: any) => {
     document.querySelectorAll(".each_category").forEach((item) => {
       item.classList.remove("choosenCategory");
@@ -20,7 +22,12 @@ export const Filtr = () => {
             для жизни, работы и творчества
           </p>
         </div>
-        <input type="text" id="inputSearch" placeholder="Поиск" />
+        <input
+          type="text"
+          id="inputSearch"
+          placeholder="Поиск"
+          onChange={(e) => setSearchInput(e.target.value)}
+        />
         <div className="aboutProject">
           <div className="wrap_allCategory">
             <p className="each_category choosenCategory" onClick={changeFiltr}>
@@ -50,7 +57,7 @@ export const Filtr = () => {
           </div>
         </div>
       </div>
-      <Buildings />
+      <Buildings searchInput={searchInput} />
     </div>
   );
 };

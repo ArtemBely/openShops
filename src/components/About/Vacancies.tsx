@@ -1,48 +1,52 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+
+import { IVacancy } from "../../server/models/vacancy";
+
+let vacancies: IVacancy[];
+
+declare global {
+  interface Window {
+    __INITIAL_VACANCIES__: IVacancy[];
+  }
+}
 
 export const Vacancies = () => {
+  if (typeof window != "undefined") {
+    vacancies = window.__INITIAL_VACANCIES__;
+  }
+
+  const [allVacancies, setAllVacancies] = useState<IVacancy[]>([
+    {} as IVacancy,
+  ]);
+
+  useEffect(() => {
+    if (typeof window != "undefined") {
+      if (window.location.pathname.split("/").pop() == "about") {
+        setAllVacancies(vacancies);
+      }
+    }
+  });
+
   return (
     <div className="wrap_vacancies">
       <div className="vacancies">
-        <p className="txt_about1Title second_title" id='vac1'>Вакансии</p>
+        <p className="txt_about1Title second_title" id="vac1">
+          Вакансии
+        </p>
         <div className="wrap_each_vacancy">
-          <NavLink to="/about/1" className="each_vacancy">
-            <div className="wrap_vacancy_txt">
-              <p className="name_of">Название вакансии 1</p>
-              <p className="lastname_of">
-                {" "}
-                Здесь представлен текст из начала описания вакансии 1. Текст
-                представлен несколькими предложениями из начала описания
-                вакансии
-              </p>
-            </div>
-            <p className="date_vacancy">12 июля 2023</p>
-          </NavLink>
-          <NavLink to="/about/2" className="each_vacancy">
-            <div className="wrap_vacancy_txt">
-              <p className="name_of">Название вакансии 2</p>
-              <p className="lastname_of">
-                {" "}
-                Здесь представлен текст из начала описания вакансии 2. Текст
-                представлен несколькими предложениями из начала описания
-                вакансии
-              </p>
-            </div>
-            <p className="date_vacancy">12 июля 2023</p>
-          </NavLink>
-          <NavLink to="/about/3" className="each_vacancy">
-            <div className="wrap_vacancy_txt">
-              <p className="name_of">Название вакансии 3</p>
-              <p className="lastname_of">
-                {" "}
-                Здесь представлен текст из начала описания вакансии 3. Текст
-                представлен несколькими предложениями из начала описания
-                вакансии
-              </p>
-            </div>
-            <p className="date_vacancy">12 июля 2023</p>
-          </NavLink>
+          {allVacancies.map((vacancy) => (
+            <a
+              key={vacancy._id}
+              href={`/about/${vacancy._id}`}
+              className="each_vacancy"
+            >
+              <div className="wrap_vacancy_txt">
+                <p className="name_of">{vacancy.title}</p>
+                <p className="lastname_of">{vacancy.description}</p>
+              </div>
+              <p className="date_vacancy">{vacancy.tag}</p>
+            </a>
+          ))}
         </div>
       </div>
     </div>

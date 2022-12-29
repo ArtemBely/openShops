@@ -78,7 +78,7 @@ export const Header = () => {
       style={{ backgroundColor: whiteHeader ? "white" : "transparent" }}
     >
       <div className="header" ref={stableHeader}>
-        <NavLink to="/">
+        <a href="/">
           <img
             src={
               !headerIndicate
@@ -91,12 +91,12 @@ export const Header = () => {
             }
             id="logo"
           />
-        </NavLink>
+        </a>
         <div className="wrap_menu">
-          <NavLink
-            to="/about"
+          <a
+            href="/about"
             className="menu_links"
-            activeClassName="active_menu_links"
+            // activeClassName="active_menu_links"
             style={{
               color: whiteHeader
                 ? "#010101"
@@ -106,11 +106,11 @@ export const Header = () => {
             }}
           >
             О нас
-          </NavLink>
-          <NavLink
-            to="/projects"
+          </a>
+          <a
+            href="/projects"
             className="menu_links"
-            activeClassName="active_menu_links"
+            // activeClassName="active_menu_links"
             style={{
               color: whiteHeader
                 ? "#010101"
@@ -120,11 +120,11 @@ export const Header = () => {
             }}
           >
             Проекты
-          </NavLink>
-          <NavLink
-            to="/news"
+          </a>
+          <a
+            href="/news"
             className="menu_links"
-            activeClassName="active_menu_links"
+            // activeClassName="active_menu_links"
             style={{
               color: whiteHeader
                 ? "#010101"
@@ -134,11 +134,11 @@ export const Header = () => {
             }}
           >
             Новости
-          </NavLink>
-          <NavLink
-            to="/contacts"
+          </a>
+          <a
+            href="/contacts"
             className="menu_links"
-            activeClassName="active_menu_links"
+            // activeClassName="active_menu_links"
             style={{
               color: whiteHeader
                 ? "#010101"
@@ -148,7 +148,7 @@ export const Header = () => {
             }}
           >
             Контакты
-          </NavLink>
+          </a>
         </div>
         <div className="burger" onClick={changeBurger}>
           <p
