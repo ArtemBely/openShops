@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 
 import { IProject } from "../../server/models/project";
 
@@ -9,6 +9,10 @@ interface IProjectDescriptionProps {
 export const ProjectDescription: FC<IProjectDescriptionProps> = ({
   currentProject,
 }) => {
+  useEffect(() => {
+    console.log(currentProject);
+  }, [currentProject]);
+
   return (
     <div className="wrap_projectDescr">
       <div className="projectDescr">
@@ -18,132 +22,45 @@ export const ProjectDescription: FC<IProjectDescriptionProps> = ({
             <p className="bold_vacancy">Наименование объекта </p>
             <p className="txt_vacancy">{currentProject.title}</p>
           </div>
-          <div className="each_descr_div">
-            <p className="bold_vacancy">Aдрес</p>
-            <p className="txt_vacancy">
-              г.Москва, САО, Старокоптевский переулок, вл.4
-            </p>
-          </div>
-          <div className="each_descr_div">
-            <p className="bold_vacancy">Сайт проекта</p>
-            <p className="txt_vacancy">
-              <a href="https://uno.moscow/">https://uno.moscow/</a>
-            </p>
-          </div>
-          <div className="each_descr_div">
-            <p className="bold_vacancy">Проектная организация </p>
-            <p className="txt_vacancy">ООО «Открытые мастерские»</p>
-          </div>
-          <div className="each_descr_div">
-            <p className="bold_vacancy">Aвторы</p>
-            <p className="txt_vacancy">
-              <b>Архитекторы:</b> А.А. Одуд, И.М. Пыхов, Е.Г. Шабанова <br />
-              <b>Генплан:</b> Г.И. Розенберг <br />
-              <b>Благоустройство:</b> М.М. Кузнецов <br />
-              <b>ГИП:</b> Т. Зверева
-            </p>
-          </div>
-          <div className="each_descr_div">
-            <p className="bold_vacancy">Стадия проекта</p>
-            <p className="txt_vacancy">
-              <b>Архитекторы:</b> А.Г. Челышев, Ю.В. Самойлова, Е.И. Должикова,
-              С.Э. Кейнинг <br />
-              <b>Генплан:</b> Г.И. Розенберг, Н.С. Казанкина <br />
-              <b>ГИП:</b> Т.С. Зверева <br />
-            </p>
-          </div>
-          <div className="each_descr_div">
-            <p className="bold_vacancy">Проектирование </p>
-            <p className="txt_vacancy">2019</p>
-          </div>
-
+          {typeof currentProject.mainArray !== "undefined" ? (
+            currentProject.mainArray[0].map((project: any, i) => (
+              <div key={i + project[0]} className="each_descr_div">
+                <p className="bold_vacancy">{project}</p>
+                <p className="txt_vacancy">{currentProject.mainArray[1][i]}</p>
+              </div>
+            ))
+          ) : (
+            <></>
+          )}
           <p className="bottom_grey"></p>
 
-          <div className="each_descr_div">
-            <p className="bold_vacancy">Площадь участка</p>
-            <p className="txt_vacancy">0,6195 Га</p>
-          </div>
-          <div className="each_descr_div">
-            <p className="bold_vacancy">Площадь застройки </p>
-            <p className="txt_vacancy">25372, 52 м2</p>
-          </div>
-          <div className="each_descr_div">
-            <p className="bold_vacancy">Общая площадь комплекса</p>
-            <p className="txt_vacancy">361,4 тыс.кв.м.</p>
-          </div>
-          <div className="each_descr_div">
-            <p className="bold_vacancy">Количество этажей, в том числе: 23</p>
-            <p className="txt_vacancy">
-              надземных: 22 <br /> подземных: 1
-            </p>
-          </div>
+          {typeof currentProject.technicalArray !== "undefined" ? (
+            currentProject.technicalArray[0].map((project: any, i) => (
+              <div key={i + project[0]} className="each_descr_div">
+                <p className="bold_vacancy">{project}</p>
+                <p className="txt_vacancy">
+                  {currentProject.technicalArray[1][i]}
+                </p>
+              </div>
+            ))
+          ) : (
+            <></>
+          )}
         </div>
 
         <div className="project-wrapper">
           <div className="each_descr_div">
-            <p className="bold_vacancy">
-              Жилой комплекс UNO Старокоптевский – новое современное
-              переосмысление домашнего пространства жилого квартала в изменяемой
-              среде старого города, куда хочется вернуться.
-            </p>
-            <p className="txt_vacancy technical_p">
-              <b>О Комплексе:</b> <br />
-              Жилой Комплекс в Старокоптевском переулке 4 гармонично вписан в
-              структуру участков реновации района Коптево, а также в сложившуюся
-              Московскую городскую 5-6 этажную кирпичную квартальную застройку
-              50-60х годов. Дом класса комфорт плюс, расположен в
-              непосредственной близости от Парка «У Головинских прудов» и
-              Коптевского бульвара, включающего в себя детский парк
-              «Бригантина», спортивный городок и комплекс храма Святителя
-              Спиридона. Участок располагается в 10 минутах ходьбы от станции
-              МЦК «Коптево». <br />
-              Жилой комплекс UNO Старокоптевский – это смелая современная
-              архитектура европейского уровня, охраняемая территория внутреннего
-              двора, подземный паркинг, детский сад, кафе, магазины, близость
-              парков, удобные подъезды к комплексу и вся необходимая жителям
-              инфраструктура. <br />
-              Здания комплекса ориентированы так, чтобы прежде всего получить
-              великолепные виды, раскрывающиеся в сторону парков, а основная
-              задумка в решении внутренних дворовых пространств комплекса
-              состояла в создании комфортной, уютной и безопасной среды. <br />{" "}
-              <br />
-              <b>Архитектура:</b> <br />
-              Архитектура комплекса индивидуальная, с ярким запоминающимся
-              образом. Структурное каскадное геометрическое построение объемов
-              здания строиться по принципу «лестницы Пенроуза», развивая
-              ступенчатый объем корпусов со стороны Старокоптевского переулка в
-              сторону башни – Визуальной доминанты новых кварталов жилой
-              застройки участков реновации. На «ступенях» - перепадах этажей
-              располагаются квартиры с озелененными террасами.
-              <br />
-              <br />
-              <b>Входные группы:</b>
-              <br />
-              Интерьеры входных групп – это особое произведение искусства, в
-              буквальном смысле слова. В них предусмотрены просторные мягкие
-              зоны для отдыха и встреч, удобные помещения для хранения колясок и
-              велосипедов, гостевые с/узлы с зоной для мам и малышей, помещения
-              для мойки лап животных, места для банкоматов и автоматов по приему
-              посылок.
-              <br />
-              <br />
-              <b>Благоустройство:</b>
-              <br />
-              Концепция безопасный двор или двор без машин настраивает жителей
-              комфортно проводить время на территории ЖК. Безопасность и комфорт
-              – прежде всего!
-              <br />
-              Проект благоустройства выполнен с четким зонированием на площадки
-              для разных возрастных категорий будущих жителей. Но в то же время
-              авторские малые архитектурные формы объединяют и связывают зоны
-              территории в одну общую структуру, позволяющую собраться вместе и
-              отметить какое-либо праздничное мероприятие, пообщаться,
-              отдохнуть, сыграть в шахматы или почитать книжку в беседке. Все
-              объекты благоустройства оборудуются подсветкой, что создаст
-              необходимый комфорт в вечернее время. Интерактивные площадки и
-              велодорожка не оставят равнодушными маленьких жителей комплекса.
-              Игровые детские площадки прекрасно видны из окон квартир.
-            </p>
+            {typeof currentProject.technicalArray !== "undefined" ? (
+              currentProject.descriptionArray[0].map((project: any, i) => (
+                <p className="txt_vacancy technical_p">
+                  <b>{project}</b>
+                  <br />
+                  {currentProject.descriptionArray[1][i]}
+                </p>
+              ))
+            ) : (
+              <></>
+            )}
           </div>
         </div>
       </div>

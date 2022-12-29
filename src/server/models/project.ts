@@ -5,9 +5,9 @@ export interface IProject extends Document {
   category: string;
   secondString: string;
   tag: string;
-  mainArray: Array<object>;
-  technicalArray: Array<object>;
-  descriptionArray: Array<string>;
+  mainArray: Array<[]>;
+  technicalArray: Array<[]>;
+  descriptionArray: Array<[]>;
   noExchangeFile: string;
   arrayOfFiles: Array<string>;
 }
