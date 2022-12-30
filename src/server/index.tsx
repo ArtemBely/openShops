@@ -105,17 +105,20 @@ app.post("/email", (req, res) => {
 
 function sendEmail(name: string, number: number, comment: string) {
   var transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: "smtp.yandex.ru",
+    port: 465,
+    secure: true, // true for 465, false for other ports
     auth: {
-      user: "beInCryptodevelop@gmail.com",
-      pass: "nehfrwemrrzgeasl",
+      user: "d.shishkin@acorn.ws",
+      pass: "ftwuthhofkwjzlms",
     },
   });
 
   const mail_option = {
-    from: "beInCryptodevelop@gmail.com",
-    to: "beInCryptodevelop@gmail.com",
+    from: "d.shishkin@acorn.ws",
+    to: "d.shishkin@acorn.ws",
     subject: "Обратная связь открытые мастерские",
+    text: "Hello world?",
     html: `<div>
       <h1>Имя: ${name}</h1>
       <h1>Телефон: ${number}</h1>
@@ -130,6 +133,13 @@ function sendEmail(name: string, number: number, comment: string) {
     }
     return { message: "email success" };
   });
+
+  transporter.verify((err, success) => {
+    if (err) console.error(err);
+    console.log("Your config is correct");
+  });
+
+  console.log(transporter.options);
 }
 
 app.get("*", (req: Request, res: Response, next: NextFunction) => {
