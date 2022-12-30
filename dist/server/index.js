@@ -89,6 +89,9 @@ function sendEmail(name, number, comment) {
                 user: "d.shishkin@acorn.ws",
                 pass: "ftwuthhofkwjzlms",
             },
+            tls: {
+                rejectUnauthorized: false, // только для localhost
+            },
         });
         const mail_option = {
             from: "d.shishkin@acorn.ws",
