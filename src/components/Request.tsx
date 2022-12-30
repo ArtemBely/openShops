@@ -14,14 +14,17 @@ class Request extends Component {
       <div className="wrap_request">
         <div className="request" id="request_field">
           <div className="leave_request">
-            <form method="POST" id="req_form">
+            <form action="/email" method="post" id="req_form">
               <p className="big_title">Оставьте заявку</p>
               <p className="each_req_title">Ваше имя</p>
-              <input type="text" className="req_inputs" />
+              <input name="name" type="text" className="req_inputs" />
               <p className="each_req_title">Телефон</p>
-              <input type="tel" className="req_inputs" />
+              <input name="number" type="tel" className="req_inputs" />
               <p className="each_req_title">Комментарий</p>
-              <textarea className="req_inputs comment_field"></textarea>
+              <textarea
+                name="comment"
+                className="req_inputs comment_field"
+              ></textarea>
               <button type="submit" id="req_btn">
                 Заполнить бриф
               </button>
