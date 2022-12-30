@@ -96,50 +96,89 @@ app.use("/projects", projectsRouter);
 app.use("/news", newsRouter);
 app.use("/login", loginRouter);
 
-app.post("/email", (req, res) => {
-  sendEmail(req.body.name, req.body.number, req.body.comment)
-    .then((response: any) => res.status(200))
-    .catch((error) => res.status(500).send(error.message))
-    .finally(() => res.redirect(`/`));
-});
-
-// nodemailer
-
-function sendEmail(name: string, number: number, comment: string) {
-  return new Promise((resolve, reject) => {
-    var transporter = nodemailer.createTransport({
+app.post("/email", (req, res, next) => {
+  const output = `
+      <p> Данные о посетителе </p>
+      <ul>
+      <li> Имя: ${req.body.name} </li>
+      <li> Номер: ${req.body.number} </li>
+      <li> Комментарий: ${req.body.comment} </li>
+      </ul>
+      `;
+  async function main() {
+    let transporter = nodemailer.createTransport({
       host: "smtp.yandex.ru",
       port: 465,
       secure: true, // true for 465, false for other ports
       auth: {
-        user: "d.shishkin@acorn.ws",
-        pass: "ftwuthhofkwjzlms",
+        user: "d.shishkin@acorn.ws", // generated ethereal user
+        pass: "ftwuthhofkwjzlms", // generated ethereal password
       },
       tls: {
         rejectUnauthorized: false, // только для localhost
       },
     });
 
-    const mail_option = {
-      from: "d.shishkin@acorn.ws",
-      to: "d.shishkin@acorn.ws",
-      subject: "Обратная связь открытые мастерские",
-      html: `<div>
-      <h1>Имя: ${name}</h1>
-      <h1>Телефон: ${number}</h1>
-      <h1>Комментарий: ${comment}</h1>
-      </div>`,
-    };
-
-    transporter.sendMail(mail_option, function (error: any, info: any) {
-      if (error) {
-        console.log(error);
-        return reject({ message: "an error has occured" });
-      }
-      return resolve({ message: "email success" });
+    // send mail with defined transport object
+    let info = await transporter.sendMail({
+      from: "d.shishkin@acorn.ws", // sender address
+      to: "d.shishkin@acorn.ws", // list of receivers vn@goweb.com
+      subject: "New partner ✔", // Subject line
+      text: "Hello world?", // plain text body
+      html: output, // html body
     });
-  });
-}
+
+    console.log("Message sent: %s", info.messageId);
+    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+  }
+
+  main().catch(console.error);
+  return res.redirect("/");
+});
+
+// app.post("/email", (req, res) => {
+//   sendEmail(req.body.name, req.body.number, req.body.comment)
+//     .then((response: any) => res.status(200))
+//     .catch((error) => res.status(500).send(error.message))
+//     .finally(() => res.redirect(`/`));
+// });
+
+// // nodemailer
+
+// async function sendEmail(name: string, number: number, comment: string) {
+//     let transporter = nodemailer.createTransport({
+//       host: "smtp.yandex.ru",
+//       port: 465,
+//       secure: true, // true for 465, false for other ports
+//       auth: {
+//         user: "d.shishkin@acorn.ws",
+//         pass: "ftwuthhofkwjzlms",
+//       },
+//       tls: {
+//         rejectUnauthorized: false, // только для localhost
+//       },
+//     });
+
+//     const mail_option = {
+//       from: "d.shishkin@acorn.ws",
+//       to: "d.shishkin@acorn.ws",
+//       subject: "Обратная связь открытые мастерские",
+//       html: `<div>
+//       <h1>Имя: ${name}</h1>
+//       <h1>Телефон: ${number}</h1>
+//       <h1>Комментарий: ${comment}</h1>
+//       </div>`,
+//     };
+
+//     let info = await transporter.sendMail(mail_option, function (error: any, info: any) {
+//       if (error) {
+//         console.log(error);
+//         return { message: "an error has occured" }
+//       }
+//       return { message: "email success" }
+//     })
+
+// }
 
 app.get("*", (req: Request, res: Response, next: NextFunction) => {
   const activeRouter: any =
