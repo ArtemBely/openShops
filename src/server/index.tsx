@@ -99,8 +99,8 @@ app.use("/login", loginRouter);
 app.post("/email", (req, res) => {
   sendEmail(req.body.name, req.body.number, req.body.comment)
     .then((response: any) => res.status(200))
-    .catch((error) => res.status(500).send(error.message))
-    .finally(() => res.redirect(`/`));
+    .catch((error) => res.status(500).send(error.message));
+  // .finally(() => res.redirect(`/`));
 });
 
 // nodemailer
