@@ -97,49 +97,45 @@ app.use("/news", newsRouter);
 app.use("/login", loginRouter);
 
 app.post("/email", (req, res) => {
-  sendEmail(req.body.name, req.body.number, req.body.comment);
-  // .finally(() => res.redirect(`/`));
+  sendEmail(req.body.name, req.body.number, req.body.comment)
+    .then((response: any) => res.status(200))
+    .catch((error) => res.status(500).send(error.message))
+    .finally(() => res.redirect(`/`));
 });
 
 // nodemailer
 
 function sendEmail(name: string, number: number, comment: string) {
-  var transporter = nodemailer.createTransport({
-    host: "smtp.yandex.ru",
-    port: 465,
-    secure: true, // true for 465, false for other ports
-    auth: {
-      user: "d.shishkin@acorn.ws",
-      pass: "ftwuthhofkwjzlms",
-    },
-  });
+  return new Promise((resolve, reject) => {
+    var transporter = nodemailer.createTransport({
+      host: "smtp.yandex.ru",
+      port: 465,
+      secure: true, // true for 465, false for other ports
+      auth: {
+        user: "d.shishkin@acorn.ws",
+        pass: "ftwuthhofkwjzlms",
+      },
+    });
 
-  const mail_option = {
-    from: "d.shishkin@acorn.ws",
-    to: "d.shishkin@acorn.ws",
-    subject: "Обратная связь открытые мастерские",
-    text: "Hello world?",
-    html: `<div>
+    const mail_option = {
+      from: "d.shishkin@acorn.ws",
+      to: "d.shishkin@acorn.ws",
+      subject: "Обратная связь открытые мастерские",
+      html: `<div>
       <h1>Имя: ${name}</h1>
       <h1>Телефон: ${number}</h1>
       <h1>Комментарий: ${comment}</h1>
       </div>`,
-  };
+    };
 
-  transporter.sendMail(mail_option, function (error: any, info: any) {
-    if (error) {
-      console.log(error);
-      return { message: "an error has occured" };
-    }
-    return { message: "email success" };
+    transporter.sendMail(mail_option, function (error: any, info: any) {
+      if (error) {
+        console.log(error);
+        return reject({ message: "an error has occured" });
+      }
+      return resolve({ message: "email success" });
+    });
   });
-
-  transporter.verify((err, success) => {
-    if (err) console.error(err);
-    console.log("Your config is correct");
-  });
-
-  console.log(transporter.options);
 }
 
 app.get("*", (req: Request, res: Response, next: NextFunction) => {
