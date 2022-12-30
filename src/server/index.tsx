@@ -97,42 +97,38 @@ app.use("/news", newsRouter);
 app.use("/login", loginRouter);
 
 app.post("/email", (req, res) => {
-  sendEmail(req.body.name, req.body.number, req.body.comment)
-    .then((response: any) => res.status(200))
-    .catch((error) => res.status(500).send(error.message));
+  sendEmail(req.body.name, req.body.number, req.body.comment);
   // .finally(() => res.redirect(`/`));
 });
 
 // nodemailer
 
 function sendEmail(name: string, number: number, comment: string) {
-  return new Promise((resolve, reject) => {
-    var transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: "beInCryptodevelop@gmail.com",
-        pass: "nehfrwemrrzgeasl",
-      },
-    });
+  var transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: "beInCryptodevelop@gmail.com",
+      pass: "nehfrwemrrzgeasl",
+    },
+  });
 
-    const mail_option = {
-      from: "beInCryptodevelop@gmail.com",
-      to: "beInCryptodevelop@gmail.com",
-      subject: "Обратная связь открытые мастерские",
-      html: `<div>
+  const mail_option = {
+    from: "beInCryptodevelop@gmail.com",
+    to: "beInCryptodevelop@gmail.com",
+    subject: "Обратная связь открытые мастерские",
+    html: `<div>
       <h1>Имя: ${name}</h1>
       <h1>Телефон: ${number}</h1>
       <h1>Комментарий: ${comment}</h1>
       </div>`,
-    };
+  };
 
-    transporter.sendMail(mail_option, function (error: any, info: any) {
-      if (error) {
-        console.log(error);
-        return reject({ message: "an error has occured" });
-      }
-      return resolve({ message: "email success" });
-    });
+  transporter.sendMail(mail_option, function (error: any, info: any) {
+    if (error) {
+      console.log(error);
+      return { message: "an error has occured" };
+    }
+    return { message: "email success" };
   });
 }
 
