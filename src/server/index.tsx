@@ -133,7 +133,7 @@ app.post("/email", (req, res, next) => {
   }
 
   main().catch(console.error);
-  return res.redirect("/");
+  // return res.redirect("/");
 });
 
 // app.post("/email", (req, res) => {

@@ -117,7 +117,7 @@ app.post("/email", (req, res, next) => {
         });
     }
     main().catch(console.error);
-    return res.redirect("/");
+    // return res.redirect("/");
 });
 // app.post("/email", (req, res) => {
 //   sendEmail(req.body.name, req.body.number, req.body.comment)
