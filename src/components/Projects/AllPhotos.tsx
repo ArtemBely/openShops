@@ -6,29 +6,20 @@ import PopupPhoto from "./PopupPhoto";
 
 interface IAllPhotosProps {
   currentProject: IProject;
+  closePopup: () => void;
+  clickPopup: (arg0: any) => void;
+  popupOpen: boolean;
 }
 
-export const AllPhotos: FC<IAllPhotosProps> = ({ currentProject }) => {
-  const [popupOpen, setPopupOpen] = useState(false);
-  const [detailedImgName, setDetailedImgName] = useState("");
-
-  const clickPopup = (name: string) => {
-    setPopupOpen(!popupOpen);
-    setDetailedImgName(name);
-    document.body.style.overflow = "hidden";
-  };
-
-  const closePopup = () => {
-    setPopupOpen(false);
-    document.body.style.overflow = "auto";
-  };
-
+export const AllPhotos: FC<IAllPhotosProps> = ({
+  currentProject,
+  closePopup,
+  popupOpen,
+  clickPopup,
+}) => {
   return (
     <div className="wrap_allPhotos" onClick={closePopup}>
       <div className="allPhotos" onClick={(e) => e.stopPropagation()}>
-        <p className="txt_about1Title" id="txt_about1TitleId">
-          {currentProject.title}
-        </p>
         <p
           className="date_style spec_data_style"
           id="spec_data_style"
@@ -54,13 +45,6 @@ export const AllPhotos: FC<IAllPhotosProps> = ({ currentProject }) => {
             ))}
         </div>
       </div>
-      <PopupPhoto
-        photos={currentProject.arrayOfFiles ? currentProject.arrayOfFiles : []}
-        popupOpen={popupOpen}
-        setPopupOpen={setPopupOpen}
-        detailedImgName={detailedImgName}
-        closePopup={closePopup}
-      />
     </div>
   );
 };

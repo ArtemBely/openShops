@@ -14,9 +14,13 @@ declare global {
 
 interface IBuildingsProps {
   searchInput: string;
+  selectedCategory: string;
 }
 
-export const Buildings: FC<IBuildingsProps> = ({ searchInput }) => {
+export const Buildings: FC<IBuildingsProps> = ({
+  searchInput,
+  selectedCategory,
+}) => {
   if (typeof window != "undefined") {
     projects = window.__INITIAL_PROJECTS__;
   }
@@ -34,18 +38,24 @@ export const Buildings: FC<IBuildingsProps> = ({ searchInput }) => {
     }
   });
 
-  useEffect(() => {
-    console.log("filteredProjects,", filteredProjects);
-  }, [filteredProjects]);
+  // categories
 
   useEffect(() => {
-    console.log("allProjects,", allProjects);
-  }, [allProjects]);
+    if (selectedCategory !== "Все проекты") {
+      const filtProject = projects.filter(
+        (project) => project.category === selectedCategory
+      );
+      setFilteredProjects(filtProject);
+    } else {
+      setFilteredProjects(projects);
+    }
+  }, [selectedCategory]);
+
+  // search
 
   useEffect(() => {
     const Debounce = setTimeout(() => {
       const filtProjects = filterProjects(searchInput);
-      console.log("debounce + filtProjects", filtProjects);
       setFilteredProjects(filtProjects);
     }, 300);
 
@@ -53,13 +63,20 @@ export const Buildings: FC<IBuildingsProps> = ({ searchInput }) => {
   }, [searchInput]);
 
   const filterProjects = (searchText: string) => {
-    console.log(searchInput, projects);
     if (!searchText || searchText === " ") {
-      return projects;
+      if (selectedCategory !== "Все проекты") {
+        return projects.filter(
+          (project) => project.category === selectedCategory
+        );
+      } else {
+        return projects;
+      }
     }
 
-    return projects.filter(({ title }) =>
-      title.toLowerCase().includes(searchText.toLowerCase())
+    return projects.filter(
+      ({ title, category }) =>
+        title.toLowerCase().includes(searchText.toLowerCase()) &&
+        category === selectedCategory
     );
   };
 
@@ -78,7 +95,7 @@ export const Buildings: FC<IBuildingsProps> = ({ searchInput }) => {
                 className="each_project_img"
               />
               <div className="wrap_objectInfo ">
-                <p className="common_addressObject">{project.title}</p>
+                <p className="common_addressObject">{project.secondString}</p>
                 <p className="common_titleObject">{project.title}</p>
               </div>
             </a>

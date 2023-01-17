@@ -199,8 +199,10 @@ app.get("*", (req: Request, res: Response, next: NextFunction) => {
       const html = `<!DOCTYPE html>
             <html>
                 <head>
-                  <title>collab</title>
+                  <title>Главная</title>
                   <link rel="stylesheet" type="text/css" href="../main.css">
+                  <link type="image/x-icon" href="/ico.ico" rel="shortcut icon">
+                  <link type="Image/x-icon" href="/ico.ico" rel="icon">
                     <meta name="viewport" content="width=device-width, initial-scale=1">
                       <script src='bundles/bundle.js' defer></script>
                         <script>window.__INITIAL_DATA__= ${serialize(

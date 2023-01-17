@@ -6,6 +6,7 @@ import { Footer } from "../Footer";
 import { AllPhotos } from "./AllPhotos";
 import { ProjectDescription } from "./ProjectDescription";
 import { IProject } from "../../server/models/project";
+import PopupPhoto from "./PopupPhoto";
 
 let project: IProject;
 declare global {
@@ -22,6 +23,20 @@ export const EachProject = () => {
   const [currentProject, setCurrentProject] = useState<IProject>(
     {} as IProject
   );
+
+  const [popupOpen, setPopupOpen] = useState(false);
+  const [detailedImgName, setDetailedImgName] = useState("");
+
+  const clickPopup = (name: string) => {
+    setPopupOpen(!popupOpen);
+    setDetailedImgName(name);
+    document.body.style.overflow = "hidden";
+  };
+
+  const closePopup = () => {
+    setPopupOpen(false);
+    document.body.style.overflow = "auto";
+  };
 
   useEffect(() => {
     if (typeof window != "undefined") {
@@ -41,8 +56,23 @@ export const EachProject = () => {
     <p className="wrap_main_page">
       <Header />
       <NavBar />
-      <AllPhotos currentProject={currentProject} />
-      <ProjectDescription currentProject={currentProject} />
+      <p className="txt_about1Title txt_about1Title2">{currentProject.title}</p>
+      <div className="wrap_main_page-project">
+        <AllPhotos
+          currentProject={currentProject}
+          closePopup={closePopup}
+          clickPopup={clickPopup}
+          popupOpen={popupOpen}
+        />
+        <ProjectDescription currentProject={currentProject} />
+      </div>
+      <PopupPhoto
+        photos={currentProject.arrayOfFiles ? currentProject.arrayOfFiles : []}
+        popupOpen={popupOpen}
+        setPopupOpen={setPopupOpen}
+        detailedImgName={detailedImgName}
+        closePopup={closePopup}
+      />
       <Footer />
     </p>
   );

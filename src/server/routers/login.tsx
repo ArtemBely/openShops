@@ -1,20 +1,20 @@
-import React from 'react';
-import express, { Request, Response, NextFunction } from 'express';
-import serialize from 'serialize-javascript';
-import passport from 'passport';
-import { StaticRouter } from 'react-router-dom';
-import { renderToString } from 'react-dom/server';
-import Login from '../../components/Admin/Login';
+import React from "react";
+import express, { Request, Response, NextFunction } from "express";
+import serialize from "serialize-javascript";
+import passport from "passport";
+import { StaticRouter } from "react-router-dom";
+import { renderToString } from "react-dom/server";
+import Login from "../../components/Admin/Login";
 //@ts-ignore
-import { User, createUser, comparePassword} from '../models/user.js';
-const LocalStrategy = require('passport-local').Strategy;
+import { User, createUser, comparePassword } from "../models/user.js";
+const LocalStrategy = require("passport-local").Strategy;
 const router = express.Router();
 
-passport.serializeUser(function(user:any, done) {
+passport.serializeUser(function (user: any, done) {
   done(null, user.id);
 });
-passport.deserializeUser(function(id, done) {
-  User.findById(id, function(err:any, user:object) {
+passport.deserializeUser(function (id, done) {
+  User.findById(id, function (err: any, user: object) {
     done(err, user);
   });
 });
@@ -98,65 +98,79 @@ router.post('/', (req: Request, res: Response, done) => {
     });
 });
 */
-passport.use('local.signin', new LocalStrategy ({
-     usernameField: 'email',
-     passwordField: 'password',
-     passReqToCallback: true
-},
- function(req:Request, email:any, password:any, done:any) {
+passport.use(
+  "local.signin",
+  new LocalStrategy(
+    {
+      usernameField: "email",
+      passwordField: "password",
+      passReqToCallback: true,
+    },
+    function (req: Request, email: any, password: any, done: any) {
+      User.findOne({ email: email }, async function (err: any, user: any) {
+        if (err) {
+          console.log(err);
+          return done(err);
+        }
 
- User.findOne({email: email}, async function(err:any, user:any) {
- if(err) {
-   console.log(err);
-   return done(err);
- }
+        if (!user) {
+          req.flash("errors", "User doesn't exist");
+          console.log("errors", "User doesn't exist");
+          return done(null, false);
+        }
 
- if(!user) {
-   req.flash('errors', "User doesn't exist");
-   console.log('errors', "User doesn't exist");
-   return done(null, false);
- }
+        comparePassword(
+          password,
+          user.password,
+          function (err: any, isMatch: any) {
+            if (err) throw err;
+            if (isMatch) {
+              return done(null, user);
+            } else {
+              req.flash("errors", "Wrong password");
+              console.log("Неверный пароль");
+              return done(null, false);
+            }
+          }
+        );
+      });
+    }
+  )
+);
 
- comparePassword(password, user.password, function(err:any, isMatch:any) {
-     if (err) throw err;
-     if(isMatch) {
-       return done(null, user);
-     }
-     else {
-       req.flash('errors', 'Wrong password');
-       console.log('Неверный пароль');
-       return done(null, false)
-     }
-   });
- });
-}));
-
-router.post('/signin',
-    passport.authenticate('local.signin', {
-    successRedirect: '/pannel/projects',
-    failureRedirect: '/login',
-    passReqToCallback: true
+router.post(
+  "/signin",
+  passport.authenticate("local.signin", {
+    successRedirect: "/pannel/projects",
+    failureRedirect: "/login",
+    passReqToCallback: true,
   })
 );
 
-router.get('/', notLogin, (req: Request, res: Response) => {
+router.get("/", notLogin, (req: Request, res: Response) => {
   let cond: boolean = true;
-  const errors = req.flash('errors');
+  const errors = req.flash("errors");
   const congrats = renderToString(
     <StaticRouter>
-       <Login />
+      <Login />
     </StaticRouter>
-  )
+  );
   res.send(
     `<!DOCTYPE html>
         <html>
             <head>
-              <title>Проверка кода</title>
+              <title>Вход</title>
                    <link rel="stylesheet" type="text/css" href="../main.css">
+                   <link type="image/x-icon" href="/ico.ico" rel="shortcut icon">
+                   <link type="Image/x-icon" href="/ico.ico" rel="icon">
                      <meta name="viewport" content="width=device-width, initial-scale=1">
                        <script src='bundles/bundle.js' defer></script>
-                       <script>window.__INITIAL_STATE__ = ${serialize(cond)}</script>
-                       <script>window.__INITIAL_ERRORS__ = ${serialize(errors)}</script>
+                       <script>window.__INITIAL_STATE__ = ${serialize(
+                         cond
+                       )}</script>
+                       <script>window.__INITIAL_ERRORS__ = ${serialize(
+                         errors
+                       )}</script>
                        </head>
                      <body>
                    <div id="app">
@@ -164,19 +178,19 @@ router.get('/', notLogin, (req: Request, res: Response) => {
               </div>
             </body>
         </html>`
-    );
+  );
 });
 
-router.get('/logout', (req, res, next:NextFunction) => {
+router.get("/logout", (req, res, next: NextFunction) => {
   req.logout();
-  res.redirect('/login');
+  res.redirect("/login");
 });
 
-function notLogin(req:Request, res:Response, next:NextFunction) {
-  if(!req.isAuthenticated()) {
+function notLogin(req: Request, res: Response, next: NextFunction) {
+  if (!req.isAuthenticated()) {
     return next();
   }
-  res.redirect('/pannel/projects');
+  res.redirect("/pannel/projects");
 }
 
 export default router;

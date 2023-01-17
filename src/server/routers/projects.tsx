@@ -20,8 +20,10 @@ router.get("/", async (req: Request, res: Response) => {
     `<!DOCTYPE html>
         <html>
             <head>
-              <title>Проверка кода</title>
+              <title>Проекты</title>
                    <link rel="stylesheet" type="text/css" href="../main.css">
+                   <link type="image/x-icon" href="/ico.ico" rel="shortcut icon">
+                   <link type="Image/x-icon" href="/ico.ico" rel="icon">
                      <meta name="viewport" content="width=device-width, initial-scale=1">
                        <script src='bundles/bundle.js' defer></script>
                        <script>window.__INITIAL_PROJECTS__ = ${serialize(
@@ -49,8 +51,10 @@ router.get("/:id", async (req: Request, res: Response) => {
     `<!DOCTYPE html>
         <html>
             <head>
-              <title>Проверка кода</title>
+              <title>Проекты</title>
                    <link rel="stylesheet" type="text/css" href="../main.css">
+                   <link type="image/x-icon" href="/ico.ico" rel="shortcut icon">
+                   <link type="Image/x-icon" href="/ico.ico" rel="icon">
                      <meta name="viewport" content="width=device-width, initial-scale=1">
                        <script src='../bundles/bundle.js' defer></script>
                        <script>window.__INITIAL_PROJECT__ = ${serialize(

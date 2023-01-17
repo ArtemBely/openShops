@@ -34,11 +34,13 @@ export const Request = () => {
               className="req_inputs comment_field"
             ></textarea>
 
+            {/* <div className="captcha-wrapper"> */}
             <ReCAPTCHA
               sitekey="6Lc1-uEjAAAAANpe7ao66EzkW-KHA8Rvj6SL08hL"
               onChange={onChange}
-              style={{ marginTop: 20, gridColumn: "1 / 3" }}
+              className="captcha"
             />
+            {/* </div> */}
 
             <button type="submit" id="req_btn" disabled={!verfied}>
               Заполнить бриф
