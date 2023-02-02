@@ -38,7 +38,7 @@ export const EachNews = () => {
   return (
     <p className="wrap_main_page">
       <Header />
-      <NavBar />
+      <NavBar currentNews={currentNews} />
       <NewsContent currentNews={currentNews} />
       <Footer />
     </p>

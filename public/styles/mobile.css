@@ -1,4 +1,10 @@
 @media (min-width: 320px) and (max-width: 576px) {
+  #app {
+    zoom: 100%;
+  }
+  .wrap_aboutChooseUs {
+    margin-bottom: 50px;
+  }
   .header {
     width: 320px;
     -ms-grid-columns: 293px 27px;
@@ -103,7 +109,10 @@
     width: 150px;
   }
   .wrap_footer {
-    height: auto;
+    height: 870px;
+  }
+  .footer-bottom p:last-child {
+    margin-left: 0;
   }
   .middle_foot {
     display: -ms-grid;

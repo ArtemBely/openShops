@@ -1,4 +1,8 @@
 @media (min-width: 576px) and (max-width: 992px) {
+  #app {
+    zoom: 100%;
+  }
+
   .header {
     width: 576px;
     -ms-grid-columns: 549px 27px;
@@ -148,7 +152,7 @@
     grid-gap: 6px;
   }
   .screenFourDiscuss {
-    margin-top: 18px;
+    margin-top: 48px;
   }
   .screen_special {
     width: 576px;
@@ -338,7 +342,7 @@
     width: 286px;
   }
   .wrap_footer {
-    height: auto;
+    height: 900px;
   }
 
   .footer-bottom {

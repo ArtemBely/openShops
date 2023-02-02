@@ -36,7 +36,7 @@ export const EachProject = () => {
     });
     return (React.createElement("p", { className: "wrap_main_page" },
         React.createElement(Header, null),
-        React.createElement(NavBar, null),
+        React.createElement(NavBar, { currentProject: currentProject }),
         React.createElement("p", { className: "txt_about1Title txt_about1Title2" }, currentProject.title),
         React.createElement("div", { className: "wrap_main_page-project" },
             React.createElement(AllPhotos, { currentProject: currentProject, closePopup: closePopup, clickPopup: clickPopup, popupOpen: popupOpen }),

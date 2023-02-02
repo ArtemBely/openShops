@@ -211,6 +211,6 @@ var httpsServer = https.createServer(credentials, app);
 httpServer.listen(8080, () => {
     console.log("connected on http!");
 }); // --> localhost test mode
-httpsServer.listen(443, () => {
+httpsServer.listen(8000, () => {
     console.log("connected on https!");
 });

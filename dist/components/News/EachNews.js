@@ -23,7 +23,7 @@ export const EachNews = () => {
     });
     return (React.createElement("p", { className: "wrap_main_page" },
         React.createElement(Header, null),
-        React.createElement(NavBar, null),
+        React.createElement(NavBar, { currentNews: currentNews }),
         React.createElement(NewsContent, { currentNews: currentNews }),
         React.createElement(Footer, null)));
 };

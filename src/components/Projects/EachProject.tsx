@@ -55,7 +55,7 @@ export const EachProject = () => {
   return (
     <p className="wrap_main_page">
       <Header />
-      <NavBar />
+      <NavBar currentProject={currentProject} />
       <p className="txt_about1Title txt_about1Title2">{currentProject.title}</p>
       <div className="wrap_main_page-project">
         <AllPhotos
