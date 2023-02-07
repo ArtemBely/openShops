@@ -53,7 +53,10 @@ export const Footer = () => {
               пом. I, ком. 65, эт. 1
             </p>
             <p className="each_address showPlanchetAddress">
-              107076, г. Москва, ул. Богородский Вал,
+              107076, г. Москва,
+            </p>
+            <p className="each_address showPlanchetAddress">
+              ул. Богородский Вал,
             </p>
             <p className="each_address showPlanchetAddress">
               д. 3, стр. 32, пом. I, ком. 65, эт. 1

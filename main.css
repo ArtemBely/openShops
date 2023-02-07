@@ -1384,7 +1384,8 @@ html {
   height: 700px;
 }
 .name_of {
-  font-size: 22px;
+  font-size: 30px;
+  font-weight: 700;
   line-height: 140%;
   margin: 0;
   color: black;
@@ -2245,9 +2246,13 @@ html {
   .below_culture {
     margin-top: 45px;
   }
-  .name_of,
+
+  .name_of {
+    font-size: 30px;
+    font-weight: 700;
+  }
   .lastname_of {
-    font-size: 18px;
+    font-size: 22px;
     line-height: 25px;
   }
   .foto1 {
@@ -2875,7 +2880,11 @@ html {
     grid-template-columns: 1fr;
     grid-gap: 0px;
   }
-  .name_of,
+
+  .name_of {
+    font-size: 22px;
+    font-weight: 700;
+  }
   .lastname_of {
     font-size: 18px;
     line-height: 25px;
@@ -3012,10 +3021,6 @@ html {
 }
 
 @media (min-width: 576px) and (max-width: 992px) {
-  #app {
-    zoom: 100%;
-  }
-
   .header {
     width: 576px;
     -ms-grid-columns: 549px 27px;
@@ -4034,9 +4039,6 @@ html {
 }
 
 @media (min-width: 320px) and (max-width: 576px) {
-  #app {
-    zoom: 100%;
-  }
   .wrap_aboutChooseUs {
     margin-bottom: 50px;
   }
@@ -4156,6 +4158,7 @@ html {
     top: 0px !important;
     width: 330px;
   }
+
   .each_other {
     margin: 4px 0px;
   }
@@ -4240,7 +4243,7 @@ html {
     -ms-grid-column: 1;
     -ms-grid-column-span: 1;
     grid-column: 1 / 2;
-    margin-top: 20px;
+    margin-top: -10px;
   }
   #logo {
     width: 213px;
@@ -5170,8 +5173,8 @@ html {
 
   .captcha {
     grid-column: 1 / 3;
-    transform: scale(0.8);
-    -webkit-transform: scale(0.8);
+    transform: scale(0.64);
+    -webkit-transform: scale(0.64);
     transform-origin: 0 0;
     -webkit-transform-origin: 0 0;
   }

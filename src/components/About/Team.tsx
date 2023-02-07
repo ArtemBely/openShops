@@ -37,10 +37,6 @@ export const Team = () => {
         </p>
         {allTeam.map((participant) => (
           <div>
-            <img
-              src={`../../../uploads/${participant.noExchangeFile}`}
-              className="foto1"
-            ></img>
             <p className="name_of">{participant.name}</p>
             <p className="lastname_of">{participant.title}</p>
           </div>

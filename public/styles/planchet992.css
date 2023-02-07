@@ -507,7 +507,11 @@
     grid-template-columns: 1fr;
     grid-gap: 0px;
   }
-  .name_of,
+
+  .name_of {
+    font-size: 22px;
+    font-weight: 700;
+  }
   .lastname_of {
     font-size: 18px;
     line-height: 25px;

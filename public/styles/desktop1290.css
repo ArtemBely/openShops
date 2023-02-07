@@ -409,9 +409,13 @@
   .below_culture {
     margin-top: 45px;
   }
-  .name_of,
+
+  .name_of {
+    font-size: 30px;
+    font-weight: 700;
+  }
   .lastname_of {
-    font-size: 18px;
+    font-size: 22px;
     line-height: 25px;
   }
   .foto1 {

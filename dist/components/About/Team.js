@@ -16,7 +16,6 @@ export const Team = () => {
         React.createElement("div", { className: "teamBlock" },
             React.createElement("p", { className: "txt_about1Title first_title", id: "team_spec_title", style: { gridColumn: "1 / 4" } }, "\u041A\u043E\u043C\u0430\u043D\u0434\u0430"),
             allTeam.map((participant) => (React.createElement("div", null,
-                React.createElement("img", { src: `../../../uploads/${participant.noExchangeFile}`, className: "foto1" }),
                 React.createElement("p", { className: "name_of" }, participant.name),
                 React.createElement("p", { className: "lastname_of" }, participant.title)))))));
 };
