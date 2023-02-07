@@ -3360,7 +3360,7 @@ html {
     width: 286px;
   }
   .wrap_footer {
-    height: 900px;
+    height: 1020px;
   }
 
   .footer-bottom {
@@ -3395,6 +3395,10 @@ html {
   }
   .foot_links {
     margin-bottom: 20px;
+  }
+
+  .foot_links p {
+    margin-bottom: 18px;
   }
   .msg_us_btn {
     width: 518px;
@@ -3878,7 +3882,7 @@ html {
     -ms-flex-pack: center;
     justify-content: center;
     width: 100%;
-    height: 674px;
+    height: 100%;
     background: radial-gradient(
           92.96% 63.59% at 50% 122.68%,
           rgba(43, 230, 227, 0.56) 0%,
@@ -3950,16 +3954,17 @@ html {
     position: relative;
     top: 143px;
   }
-  .contacts_mobile {
-    top: -80px;
+
+  .middle_foot_mobile a {
+    margin-bottom: 15px;
   }
   .mobile_logo_mobile {
     display: block;
     margin: 0;
     position: absolute;
   }
-  /*---*/
-
+  /* --- */
+  /*  */
   .wrap_trick {
     width: 800px;
     overflow: scroll;
@@ -4146,7 +4151,7 @@ html {
     width: 150px;
   }
   .wrap_footer {
-    height: 870px;
+    height: 860px;
   }
   .footer-bottom p:last-child {
     margin-left: 0;
@@ -4189,6 +4194,9 @@ html {
   .foot_links .foot_links {
     margin-bottom: 31px;
     max-width: 330px;
+  }
+  .foot_links p {
+    margin-bottom: 18px;
   }
   .foot_links {
     max-width: 330px;
@@ -4995,7 +5003,7 @@ html {
     -ms-flex-pack: center;
     justify-content: center;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     overflow-y: scroll;
     background: radial-gradient(
           92.96% 63.59% at 50% 122.68%,
@@ -5055,6 +5063,7 @@ html {
     height: 238px;
     position: relative;
   }
+
   .wrap_footer_mobile {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -5069,7 +5078,7 @@ html {
     top: 116px;
   }
   .contacts_mobile {
-    top: 106px;
+    top: 200px;
   }
   .mobile_logo_mobile {
     display: block;
