@@ -28,6 +28,7 @@ import https from "https";
 import path from "path";
 import fs from "fs";
 
+
 const app: Application = express();
 const CONNECTION_URI: any = process.env.MONGODB_URI;
 //const port = process.env.PORT || 5000;
@@ -135,50 +136,6 @@ app.post("/email", (req, res, next) => {
   main().catch(console.error);
   // return res.redirect("/");
 });
-
-// app.post("/email", (req, res) => {
-//   sendEmail(req.body.name, req.body.number, req.body.comment)
-//     .then((response: any) => res.status(200))
-//     .catch((error) => res.status(500).send(error.message))
-//     .finally(() => res.redirect(`/`));
-// });
-
-// // nodemailer
-
-// async function sendEmail(name: string, number: number, comment: string) {
-//     let transporter = nodemailer.createTransport({
-//       host: "smtp.yandex.ru",
-//       port: 465,
-//       secure: true, // true for 465, false for other ports
-//       auth: {
-//         user: "d.shishkin@acorn.ws",
-//         pass: "ftwuthhofkwjzlms",
-//       },
-//       tls: {
-//         rejectUnauthorized: false, // только для localhost
-//       },
-//     });
-
-//     const mail_option = {
-//       from: "d.shishkin@acorn.ws",
-//       to: "d.shishkin@acorn.ws",
-//       subject: "Обратная связь открытые мастерские",
-//       html: `<div>
-//       <h1>Имя: ${name}</h1>
-//       <h1>Телефон: ${number}</h1>
-//       <h1>Комментарий: ${comment}</h1>
-//       </div>`,
-//     };
-
-//     let info = await transporter.sendMail(mail_option, function (error: any, info: any) {
-//       if (error) {
-//         console.log(error);
-//         return { message: "an error has occured" }
-//       }
-//       return { message: "email success" }
-//     })
-
-// }
 
 app.get("*", (req: Request, res: Response, next: NextFunction) => {
   const activeRouter: any =

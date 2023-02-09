@@ -274,10 +274,15 @@ html {
   line-height: 160%;
   color: #888888;
 }
+
+.grey_link-contacts {
+  margin-bottom: -12px !important;
+}
 .links_contact {
   text-decoration: none;
 }
 .wrap_request {
+  padding: 50px 0px;
   width: 100%;
   height: 1080px;
   display: -webkit-box;
@@ -3419,6 +3424,10 @@ html {
     margin-bottom: 7px;
     font-size: 18px;
   }
+
+  .grey_link-contacts {
+    margin-bottom: 15px !important;
+  }
   .each_other,
   .each_address {
     font-size: 18px !important;
@@ -4201,6 +4210,10 @@ html {
   .foot_links {
     max-width: 330px;
   }
+
+  .foot_links p {
+    margin-bottom: 15px !important;
+  }
   .msg_us_btn {
     width: 240px;
     font-size: 18px;
@@ -4215,6 +4228,7 @@ html {
     margin-bottom: 7px;
     font-size: 18px;
   }
+
   .each_other,
   .each_address {
     font-size: 18px !important;

@@ -30,11 +30,25 @@ export const Buildings: FC<IBuildingsProps> = ({
     null
   );
 
+  // достаем категорию из перехода футера
+  useEffect(() => {
+    if (localStorage.getItem("category") !== null) {
+      const filtProject = projects.filter(
+        (project) => project.category === localStorage.getItem("category")
+      );
+      setFilteredProjects(filtProject);
+    }
+
+    setTimeout(() => {
+      localStorage.removeItem("category");
+    }, 2000);
+  }, []);
+
   useEffect(() => {
     if (typeof window != "undefined") {
-      if (window.location.pathname.split("/").pop() == "projects") {
-        setAllProjects(projects);
-      }
+      // if (window.location.pathname.split("/").pop() == "projects") {
+      setAllProjects(projects);
+      // }
     }
   });
 
@@ -46,17 +60,21 @@ export const Buildings: FC<IBuildingsProps> = ({
         (project) => project.category === selectedCategory
       );
       setFilteredProjects(filtProject);
+    } else if (localStorage.getItem("category")) {
+      return;
     } else {
       setFilteredProjects(projects);
     }
   }, [selectedCategory]);
 
   // search
-
   useEffect(() => {
     const Debounce = setTimeout(() => {
       const filtProjects = filterProjects(searchInput);
-      setFilteredProjects(filtProjects);
+
+      if (!localStorage.getItem("category")) {
+        setFilteredProjects(filtProjects);
+      }
     }, 300);
 
     return () => clearTimeout(Debounce);
@@ -71,13 +89,17 @@ export const Buildings: FC<IBuildingsProps> = ({
       } else {
         return projects;
       }
+    } else if (selectedCategory === "Все проекты") {
+      return projects.filter(({ title }) =>
+        title.toLowerCase().includes(searchText.toLowerCase())
+      );
+    } else {
+      return projects.filter(
+        ({ title, category }) =>
+          title.toLowerCase().includes(searchText.toLowerCase()) &&
+          category === selectedCategory
+      );
     }
-
-    return projects.filter(
-      ({ title, category }) =>
-        title.toLowerCase().includes(searchText.toLowerCase()) &&
-        category === selectedCategory
-    );
   };
 
   return (

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Buildings } from "./Buildings";
 
 export const Filtr = () => {
@@ -12,6 +12,12 @@ export const Filtr = () => {
     });
     e.target.classList.add("choosenCategory");
   };
+
+  useEffect(() => {
+    if (localStorage.getItem("category") !== null) {
+      setCategory(String(localStorage.getItem("category")));
+    }
+  }, []);
 
   return (
     <div className="wrap_aboutProject">
@@ -33,50 +39,72 @@ export const Filtr = () => {
         <div className="aboutProject">
           <div className="wrap_allCategory">
             <p
-              className="each_category choosenCategory"
-              onClick={(e) => changeFiltr(e, "Все проекты")}
+              className={`each_category ${
+                category === "Все проекты" ? "choosenCategory" : ""
+              }`}
+              onClick={() => setCategory("Все проекты")}
             >
               Все проекты
             </p>
             <p
-              className="each_category"
-              onClick={(e) => changeFiltr(e, "Жилые комплексы")}
+              className={`each_category ${
+                category === "Жилые комплексы" ? "choosenCategory" : ""
+              }`}
+              onClick={() => setCategory("Жилые комплексы")}
             >
               Жилые комплексы
             </p>
             <p
-              className="each_category"
-              onClick={(e) => changeFiltr(e, "Общественно-деловые комплексы")}
+              className={`each_category ${
+                category === "Общественно-деловые комплексы"
+                  ? "choosenCategory"
+                  : ""
+              }`}
+              onClick={() => setCategory("Общественно-деловые комплексы")}
             >
               Общественно-деловые комплексы
             </p>
             <p
-              className="each_category"
-              onClick={(e) => changeFiltr(e, "Гостиничные комплексы")}
+              className={`each_category ${
+                category === "Гостиничные комплексы" ? "choosenCategory" : ""
+              }`}
+              onClick={() => setCategory("Гостиничные комплексы")}
             >
               Гостиничные комплексы
             </p>
             <p
-              className="each_category"
-              onClick={(e) => changeFiltr(e, "Градостроительные концепции")}
+              className={`each_category ${
+                category === "Градостроительные концепции"
+                  ? "choosenCategory"
+                  : ""
+              }`}
+              onClick={() => setCategory("Градостроительные концепции")}
             >
               Градостроительные концепции
             </p>
             <p
-              className="each_category"
-              onClick={(e) => changeFiltr(e, "Развлекательные комплексы")}
+              className={`each_category ${
+                category === "Развлекательные комплексы"
+                  ? "choosenCategory"
+                  : ""
+              }`}
+              onClick={() => setCategory("Развлекательные комплексы")}
             >
               Развлекательные комплексы
             </p>
             <p
-              className="each_category"
-              onClick={(e) => changeFiltr(e, "Конкурсы")}
+              className={`each_category ${
+                category === "Конкурсы" ? "choosenCategory" : ""
+              }`}
+              onClick={() => setCategory("Конкурсы")}
             >
               Конкурсы
             </p>
             <p
-              className="each_category"
-              onClick={(e) => changeFiltr(e, "Интерьеры")}
+              className={`each_category ${
+                category === "Интерьеры" ? "choosenCategory" : ""
+              }`}
+              onClick={() => setCategory("Интерьеры")}
             >
               Интерьеры
             </p>

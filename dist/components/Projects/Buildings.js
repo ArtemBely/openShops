@@ -7,11 +7,21 @@ export const Buildings = ({ searchInput, selectedCategory, }) => {
     }
     const [allProjects, setAllProjects] = useState([{}]);
     const [filteredProjects, setFilteredProjects] = useState(null);
+    // достаем категорию из перехода футера
+    useEffect(() => {
+        if (localStorage.getItem("category") !== null) {
+            const filtProject = projects.filter((project) => project.category === localStorage.getItem("category"));
+            setFilteredProjects(filtProject);
+        }
+        setTimeout(() => {
+            localStorage.removeItem("category");
+        }, 2000);
+    }, []);
     useEffect(() => {
         if (typeof window != "undefined") {
-            if (window.location.pathname.split("/").pop() == "projects") {
-                setAllProjects(projects);
-            }
+            // if (window.location.pathname.split("/").pop() == "projects") {
+            setAllProjects(projects);
+            // }
         }
     });
     // categories
@@ -19,6 +29,9 @@ export const Buildings = ({ searchInput, selectedCategory, }) => {
         if (selectedCategory !== "Все проекты") {
             const filtProject = projects.filter((project) => project.category === selectedCategory);
             setFilteredProjects(filtProject);
+        }
+        else if (localStorage.getItem("category")) {
+            return;
         }
         else {
             setFilteredProjects(projects);
@@ -28,7 +41,9 @@ export const Buildings = ({ searchInput, selectedCategory, }) => {
     useEffect(() => {
         const Debounce = setTimeout(() => {
             const filtProjects = filterProjects(searchInput);
-            setFilteredProjects(filtProjects);
+            if (!localStorage.getItem("category")) {
+                setFilteredProjects(filtProjects);
+            }
         }, 300);
         return () => clearTimeout(Debounce);
     }, [searchInput]);
@@ -41,8 +56,13 @@ export const Buildings = ({ searchInput, selectedCategory, }) => {
                 return projects;
             }
         }
-        return projects.filter(({ title, category }) => title.toLowerCase().includes(searchText.toLowerCase()) &&
-            category === selectedCategory);
+        else if (selectedCategory === "Все проекты") {
+            return projects.filter(({ title }) => title.toLowerCase().includes(searchText.toLowerCase()));
+        }
+        else {
+            return projects.filter(({ title, category }) => title.toLowerCase().includes(searchText.toLowerCase()) &&
+                category === selectedCategory);
+        }
     };
     return (React.createElement("div", { className: "wrap_buildings_inside" },
         React.createElement("div", { className: "buildings_inside" }, filteredProjects ? (filteredProjects.map((project) => (React.createElement("a", { key: project._id, href: `/projects/${project._id}`, className: "wrap_each_object" },

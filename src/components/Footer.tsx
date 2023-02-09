@@ -1,12 +1,13 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 const white_logo = "../../images/logo_footer.svg";
 const telegram = "../../images/icon-park-outline_telegram.svg";
-const phone = "../../images/ant-design_phone-filled.svg";
-const letter = "../../images/Vector-3.svg";
 const whatsapp = "../../images/Vector-4.svg";
 
 export const Footer = () => {
+  const selectCategory = (category: string) => {
+    localStorage.setItem("category", category);
+  };
+
   return (
     <div className="wrap_footer">
       <div className="footer">
@@ -16,30 +17,58 @@ export const Footer = () => {
             <p className="grey_link" id="projects_foot_title">
               Проекты
             </p>
-            <NavLink to="/projects" className="each_other">
+            <a href="/projects" className="each_other">
               Все проекты
-            </NavLink>
-            <NavLink to="/projects" className="each_other">
+            </a>
+            <a
+              href="/projects"
+              onClick={() => selectCategory("Жилые комплексы")}
+              className="each_other"
+            >
               Жилые комплексы
-            </NavLink>
-            <NavLink to="/projects" className="each_other">
+            </a>
+            <a
+              href="/projects"
+              onClick={() => selectCategory("Общественно-деловые комплексы")}
+              className="each_other"
+            >
               Общественно-деловые комплексы
-            </NavLink>
-            <NavLink to="/projects" className="each_other">
+            </a>
+            <a
+              href="/projects"
+              onClick={() => selectCategory("Гостиничные комплексы")}
+              className="each_other"
+            >
               Гостиничные комплексы
-            </NavLink>
-            <NavLink to="/projects" className="each_other">
+            </a>
+            <a
+              href="/projects"
+              onClick={() => selectCategory("Градостроительные концепции")}
+              className="each_other"
+            >
               Градостроительные концепции
-            </NavLink>
-            <NavLink to="/projects" className="each_other">
+            </a>
+            <a
+              href="/projects"
+              onClick={() => selectCategory("Развлекательные комплексы")}
+              className="each_other"
+            >
               Развлекательные комплексы
-            </NavLink>
-            <NavLink to="/projects" className="each_other">
+            </a>
+            <a
+              href="/projects"
+              onClick={() => selectCategory("Конкурсы")}
+              className="each_other"
+            >
               Конкурсы
-            </NavLink>
-            <NavLink to="/projects" className="each_other">
+            </a>
+            <a
+              href="/projects"
+              onClick={() => selectCategory("Интерьеры")}
+              className="each_other"
+            >
               Интерьеры
-            </NavLink>
+            </a>
           </div>
           <div className="foot_links footerCorrect">
             <p className="grey_link">Офис</p>
@@ -63,7 +92,7 @@ export const Footer = () => {
             </p>
           </div>
           <div className="foot_links">
-            <p className="grey_link">Контакты</p>
+            <p className="grey_link grey_link-contacts">Контакты</p>
             <a href="mailto:info@o-master.ru" className="links_contact">
               <p className="each_other">info@o-master.ru</p>
             </a>

@@ -397,6 +397,10 @@
     margin-bottom: 7px;
     font-size: 18px;
   }
+
+  .grey_link-contacts {
+    margin-bottom: 15px !important;
+  }
   .each_other,
   .each_address {
     font-size: 18px !important;

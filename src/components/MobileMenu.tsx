@@ -23,6 +23,10 @@ class MobileMenu extends React.Component<iProps, {}> {
       this.props.changeBurger();
     };
 
+    const selectCategory = (category: string) => {
+      localStorage.setItem("category", category);
+    };
+
     return (
       <div
         className="wrap_mobileMenu"
@@ -97,7 +101,10 @@ class MobileMenu extends React.Component<iProps, {}> {
                   пом. I, ком. 65, эт. 1
                 </p>
                 <p className="each_address showPlanchetAddress">
-                  107076, г. Москва, ул. Богородский Вал,
+                  107076, г. Москва,
+                </p>
+                <p className="each_address showPlanchetAddress">
+                  ул. Богородский Вал,
                 </p>
                 <p className="each_address showPlanchetAddress">
                   д. 3, стр. 32, пом. I, ком. 65, эт. 1
@@ -107,30 +114,64 @@ class MobileMenu extends React.Component<iProps, {}> {
                 <p className="grey_link" id="projects_foot_title">
                   Проекты
                 </p>
-                <NavLink to="/projects" className="each_other">
+                <a
+                  href="/projects"
+                  onClick={() => selectCategory("Все проекты")}
+                  className="each_other"
+                >
                   Все проекты
-                </NavLink>
-                <NavLink to="/projects" className="each_other">
+                </a>
+                <a
+                  href="/projects"
+                  onClick={() => selectCategory("Жилые комплексы")}
+                  className="each_other"
+                >
                   Жилые комплексы
-                </NavLink>
-                <NavLink to="/projects" className="each_other">
+                </a>
+                <a
+                  href="/projects"
+                  onClick={() =>
+                    selectCategory("Общественно-деловые комплексы")
+                  }
+                  className="each_other"
+                >
                   Общественно-деловые комплексы
-                </NavLink>
-                <NavLink to="/projects" className="each_other">
+                </a>
+                <a
+                  href="/projects"
+                  onClick={() => selectCategory("Гостиничные комплексы")}
+                  className="each_other"
+                >
                   Гостиничные комплексы
-                </NavLink>
-                <NavLink to="/projects" className="each_other">
+                </a>
+                <a
+                  href="/projects"
+                  onClick={() => selectCategory("Градостроительные концепции")}
+                  className="each_other"
+                >
                   Градостроительные концепции
-                </NavLink>
-                <NavLink to="/projects" className="each_other">
+                </a>
+                <a
+                  href="/projects"
+                  onClick={() => selectCategory("Развлекательные комплексы")}
+                  className="each_other"
+                >
                   Развлекательные комплексы
-                </NavLink>
-                <NavLink to="/projects" className="each_other">
+                </a>
+                <a
+                  href="/projects"
+                  onClick={() => selectCategory("Конкурсы")}
+                  className="each_other"
+                >
                   Конкурсы
-                </NavLink>
-                <NavLink to="/projects" className="each_other">
+                </a>
+                <a
+                  href="/projects"
+                  onClick={() => selectCategory("Интерьеры")}
+                  className="each_other"
+                >
                   Интерьеры
-                </NavLink>
+                </a>
               </div>
               <div className="foot_links_mobile contacts_mobile">
                 <p className="grey_link">Контакты</p>

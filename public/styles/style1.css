@@ -274,10 +274,15 @@ html {
   line-height: 160%;
   color: #888888;
 }
+
+.grey_link-contacts {
+  margin-bottom: -12px !important;
+}
 .links_contact {
   text-decoration: none;
 }
 .wrap_request {
+  padding: 50px 0px;
   width: 100%;
   height: 1080px;
   display: -webkit-box;
