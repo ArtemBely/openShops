@@ -1,12 +1,25 @@
-.wrap_contact, .wrap_navbar, .wrap_aboutScreen, .wrap_teamBlock, .wrap_vacancies, .wrap_aboutScreen,
-.wrap_belowScreen, .wrap_aboutCulture, .wrap_aboutChooseUs, .wrap_teamBlock, .wrap_each_vacancy, .wrap_buildings_inside {
+.wrap_contact,
+.wrap_navbar,
+.wrap_aboutScreen,
+.wrap_teamBlock,
+.wrap_vacancies,
+.wrap_aboutScreen,
+.wrap_belowScreen,
+.wrap_aboutCulture,
+.wrap_aboutChooseUs,
+.wrap_teamBlock,
+.wrap_each_vacancy,
+.wrap_buildings_inside {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+.wrap_aboutChooseUs {
+  margin-bottom: 150px;
 }
 .wrap_belowScreen {
   margin-top: 60px;
@@ -28,12 +41,17 @@
   color: #888888;
   margin-bottom: 0;
 }
+
+.navbar_style a {
+  color: #888888;
+  text-decoration: none;
+}
 .contact_title {
   font-size: 55px;
   line-height: 160%;
   color: white;
   margin-bottom: 50px;
-  font-family: 'Oswald-Bold';
+  font-family: "Oswald-Bold";
 }
 .contact_info {
   font-size: 35px;
@@ -45,7 +63,7 @@
 .wrap_contacts_inside {
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: (1fr)[3];
+  -ms-grid-rows: (1fr) [3];
   grid-template-rows: repeat(3, 1fr);
 }
 .wrap_low_links_contact {
@@ -78,7 +96,7 @@
   width: 48px;
 }
 .active_menu_links {
-  font-family: 'Inter-Bold';
+  font-family: "Inter-Bold";
 }
 .wrap_main_page {
   margin: 0;
@@ -87,7 +105,7 @@
   font-size: 70px;
   line-height: 140%;
   color: #010101;
-  font-family: 'Oswald-Bold';
+  font-family: "Oswald-Bold";
   margin-top: 20px;
   width: 1480px;
 }
@@ -107,7 +125,7 @@
 }
 .txt_about1Title {
   font-size: 70px;
-  font-family: 'Oswald-Bold';
+  font-family: "Oswald-Bold";
   margin-bottom: 5px;
   line-height: 140%;
   color: #000000;
@@ -123,7 +141,7 @@
   line-height: 140%;
   margin: 0;
   width: 830px;
-  font-family: 'Inter-Bold';
+  font-family: "Inter-Bold";
 }
 .txt_about1 {
   font-size: 22px;
@@ -140,9 +158,12 @@
   margin: 0;
 }
 #spec_four {
-      margin-top: 56px;
+  margin-top: 56px;
 }
-.aboutCulture, .below_culture, .wrap_img_aboutCulture, .aboutChooseUs {
+.aboutCulture,
+.below_culture,
+.wrap_img_aboutCulture,
+.aboutChooseUs {
   width: 1920px;
   display: -ms-grid;
   display: grid;
@@ -160,10 +181,10 @@
   margin-top: 85px;
 }
 .first_title {
-      margin-bottom: 15px;
+  margin-bottom: 15px;
 }
 .wrap_img_aboutCulture > img {
-width: 100%;
+  width: 100%;
 }
 .below_culture {
   -ms-grid-columns: 1fr 120px 1fr;
@@ -178,7 +199,7 @@ width: 100%;
   width: 1920px;
 }
 .spec_txt_about {
-      width: 851px;
+  width: 851px;
 }
 .teamBlock {
   display: -ms-grid;
@@ -189,18 +210,19 @@ width: 100%;
   grid-gap: 30px;
 }
 .foto1 {
-  background: #D9D9D9;
+  background: #d9d9d9;
   width: 100%;
   height: 700px;
 }
 .name_of {
-  font-size: 22px;
+  font-size: 30px;
+  font-weight: 700;
   line-height: 140%;
   margin: 0;
   color: black;
-  font-family: 'Inter-Bold';
+  font-family: "Inter-Bold";
 }
-.lastname_of{
+.lastname_of {
   font-size: 22px;
   color: black;
   line-height: 160%;
@@ -222,7 +244,7 @@ width: 100%;
 .each_vacancy {
   width: 1856px;
   height: 95px;
-  border: 2px solid #CCCCCC;
+  border: 2px solid #cccccc;
   display: -ms-grid;
   display: grid;
   cursor: pointer;
@@ -242,8 +264,8 @@ width: 100%;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: end;
+  -ms-flex-pack: end;
+  justify-content: end;
   margin-top: 34px;
 }
 .second_title {

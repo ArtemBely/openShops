@@ -13,8 +13,8 @@
     top: -10px;
   }
   .footer-top {
-     width: 1000px;
-   }
+    width: 1000px;
+  }
   .wrap_low_map {
     width: 690px;
     overflow: hidden;
@@ -120,11 +120,11 @@
     width: 286px;
   }
   .wrap_footer {
-    height: 505px;
+    height: 600px;
   }
 
   .footer-bottom {
-    margin-top: -30px;
+    margin-top: 80px;
   }
 
   .middle_foot {
@@ -351,14 +351,16 @@
     object-fit: cover;
   }
   .wrap_each_object:hover > .each_project_img {
-    height: 400px !important;
+    height: 390px !important;
     width: 105%;
   }
   .wrap_each_object:hover > .wrap_objectInfo {
     bottom: 0px;
   }
   /*---*/
-
+  .wrap_allPhotos {
+    margin-top: -45px;
+  }
   /*about*/
   .about_title {
     font-size: 60px;
@@ -407,9 +409,13 @@
   .below_culture {
     margin-top: 45px;
   }
-  .name_of,
+
+  .name_of {
+    font-size: 30px;
+    font-weight: 700;
+  }
   .lastname_of {
-    font-size: 18px;
+    font-size: 22px;
     line-height: 25px;
   }
   .foto1 {
@@ -465,8 +471,8 @@
   }
 
   .each_photo_project {
-    width: 184px;
-    height: 103px;
+    width: 183px;
+    height: 125px;
   }
   .wrap_allImages {
     width: 1200px;
@@ -482,24 +488,48 @@
     grid-template-columns: 870px 1fr;
   }
 
+  /* screen 7 */
 
-   /* screen 7 */
+  .screen7 {
+    width: 1200px;
+  }
 
-   .screen7 {
-     width: 1200px;
-   }
+  .screen7_title {
+    width: 445px !important;
+  }
 
-   .screen7_title {
-     width: 445px !important;
-   }
+  .screen7_image {
+    width: 570px;
+  }
 
-   .screen7_image {
-     width: 570px;
-   }
- }
+  .txt_about1Title2 {
+    max-width: 1200px;
+  }
 
- @media (max-width: 1600px) {
-   .slick-slide img {
-     height: 80vh !important;
-   }
+  .wrap_main_page-project {
+    max-width: 1200px;
+  }
+
+  .first_photo_project {
+    height: auto !important;
+    width: -webkit-fill-available !important;
+  }
+
+  .allPhotos {
+    max-width: 590px;
+  }
+
+  .wrap_allImages {
+    max-width: 590px;
+  }
+
+  .projectDescr {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 1600px) {
+  .slick-slide img {
+    height: 80vh !important;
+  }
 }

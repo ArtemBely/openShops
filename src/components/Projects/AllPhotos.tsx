@@ -1,28 +1,25 @@
-import React, { useEffect, useRef, useState } from "react";
-import { allPhotosArr } from "./allPhotosArr";
+import React, { FC, useState } from "react";
+
+import { IProject } from "../../server/models/project";
+
 import PopupPhoto from "./PopupPhoto";
 
-export const AllPhotos = () => {
-  const [popupOpen, setPopupOpen] = useState(false);
-  const [detailedImgId, setDetailedImgId] = useState(1);
+interface IAllPhotosProps {
+  currentProject: IProject;
+  closePopup: () => void;
+  clickPopup: (arg0: any) => void;
+  popupOpen: boolean;
+}
 
-  const clickPopup = (id: number) => {
-    setPopupOpen(!popupOpen);
-    setDetailedImgId(id);
-    document.body.style.overflow = "hidden";
-  };
-
-  const closePopup = () => {
-    setPopupOpen(false);
-    document.body.style.overflow = "auto";
-  };
-
+export const AllPhotos: FC<IAllPhotosProps> = ({
+  currentProject,
+  closePopup,
+  popupOpen,
+  clickPopup,
+}) => {
   return (
     <div className="wrap_allPhotos" onClick={closePopup}>
       <div className="allPhotos" onClick={(e) => e.stopPropagation()}>
-        <p className="txt_about1Title" id="txt_about1TitleId">
-          ЖК UNO Старокоптевский
-        </p>
         <p
           className="date_style spec_data_style"
           id="spec_data_style"
@@ -30,25 +27,24 @@ export const AllPhotos = () => {
             filter: popupOpen ? "grayscale(0%)" : "grayscale(100%)",
           }}
         >
-          12 июля 2023
+          {currentProject.tag}
         </p>
         <div className="wrap_allImages">
-          {allPhotosArr.map((photo: any) => (
-            <img
-              key={photo.id}
-              src={photo.img}
-              className={photo.className}
-              onClick={() => clickPopup(photo.id)}
-            />
-          ))}
+          {currentProject.arrayOfFiles &&
+            currentProject.arrayOfFiles.map((photo, index) => (
+              <img
+                key={photo}
+                src={`../../../uploads/${photo}`}
+                className={
+                  index === 0
+                    ? "each_photo_project first_photo_project"
+                    : "each_photo_project"
+                }
+                onClick={() => clickPopup(photo)}
+              />
+            ))}
         </div>
       </div>
-      <PopupPhoto
-        popupOpen={popupOpen}
-        setPopupOpen={setPopupOpen}
-        detailedImgId={detailedImgId}
-        closePopup={closePopup}
-      />
     </div>
   );
 };

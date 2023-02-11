@@ -1,46 +1,58 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+
+import { INews } from "../../server/models/news";
+
 const fone1 = "../../../images/Rectangle 14-4.png";
-const fone2 = "../../../images/Rectangle 14-2-2.png";
-const fone3 = "../../../images/Rectangle 14-3-2.png";
+
+let news: INews[];
+
+declare global {
+  interface Window {
+    __INITIAL_NEWS__: INews[];
+  }
+}
 
 export const News = () => {
+  if (typeof window != "undefined") {
+    news = window.__INITIAL_NEWS__;
+  }
+
+  const [allNews, setAllNews] = useState<INews[]>([{} as INews]);
+
+  useEffect(() => {
+    if (typeof window != "undefined") {
+      if (window.location.pathname.split("/").pop() == "news") {
+        setAllNews(news);
+      }
+    }
+  });
+
   return (
     <div className="wrap_buildings_inside">
       <div className="news_inside">
-        <NavLink to="/news/1" className="wrap_each_news">
-          <p className='wrap_each_news_img'><img src={fone1} className="each_news_img" /></p>
-          <div className="wrap_description_of_news">
-            <p className="title_of_news">Название новости 1</p>
-            <p className="description_of_news">
-              Здесь представлен текст из начала описания новости 1. Текст
-              представлен несколькими предложениями из начала описания новости
+        {allNews.map((item) => (
+          <a
+            key={item._id}
+            href={`/news/${item._id}`}
+            className="wrap_each_news"
+          >
+            <p className="wrap_each_news_img">
+              <img
+                src={
+                  item.noExchangeFile
+                    ? `../../../uploads/${item.noExchangeFile}`
+                    : fone1
+                }
+                className="each_news_img"
+              />
             </p>
-          </div>
-          <p className="date_style">12 июля 2023</p>
-        </NavLink>
-        <NavLink to="/news/2" className="wrap_each_news">
-          <p className='wrap_each_news_img'><img src={fone2} className="each_news_img" /></p>
-          <div className="wrap_description_of_news">
-            <p className="title_of_news">Название новости 2</p>
-            <p className="description_of_news">
-              Здесь представлен текст из начала описания новости 2. Текст
-              представлен несколькими предложениями из начала описания новости
-            </p>
-          </div>
-          <p className="date_style">12 июля 2023</p>
-        </NavLink>
-        <NavLink to="/news/3" className="wrap_each_news">
-          <p className='wrap_each_news_img'><img src={fone3} className="each_news_img" /></p>
-          <div className="wrap_description_of_news">
-            <p className="title_of_news">Название новости 3</p>
-            <p className="description_of_news">
-              Здесь представлен текст из начала описания новости 3. Текст
-              представлен несколькими предложениями из начала описания новости
-            </p>
-          </div>
-          <p className="date_style">12 июля 2023</p>
-        </NavLink>
+            <div className="wrap_description_of_news">
+              <p className="title_of_news">{item.title}</p>
+              <p className="description_of_news">{item.description}</p>
+            </div>
+            <p className="date_style">{item.tag}</p>
+          </a>
+        ))}
       </div>
     </div>
   );

@@ -7,16 +7,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import React from 'react';
-import express from 'express';
-import serialize from 'serialize-javascript';
-import passport from 'passport';
-import { StaticRouter } from 'react-router-dom';
-import { renderToString } from 'react-dom/server';
-import Login from '../../components/Admin/Login';
+import React from "react";
+import express from "express";
+import serialize from "serialize-javascript";
+import passport from "passport";
+import { StaticRouter } from "react-router-dom";
+import { renderToString } from "react-dom/server";
+import Login from "../../components/Admin/Login";
 //@ts-ignore
-import { User, comparePassword } from '../models/user.js';
-const LocalStrategy = require('passport-local').Strategy;
+import { User, comparePassword } from "../models/user.js";
+const LocalStrategy = require("passport-local").Strategy;
 const router = express.Router();
 passport.serializeUser(function (user, done) {
     done(null, user.id);
@@ -106,10 +106,10 @@ router.post('/', (req: Request, res: Response, done) => {
     });
 });
 */
-passport.use('local.signin', new LocalStrategy({
-    usernameField: 'email',
-    passwordField: 'password',
-    passReqToCallback: true
+passport.use("local.signin", new LocalStrategy({
+    usernameField: "email",
+    passwordField: "password",
+    passReqToCallback: true,
 }, function (req, email, password, done) {
     User.findOne({ email: email }, function (err, user) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -118,8 +118,8 @@ passport.use('local.signin', new LocalStrategy({
                 return done(err);
             }
             if (!user) {
-                req.flash('errors', "User doesn't exist");
-                console.log('errors', "User doesn't exist");
+                req.flash("errors", "User doesn't exist");
+                console.log("errors", "User doesn't exist");
                 return done(null, false);
             }
             comparePassword(password, user.password, function (err, isMatch) {
@@ -129,29 +129,31 @@ passport.use('local.signin', new LocalStrategy({
                     return done(null, user);
                 }
                 else {
-                    req.flash('errors', 'Wrong password');
-                    console.log('Неверный пароль');
+                    req.flash("errors", "Wrong password");
+                    console.log("Неверный пароль");
                     return done(null, false);
                 }
             });
         });
     });
 }));
-router.post('/signin', passport.authenticate('local.signin', {
-    successRedirect: '/pannel/projects',
-    failureRedirect: '/login',
-    passReqToCallback: true
+router.post("/signin", passport.authenticate("local.signin", {
+    successRedirect: "/pannel/projects",
+    failureRedirect: "/login",
+    passReqToCallback: true,
 }));
-router.get('/', notLogin, (req, res) => {
+router.get("/", notLogin, (req, res) => {
     let cond = true;
-    const errors = req.flash('errors');
+    const errors = req.flash("errors");
     const congrats = renderToString(React.createElement(StaticRouter, null,
         React.createElement(Login, null)));
     res.send(`<!DOCTYPE html>
         <html>
             <head>
-              <title>Проверка кода</title>
+              <title>Вход</title>
                    <link rel="stylesheet" type="text/css" href="../main.css">
+                   <link type="image/x-icon" href="/ico.ico" rel="shortcut icon">
+                   <link type="Image/x-icon" href="/ico.ico" rel="icon">
                      <meta name="viewport" content="width=device-width, initial-scale=1">
                        <script src='bundles/bundle.js' defer></script>
                        <script>window.__INITIAL_STATE__ = ${serialize(cond)}</script>
@@ -164,14 +166,14 @@ router.get('/', notLogin, (req, res) => {
             </body>
         </html>`);
 });
-router.get('/logout', (req, res, next) => {
+router.get("/logout", (req, res, next) => {
     req.logout();
-    res.redirect('/login');
+    res.redirect("/login");
 });
 function notLogin(req, res, next) {
     if (!req.isAuthenticated()) {
         return next();
     }
-    res.redirect('/pannel/projects');
+    res.redirect("/pannel/projects");
 }
 export default router;

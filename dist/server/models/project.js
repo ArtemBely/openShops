@@ -1,4 +1,4 @@
-import { model, Schema } from 'mongoose';
+import { model, Schema } from "mongoose";
 const projectSchema = new Schema({
     title: { type: String, required: true },
     category: { type: String, required: true },
@@ -8,6 +8,6 @@ const projectSchema = new Schema({
     technicalArray: { type: Array },
     descriptionArray: { type: Array },
     noExchangeFile: { type: String },
-    arrayOfFiles: { type: Array }
+    arrayOfFiles: { type: Array },
 });
 export const Project = model("Project", projectSchema);
