@@ -137,6 +137,14 @@ app.post("/email", (req, res, next) => {
   // return res.redirect("/");
 });
 
+app.get('/', (err:Error) => {
+  if (err) {
+    err.message;
+    err.status;
+    console.error(err.message);
+  }
+})
+
 app.get("*", (req: Request, res: Response, next: NextFunction) => {
   const activeRouter: any =
     Routes.find((route: any) => matchPath(req.url, route)) || {};
@@ -178,7 +186,7 @@ app.get("*", (req: Request, res: Response, next: NextFunction) => {
     })
     .catch(next);
 });
-/*
+
 app.use((error:any, req: Request, res: Response, next: NextFunction) => {
   res.status(error.status);
     res.json({
@@ -187,15 +195,15 @@ app.use((error:any, req: Request, res: Response, next: NextFunction) => {
     stack: error.stack
   });
 });
-*/
 
+/*
 app.use((req: Request, res: Response, next: NextFunction) => {
   //<-- заменить если появится непредвиденная ошибка
   var err: Error = new Error("Noooo");
   err.status = 404;
   next(err);
 });
-
+*/
 var httpServer = http.createServer(app);
 var httpsServer = https.createServer(credentials, app);
 

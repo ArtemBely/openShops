@@ -1,6 +1,6 @@
 import React, { Component, useState } from "react";
 
-//import ReCAPTCHA from "react-google-recaptcha";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const telegram = "../../images/akar-icons_telegram-fill.svg";
 const whatsapp = "../../images/akar-icons_whatsapp-fill.svg";
@@ -34,7 +34,13 @@ export const Request = () => {
               className="req_inputs comment_field"
             ></textarea>
 
-
+            {/* <div className="captcha-wrapper"> */}
+            <ReCAPTCHA
+              sitekey="6Lc1-uEjAAAAANpe7ao66EzkW-KHA8Rvj6SL08hL"
+              onChange={onChange}
+              className="captcha"
+            />
+            {/* </div> */}
 
             <button type="submit" id="req_btn" disabled={!verfied}>
               Заполнить бриф
