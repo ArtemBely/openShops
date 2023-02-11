@@ -119,6 +119,13 @@ app.post("/email", (req, res, next) => {
     main().catch(console.error);
     // return res.redirect("/");
 });
+app.get('/', (err) => {
+    if (err) {
+        err.message;
+        err.status;
+        console.error(err.message);
+    }
+});
 app.get("*", (req, res, next) => {
     const activeRouter = Routes.find((route) => matchPath(req.url, route)) || {};
     const promise = activeRouter.fetchInitialData

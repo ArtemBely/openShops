@@ -137,15 +137,8 @@ app.post("/email", (req, res, next) => {
   // return res.redirect("/");
 });
 
-app.get('/', (err:Error) => {
-  if (err) {
-    err.message;
-    err.status;
-    console.error(err.message);
-  }
-})
-
 app.get("*", (req: Request, res: Response, next: NextFunction) => {
+
   const activeRouter: any =
     Routes.find((route: any) => matchPath(req.url, route)) || {};
   const promise = activeRouter.fetchInitialData
@@ -181,10 +174,11 @@ app.get("*", (req: Request, res: Response, next: NextFunction) => {
                   </div>
                 </body>
             </html>`;
-
+    console.error;
       return res.send(html);
     })
     .catch(next);
+    console.error;
 });
 
 app.use((error:any, req: Request, res: Response, next: NextFunction) => {
