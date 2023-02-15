@@ -148,26 +148,28 @@ app.get("*", (req, res, next) => {
                   </div>
                 </body>
             </html>`;
+        console.error;
         return res.send(html);
     })
         .catch(next);
+    console.error;
+});
+app.use((error, req, res, next) => {
+    res.status(error.status);
+    res.json({
+        status: error.status,
+        message: error.message,
+        stack: error.stack
+    });
 });
 /*
-app.use((error:any, req: Request, res: Response, next: NextFunction) => {
-  res.status(error.status);
-    res.json({
-    status: error.status,
-    message: error.message,
-    stack: error.stack
-  });
+app.use((req: Request, res: Response, next: NextFunction) => {
+  //<-- заменить если появится непредвиденная ошибка
+  var err: Error = new Error("Noooo");
+  err.status = 404;
+  next(err);
 });
 */
-app.use((req, res, next) => {
-    //<-- заменить если появится непредвиденная ошибка
-    var err = new Error("Noooo");
-    err.status = 404;
-    next(err);
-});
 var httpServer = http.createServer(app);
 var httpsServer = https.createServer(credentials, app);
 httpServer.listen(8080, () => {

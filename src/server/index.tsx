@@ -137,6 +137,7 @@ app.post("/email", (req, res, next) => {
 });
 
 app.get("*", (req: Request, res: Response, next: NextFunction) => {
+
   const activeRouter: any =
     Routes.find((route: any) => matchPath(req.url, route)) || {};
   const promise = activeRouter.fetchInitialData
@@ -172,12 +173,13 @@ app.get("*", (req: Request, res: Response, next: NextFunction) => {
                   </div>
                 </body>
             </html>`;
-
+    console.error;
       return res.send(html);
     })
     .catch(next);
+    console.error;
 });
-/*
+
 app.use((error:any, req: Request, res: Response, next: NextFunction) => {
   res.status(error.status);
     res.json({
@@ -186,15 +188,15 @@ app.use((error:any, req: Request, res: Response, next: NextFunction) => {
     stack: error.stack
   });
 });
-*/
 
+/*
 app.use((req: Request, res: Response, next: NextFunction) => {
   //<-- заменить если появится непредвиденная ошибка
   var err: Error = new Error("Noooo");
   err.status = 404;
   next(err);
 });
-
+*/
 var httpServer = http.createServer(app);
 var httpsServer = https.createServer(credentials, app);
 
