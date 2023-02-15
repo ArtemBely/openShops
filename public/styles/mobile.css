@@ -772,7 +772,7 @@
     width: 320px;
   }
   .teamBlock {
-    grid-gap: 12px 21px;
+    grid-gap: 20px 21px;
     -ms-grid-columns: 1fr;
     grid-template-columns: 1fr;
   }
