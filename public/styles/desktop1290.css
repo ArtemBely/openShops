@@ -411,8 +411,9 @@
   }
 
   .name_of {
-    font-size: 30px;
+    font-size: 24px;
     font-weight: 700;
+    margin-bottom: 12px;
   }
   .lastname_of {
     font-size: 22px;

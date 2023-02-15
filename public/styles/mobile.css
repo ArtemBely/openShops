@@ -787,6 +787,10 @@
     font-size: 16px;
     line-height: 22px;
   }
+
+  .name_of {
+    margin-bottom: 12px;
+  }
   #vac1 {
     font-size: 30px !important;
     line-height: 48px !important;

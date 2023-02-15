@@ -1429,6 +1429,7 @@ html {
 }
 .wrap_teamBlock {
   margin-top: 187px;
+  margin-bottom: 120px;
 }
 .date_vacancy {
   color: #888888;
@@ -2253,8 +2254,9 @@ html {
   }
 
   .name_of {
-    font-size: 30px;
+    font-size: 24px;
     font-weight: 700;
+    margin-bottom: 12px;
   }
   .lastname_of {
     font-size: 22px;
@@ -2890,6 +2892,7 @@ html {
   .name_of {
     font-size: 22px;
     font-weight: 700;
+    margin-bottom: 12px;
   }
   .lastname_of {
     font-size: 18px;
@@ -4843,6 +4846,10 @@ html {
   .lastname_of {
     font-size: 16px;
     line-height: 22px;
+  }
+
+  .name_of {
+    margin-bottom: 12px;
   }
   #vac1 {
     font-size: 30px !important;

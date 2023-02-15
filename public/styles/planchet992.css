@@ -511,6 +511,7 @@
   .name_of {
     font-size: 22px;
     font-weight: 700;
+    margin-bottom: 12px;
   }
   .lastname_of {
     font-size: 18px;

@@ -221,6 +221,7 @@
   margin: 0;
   color: black;
   font-family: "Inter-Bold";
+  margin-bottom: 12px;
 }
 .lastname_of {
   font-size: 22px;
@@ -255,6 +256,7 @@
 }
 .wrap_teamBlock {
   margin-top: 187px;
+  margin-bottom: 120px;
 }
 .date_vacancy {
   color: #888888;
