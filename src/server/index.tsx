@@ -28,7 +28,6 @@ import https from "https";
 import path from "path";
 import fs from "fs";
 
-
 const app: Application = express();
 const CONNECTION_URI: any = process.env.MONGODB_URI;
 //const port = process.env.PORT || 5000;
@@ -202,6 +201,6 @@ var httpsServer = https.createServer(credentials, app);
 httpServer.listen(8080, () => {
   console.log("connected on http!");
 }); // --> localhost test mode
-httpsServer.listen(8000, () => {
+httpsServer.listen(443, () => {
   console.log("connected on https!");
 });

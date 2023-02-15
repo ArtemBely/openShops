@@ -20,7 +20,7 @@ function MainAbout() {
       <Culture />
       <ChooseUs />
       <Team />
-      <Vacancies />
+      {/* <Vacancies /> */}
       <Request />
       <Footer />
     </p>

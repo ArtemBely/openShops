@@ -711,7 +711,7 @@
     margin-top: 50px;
   }
   .aboutScreen > img {
-    height: 208px;
+    height: 150px;
   }
   .belowScreen {
     -ms-grid-columns: 1fr;
@@ -802,6 +802,7 @@
   }
   .wrap_teamBlock {
     margin-top: 60px;
+    margin-bottom: 60px;
   }
   .wrap_vacancies {
     margin: 60px 0px;
