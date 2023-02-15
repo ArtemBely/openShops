@@ -89,15 +89,6 @@ export const Header = () => {
                                 ? "white"
                                 : "#2f4666",
                     } }, "\u041F\u0440\u043E\u0435\u043A\u0442\u044B"),
-                React.createElement("a", { href: "/news", className: "menu_links", 
-                    // activeClassName="active_menu_links"
-                    style: {
-                        color: whiteHeader
-                            ? "#010101"
-                            : headerIndicate
-                                ? "white"
-                                : "#2f4666",
-                    } }, "\u041D\u043E\u0432\u043E\u0441\u0442\u0438"),
                 React.createElement("a", { href: "/contacts", className: "menu_links", 
                     // activeClassName="active_menu_links"
                     style: {

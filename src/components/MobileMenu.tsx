@@ -62,20 +62,9 @@ class MobileMenu extends React.Component<iProps, {}> {
             >
               О нас
             </NavLink>
-            <NavLink
-              to="/projects"
-              className="menu_linksBold"
-              activeClassName="active_menu_links"
-            >
+            <a href="/projects" className="menu_linksBold">
               Проекты
-            </NavLink>
-            <NavLink
-              to="/news"
-              className="menu_linksBold"
-              activeClassName="active_menu_links"
-            >
-              Новости
-            </NavLink>
+            </a>
             <NavLink
               to="/contacts"
               className="menu_linksBold"

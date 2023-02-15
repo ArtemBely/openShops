@@ -108,8 +108,8 @@ html {
   height: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1400px 520px;
-  grid-template-columns: 1400px 520px;
+  -ms-grid-columns: 1529px 520px;
+  grid-template-columns: 1529px 520px;
 }
 .menu_links,
 .menu_linksBold {

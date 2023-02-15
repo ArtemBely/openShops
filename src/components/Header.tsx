@@ -121,7 +121,7 @@ export const Header = () => {
           >
             Проекты
           </a>
-          <a
+          {/* <a
             href="/news"
             className="menu_links"
             // activeClassName="active_menu_links"
@@ -134,7 +134,7 @@ export const Header = () => {
             }}
           >
             Новости
-          </a>
+          </a> */}
           <a
             href="/contacts"
             className="menu_links"

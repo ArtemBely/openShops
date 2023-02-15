@@ -1,8 +1,8 @@
 @media (min-width: 992px) and (max-width: 1290px) {
   .header {
     width: 992px;
-    -ms-grid-columns: 472px 520px;
-    grid-template-columns: 472px 520px;
+    -ms-grid-columns: 631px 520px;
+    grid-template-columns: 631px 520px;
   }
   .footer-top {
     width: auto;
