@@ -11,7 +11,7 @@ export const Detailed = () => {
           социально-культурного назначения.
         </p>
         <p className="wrap_detailed_link">
-          <a href="#buildings_link" id="detailed_link">
+          <a href="/about" id="detailed_link">
             Подробнее
           </a>
         </p>
