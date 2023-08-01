@@ -198,11 +198,11 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 });
 */
 var httpServer = http.createServer(app);
-var httpsServer = https.createServer(credentials, app);
+// var httpsServer = https.createServer(credentials, app);
 
 httpServer.listen(8080, () => {
   console.log("connected on http!");
 }); // --> localhost test mode
-httpsServer.listen(443, () => {
-  console.log("connected on https!");
-});
+// httpsServer.listen(443, () => {
+//   console.log("connected on https!");
+// });
